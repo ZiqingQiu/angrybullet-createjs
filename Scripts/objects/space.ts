@@ -1,5 +1,5 @@
 module objects {
-    export class Ocean extends createjs.Bitmap {
+    export class Space extends createjs.Bitmap {
         //Private Instance Variables
         //moving speed
         private _dy: number;
@@ -8,12 +8,12 @@ module objects {
 
         //Constructor
         constructor() {
-            super(managers.Game.assetManager.getResult("ocean"));
+            super(managers.Game.assetManager.getResult("space"));
             this.Start();
         }
         //Private Methods
         private _reset(): void {
-            this.y = -960;
+            this.y = -3200;
         }
 
         private _move(): void {

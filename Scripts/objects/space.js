@@ -10,38 +10,38 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var Ocean = /** @class */ (function (_super) {
-        __extends(Ocean, _super);
+    var Space = /** @class */ (function (_super) {
+        __extends(Space, _super);
         //Public Properties
         //Constructor
-        function Ocean() {
-            var _this = _super.call(this, managers.Game.assetManager.getResult("ocean")) || this;
+        function Space() {
+            var _this = _super.call(this, managers.Game.assetManager.getResult("space")) || this;
             _this.Start();
             return _this;
         }
         //Private Methods
-        Ocean.prototype._reset = function () {
+        Space.prototype._reset = function () {
             this.y = -3200;
         };
-        Ocean.prototype._move = function () {
+        Space.prototype._move = function () {
             this.y += this._dy;
         };
-        Ocean.prototype._checkBounds = function () {
+        Space.prototype._checkBounds = function () {
             if (this.y >= 0) {
                 this._reset();
             }
         };
         //Public Methods
-        Ocean.prototype.Start = function () {
+        Space.prototype.Start = function () {
             this._dy = 5;
             this._reset();
         };
-        Ocean.prototype.Update = function () {
+        Space.prototype.Update = function () {
             this._move();
             this._checkBounds();
         };
-        return Ocean;
+        return Space;
     }(createjs.Bitmap));
-    objects.Ocean = Ocean;
+    objects.Space = Space;
 })(objects || (objects = {}));
-//# sourceMappingURL=ocean.js.map
+//# sourceMappingURL=space.js.map

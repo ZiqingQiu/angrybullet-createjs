@@ -1,7 +1,7 @@
 module scenes {
     export class PlayScene extends objects.Scene {
         //Private Instance Variables
-        private _ocean: objects.Ocean;
+        private _space: objects.Space;
         private _plane: objects.Plane;
         private _island: objects.Island;
         private _clouds: objects.Cloud[];
@@ -31,7 +31,7 @@ module scenes {
         //Public Methods
         //Initialize Game Variables and objects
         public Start(): void {
-            this._ocean = new objects.Ocean();
+            this._space = new objects.Space();
             this._plane = new objects.Plane();
             managers.Game.plane = this._plane;
 
@@ -67,7 +67,7 @@ module scenes {
         //triggered every frame
         public Update(): void {
             //console.log("num objects: " + this.numChildren);
-            this._ocean.Update();
+            this._space.Update();
             this._plane.Update();
             this._enemy.Update();
             this._bulletManager.Update();
@@ -105,8 +105,8 @@ module scenes {
 
         public Main(): void {
             //pay attention the orders
-            //add ocean to the scene
-            this.addChild(this._ocean);
+            //add space to the scene
+            this.addChild(this._space);
             //add island to the scene
             this.addChild(this._island);
             //add coin to the scene

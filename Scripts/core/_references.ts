@@ -17,7 +17,7 @@
 /// <reference path="../../Scripts/managers/bullet.ts" />
 /// <reference path="../../Scripts/managers/collision.ts" />
 
-/// <reference path="../../Scripts/objects/ocean.ts" />
+/// <reference path="../../Scripts/objects/space.ts" />
 /// <reference path="../../Scripts/objects/enemy.ts" />
 /// <reference path="../../Scripts/objects/bullet.ts" />
 /// <reference path="../../Scripts/objects/plane.ts" />

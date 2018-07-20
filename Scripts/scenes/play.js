@@ -23,7 +23,7 @@ var scenes;
         //Public Methods
         //Initialize Game Variables and objects
         PlayScene.prototype.Start = function () {
-            this._ocean = new objects.Ocean();
+            this._space = new objects.Space();
             this._plane = new objects.Plane();
             managers.Game.plane = this._plane;
             //make a ref to the bullet manager in the game manager
@@ -51,7 +51,7 @@ var scenes;
         PlayScene.prototype.Update = function () {
             var _this = this;
             //console.log("num objects: " + this.numChildren);
-            this._ocean.Update();
+            this._space.Update();
             this._plane.Update();
             this._enemy.Update();
             this._bulletManager.Update();
@@ -82,8 +82,8 @@ var scenes;
         PlayScene.prototype.Main = function () {
             var _this = this;
             //pay attention the orders
-            //add ocean to the scene
-            this.addChild(this._ocean);
+            //add space to the scene
+            this.addChild(this._space);
             //add island to the scene
             this.addChild(this._island);
             //add coin to the scene

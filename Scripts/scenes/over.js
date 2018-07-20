@@ -25,21 +25,21 @@ var scenes;
         //Public Methods
         //Initialize Game Variables and objects
         OverScene.prototype.Start = function () {
-            this._ocean = new objects.Ocean();
+            this._space = new objects.Space();
             this._overLabel = new objects.Label("Game Over", "60px", "Consolas", "#000000", 320, 140, true);
             this._backButtton = new objects.Button("restartButton", 320, 340);
             this._scoreboard = new managers.ScoreBoard();
             this.Main();
         };
         OverScene.prototype.Update = function () {
-            this._ocean.Update();
+            this._space.Update();
         };
         OverScene.prototype.Destroy = function () {
             this.removeAllChildren();
         };
         OverScene.prototype.Main = function () {
-            //add the ocean to the scene
-            this.addChild(this._ocean);
+            //add the space to the scene
+            this.addChild(this._space);
             //add the welcome label to the scene
             this.addChild(this._overLabel);
             //add the back btn to the scene

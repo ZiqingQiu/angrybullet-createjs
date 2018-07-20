@@ -3,7 +3,7 @@ module scenes {
         //Private Instance Variables
         private  _overLabel: objects.Label;
         private  _backButtton: objects.Button; 
-        private _ocean: objects.Ocean;
+        private _space: objects.Space;
 
         private _scoreboard: managers.ScoreBoard;
 
@@ -24,7 +24,7 @@ module scenes {
         //Public Methods
         //Initialize Game Variables and objects
         public Start(): void {
-            this._ocean = new objects.Ocean();
+            this._space = new objects.Space();
             this._overLabel = new objects.Label("Game Over", "60px", "Consolas", "#000000", 320, 140, true);
             this._backButtton = new objects.Button("restartButton", 320, 340);
 
@@ -33,7 +33,7 @@ module scenes {
         }
 
         public Update(): void {
-            this._ocean.Update();
+            this._space.Update();
         }
 
         public Destroy():void {
@@ -41,8 +41,8 @@ module scenes {
         }
 
         public Main(): void {
-            //add the ocean to the scene
-            this.addChild(this._ocean);
+            //add the space to the scene
+            this.addChild(this._space);
 
             //add the welcome label to the scene
             this.addChild(this._overLabel);

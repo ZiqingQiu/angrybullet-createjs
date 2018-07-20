@@ -107,12 +107,12 @@
 
     assetManifest = [
         {id: "textureAtlas", src: "./Assets/sprites/textureAtlas.png" },
-        {id: "ocean", src: "./Assets/images/ocean.gif"},
+        {id: "space", src: "./Assets/images/space.jpg"},
         {id: "engine", src: "./Assets/audio/engine.ogg"},
         {id: "coin", src: "./Assets/audio/coin.wav"},
         {id: "life", src: "./Assets/audio/lives.wav"},
         {id: "explosion", src: "./Assets/audio/explosion.mp3"},
-        {id: "bulletSound", src: "./Assets/audio/bullet.mp3"}
+        {id: "bulletSound", src: "./Assets/audio/bullet.wav"}
     ];
 
     function Init(): void {
