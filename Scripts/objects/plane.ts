@@ -8,7 +8,7 @@ module objects {
 
         //Constructor
         constructor() {
-            super("plane");
+            super("playerlv1");
             this.Start();
         }
         //Private Methods
@@ -80,7 +80,7 @@ module objects {
             if (this.alpha == 1)
             {
                 let ticker: number = createjs.Ticker.getTicks();
-                if (managers.Game.keyboardManager.fire && (ticker % 20 == 0))
+                if (managers.Game.keyboardManager.fire && (ticker % 10 == 0))
                 {
                     this._bulletSpawn = new math.Vec2(this.x, this.y - this.halfHeight);
                     let currentBullet = managers.Game.bulletManager.CurrentBullet;

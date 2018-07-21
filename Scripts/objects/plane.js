@@ -14,7 +14,7 @@ var objects;
         __extends(Plane, _super);
         //Constructor
         function Plane() {
-            var _this = _super.call(this, "plane") || this;
+            var _this = _super.call(this, "playerlv1") || this;
             _this.Start();
             return _this;
         }
@@ -67,7 +67,7 @@ var objects;
         Plane.prototype.BulletFire = function () {
             if (this.alpha == 1) {
                 var ticker = createjs.Ticker.getTicks();
-                if (managers.Game.keyboardManager.fire && (ticker % 20 == 0)) {
+                if (managers.Game.keyboardManager.fire && (ticker % 10 == 0)) {
                     this._bulletSpawn = new math.Vec2(this.x, this.y - this.halfHeight);
                     var currentBullet = managers.Game.bulletManager.CurrentBullet;
                     var bullet = managers.Game.bulletManager.Bullets[currentBullet];
