@@ -47,6 +47,9 @@ var objects;
         Bullet.prototype.Move = function () {
             this.y += this._dy;
         };
+        Bullet.prototype.DisappearBullet = function () {
+            this.alpha = 0;
+        };
         return Bullet;
     }(objects.GameObject));
     objects.Bullet = Bullet;

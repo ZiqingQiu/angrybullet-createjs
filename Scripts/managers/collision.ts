@@ -26,13 +26,20 @@ module managers {
                             {
                                 //update TIE lifes and explosions
                                 (object2 as objects.TIE).GetHit();
-                                //update alpha
+
+                                //make bullet disappear
+                                (object1 as objects.Bullet).DisappearBullet();
                             }
 
                             break;
                         case "enemy":
                                 //downcast to player enemy
                                 (object2 as objects.Enemy).GetHit();
+                                if (object1.name == "bullet")
+                                {
+                                    //make bullet disappear
+                                    (object1 as objects.Bullet).DisappearBullet();
+                                }
                             break;
                     }
                 }

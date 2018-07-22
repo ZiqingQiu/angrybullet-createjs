@@ -27,7 +27,7 @@ var objects;
             this._dx = Math.floor((Math.random() * 4) - 2);
             this._dy = Math.floor((Math.random() * 5) + 5);
             //reset enemy
-            this._hp = 10;
+            this._hp = 5;
             //reset alpha
             this.alpha = 0;
         };
@@ -47,7 +47,7 @@ var objects;
         //Public Methods
         TIE.prototype.Start = function () {
             this._dy = 5;
-            this._hp = 10;
+            this._hp = 5;
             this.Reset();
         };
         TIE.prototype.Update = function () {
@@ -58,7 +58,7 @@ var objects;
             if (this.alpha != 0) {
                 //add explosion
                 createjs.Sound.play("explosion");
-                var explosion = new objects.Explosion("smallexplosion");
+                var explosion = new objects.Explosion("explosion");
                 explosion.x = this.x;
                 explosion.y = this.y;
                 managers.Game.currentSceneObject.addChild(explosion);

@@ -25,12 +25,17 @@ var managers;
                             else if (object1.name == "bullet") {
                                 //update TIE lifes and explosions
                                 object2.GetHit();
-                                //update alpha
+                                //make bullet disappear
+                                object1.DisappearBullet();
                             }
                             break;
                         case "enemy":
                             //downcast to player enemy
                             object2.GetHit();
+                            if (object1.name == "bullet") {
+                                //make bullet disappear
+                                object1.DisappearBullet();
+                            }
                             break;
                     }
                 }

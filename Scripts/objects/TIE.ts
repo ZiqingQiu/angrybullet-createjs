@@ -18,7 +18,7 @@ module objects {
             this._dx = Math.floor((Math.random() * 4) - 2);
             this._dy = Math.floor((Math.random() * 5) + 5);
             //reset enemy
-            this._hp = 10;
+            this._hp = 5;
             //reset alpha
             this.alpha = 0;
         }
@@ -45,7 +45,7 @@ module objects {
         //Public Methods
         public Start(): void {
             this._dy = 5;
-            this._hp = 10; 
+            this._hp = 5; 
             this.Reset();
         }
 
@@ -58,7 +58,7 @@ module objects {
             if (this.alpha != 0) {
                 //add explosion
                 createjs.Sound.play("explosion");
-                let explosion = new objects.Explosion("smallexplosion");
+                let explosion = new objects.Explosion("explosion");
                 explosion.x = this.x;
                 explosion.y = this.y;
                 managers.Game.currentSceneObject.addChild(explosion);

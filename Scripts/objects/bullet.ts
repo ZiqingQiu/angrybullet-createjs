@@ -49,5 +49,9 @@ module objects {
             this.y += this._dy;
         }
 
+        public DisappearBullet(): void {
+            this.alpha = 0;
+        }
+
     }
 }
