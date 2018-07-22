@@ -33,7 +33,7 @@ var objects;
         };
         //Public Methods
         Space.prototype.Start = function () {
-            this._dy = 5;
+            this._dy = 2;
             this._reset();
         };
         Space.prototype.Update = function () {

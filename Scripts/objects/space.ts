@@ -29,7 +29,7 @@ module objects {
 
         //Public Methods
         public Start(): void {
-            this._dy = 5;
+            this._dy = 2;
             this._reset();
         }
 

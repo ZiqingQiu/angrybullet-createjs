@@ -51,7 +51,6 @@
             [135, 155, 65, 65, 0, 0, 0],
             [202, 155, 65, 65, 0, 0, 0],
             [269, 155, 65, 65, 0, 0, 0],
-            [336, 155, 62, 63, 0, 0, 0],
             [1, 222, 200, 50, 0, 0, 0],
             [203, 222, 65, 65, 0, 0, 0],
             [270, 222, 65, 65, 0, 0, 0],
@@ -72,17 +71,16 @@
         "animations": {
             "bullet": { "frames": [0] },
             "cloud": { "frames": [1] },
-            "coin": { "frames": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "speed": 0.33},
+            "coin": { "frames": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "speed": 0.33 },
             "enemy": { "frames": [12, 13, 14], "speed": 0.33 },
             "exitButton": { "frames": [15] },
             "explosion": { "frames": [16, 17, 18, 19, 20, 21, 22], "speed": 0.16 },
-            "island": { "frames": [23] },
-            "nextButton": { "frames": [24] },
-            "planeflash": { "frames": [25, 26] },
-            "playerlv1": { "frames": [27, 28, 29, 30], "speed": 0.2 },
-            "restartButton": { "frames": [31] },
-            "smallexplosion": { "frames": [32, 33, 34, 35, 36, 37], "speed": 0.16 },
-            "startButton": { "frames": [38] }
+            "nextButton": { "frames": [23] },
+            "planeflash": { "frames": [24, 25] },
+            "playerlv1": { "frames": [26, 27, 28, 29], "speed": 0.33 },
+            "restartButton": { "frames": [30] },
+            "smallexplosion": { "frames": [31, 32, 33, 34, 35, 36], "speed": 0.33 },
+            "startButton": { "frames": [37] }
         }   
         
         

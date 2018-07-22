@@ -29,7 +29,6 @@
     [135, 155, 65, 65, 0, 0, 0],
     [202, 155, 65, 65, 0, 0, 0],
     [269, 155, 65, 65, 0, 0, 0],
-    [336, 155, 62, 63, 0, 0, 0],
     [1, 222, 200, 50, 0, 0, 0],
     [203, 222, 65, 65, 0, 0, 0],
     [270, 222, 65, 65, 0, 0, 0],
@@ -54,17 +53,16 @@
     "enemy": { "frames": [12, 13, 14] },
     "exitButton": { "frames": [15] },
     "explosion": { "frames": [16, 17, 18, 19, 20, 21, 22] },
-    "island": { "frames": [23] },
-    "nextButton": { "frames": [24] },
-    "planeflash": { "frames": [25, 26] },
-    "playerlv1": { "frames": [27, 28, 29, 30] },
-    "restartButton": { "frames": [31] },
-    "smallexplosion": { "frames": [32, 33, 34, 35, 36, 37] },
-    "startButton": { "frames": [38] }
+    "nextButton": { "frames": [23] },
+    "planeflash": { "frames": [24, 25] },
+    "playerlv1": { "frames": [26, 27, 28, 29] },
+    "restartButton": { "frames": [30] },
+    "smallexplosion": { "frames": [31, 32, 33, 34, 35, 36] },
+    "startButton": { "frames": [37] }
 },
 
 "texturepacker": [
-        "SmartUpdateHash: $TexturePacker:SmartUpdate:c5afffc858bf10cb6dfe2589f53eafdc:6ede3c7b1720e8e95d3226399a1ecd62:2b5604bc88faefd55ddac16e9bce1532$",
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:2bdc9ab9876483332a346d56bd2ae80a:b2867f62ebcb6a406cbe7e5a4aa027c4:2b5604bc88faefd55ddac16e9bce1532$",
         "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
 ]
 

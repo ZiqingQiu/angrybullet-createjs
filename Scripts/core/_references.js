@@ -17,7 +17,6 @@
 /// <reference path="../../Scripts/objects/plane.ts" />
 /// <reference path="../../Scripts/objects/planeflash.ts" />
 /// <reference path="../../Scripts/objects/coin.ts" />
-/// <reference path="../../Scripts/objects/island.ts" />
 /// <reference path="../../Scripts/objects/cloud.ts" />
 /// <reference path="../../Scripts/objects/button.ts" />
 /// <reference path="../../Scripts/scenes/over.ts" />

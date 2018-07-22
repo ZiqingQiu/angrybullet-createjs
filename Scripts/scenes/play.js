@@ -32,7 +32,6 @@ var scenes;
             //create an enemy
             this._enemy = new objects.Enemy();
             this._coin = new objects.Coin();
-            this._island = new objects.Island();
             //inistantiate the cloud array
             this._cloudNum = 2;
             this._clouds = new Array();
@@ -56,10 +55,7 @@ var scenes;
             this._enemy.Update();
             this._bulletManager.Update();
             //to be refine later
-            this._coin.x = this._island.x;
-            this._coin.y = this._island.y;
             this._coin.Update();
-            this._island.Update();
             //check collision between plane and coin
             managers.Collision.Check(this._plane, this._coin);
             this._clouds.forEach(function (cloud) {
@@ -84,8 +80,6 @@ var scenes;
             //pay attention the orders
             //add space to the scene
             this.addChild(this._space);
-            //add island to the scene
-            this.addChild(this._island);
             //add coin to the scene
             this.addChild(this._coin);
             //add plane to the scene

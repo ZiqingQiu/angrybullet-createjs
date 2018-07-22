@@ -22,15 +22,26 @@ var objects;
         }
         //Private methods
         //Public methods
-        Coin.prototype.Start = function () {
+        Coin.prototype.Reset = function () {
+            this.x = Math.floor((Math.random() * (640 - this.width)) + this.halfWidth);
+            this.y = -this.height;
+            this.alpha = 1;
         };
-        Coin.prototype.Update = function () {
-            this.CheckBounds();
+        Coin.prototype.Move = function () {
+            this.y += this._dy;
         };
         Coin.prototype.CheckBounds = function () {
-            if (this.y > (480 + this.height)) {
-                this.alpha = 1;
+            if (this.y >= (480 + this.height)) {
+                this.Reset();
             }
+        };
+        Coin.prototype.Start = function () {
+            this._dy = 5;
+            this.Reset();
+        };
+        Coin.prototype.Update = function () {
+            this.Move();
+            this.CheckBounds();
         };
         return Coin;
     }(objects.GameObject));
