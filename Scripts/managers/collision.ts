@@ -21,11 +21,13 @@ module managers {
                             {
                                 //downcast to player object
                                 (object1 as objects.Player).GetHit();
+
+                                (object2 as objects.TIE).GetHit(object1.name);
                             }
                             else if (object1.name == "bullet")
                             {
                                 //update TIE lifes and explosions
-                                (object2 as objects.TIE).GetHit();
+                                (object2 as objects.TIE).GetHit(object1.name);
 
                                 //make bullet disappear
                                 (object1 as objects.Bullet).DisappearBullet();

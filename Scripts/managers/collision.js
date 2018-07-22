@@ -21,10 +21,11 @@ var managers;
                             if (object1.name == "playerlv1") {
                                 //downcast to player object
                                 object1.GetHit();
+                                object2.GetHit(object1.name);
                             }
                             else if (object1.name == "bullet") {
                                 //update TIE lifes and explosions
-                                object2.GetHit();
+                                object2.GetHit(object1.name);
                                 //make bullet disappear
                                 object1.DisappearBullet();
                             }

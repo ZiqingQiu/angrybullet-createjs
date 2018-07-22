@@ -54,7 +54,7 @@ module objects {
             this.CheckBounds();
         }
 
-        public GetHit(): void {
+        public GetHit(hitType: string): void {
             if (this.alpha != 0) {
                 //add explosion
                 createjs.Sound.play("explosion");
@@ -64,7 +64,20 @@ module objects {
                 managers.Game.currentSceneObject.addChild(explosion);
                 //points for destroy enemy
                 managers.Game.scoreBoard.addScore(200);
-                this._hp--;
+
+                let hitHP: number = 1;
+                switch(hitType)
+                {
+                    case "playerlv1":
+                    hitHP = 3;
+                    break;
+                    case "bullet":
+                    hitHP = 1;
+                    break;
+                    defualt:
+                    break;
+                }
+                this._hp -= hitHP;
                 if (this._hp <= 0)
                 {
                     //reset enemy

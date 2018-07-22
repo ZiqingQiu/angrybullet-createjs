@@ -54,7 +54,7 @@ var objects;
             this.Move();
             this.CheckBounds();
         };
-        TIE.prototype.GetHit = function () {
+        TIE.prototype.GetHit = function (hitType) {
             if (this.alpha != 0) {
                 //add explosion
                 createjs.Sound.play("explosion");
@@ -64,7 +64,17 @@ var objects;
                 managers.Game.currentSceneObject.addChild(explosion);
                 //points for destroy enemy
                 managers.Game.scoreBoard.addScore(200);
-                this._hp--;
+                var hitHP = 1;
+                switch (hitType) {
+                    case "playerlv1":
+                        hitHP = 3;
+                        break;
+                    case "bullet":
+                        hitHP = 1;
+                        break;
+                        defualt: break;
+                }
+                this._hp -= hitHP;
                 if (this._hp <= 0) {
                     //reset enemy
                     this.Reset();
