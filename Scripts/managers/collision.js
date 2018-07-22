@@ -27,8 +27,8 @@ var managers;
                                     explosion.y = object1.y;
                                     managers.Game.currentSceneObject.addChild(explosion);
                                     object1.alpha = 0;
-                                    managers.Game.plane.planeFlash.alpha = 1;
-                                    managers.Game.plane.planeFlash.gotoAndPlay("planeflash");
+                                    managers.Game.player.planeFlash.alpha = 1;
+                                    managers.Game.player.planeFlash.gotoAndPlay("planeflash");
                                 }
                             }
                             else if (object1.name == "bullet") {

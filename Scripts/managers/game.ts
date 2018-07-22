@@ -8,7 +8,7 @@ module managers {
         public static keyboardManager: managers.Keyboard;
         public static HighScore: number = 0;
         public static textureAtlas: createjs.SpriteSheet;
-        public static plane: objects.Plane;
+        public static player: objects.Player;
         public static bulletManager: managers.Bullet;
     }
 }

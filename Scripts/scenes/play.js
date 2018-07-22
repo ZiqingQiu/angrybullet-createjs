@@ -24,8 +24,8 @@ var scenes;
         //Initialize Game Variables and objects
         PlayScene.prototype.Start = function () {
             this._space = new objects.Space();
-            this._plane = new objects.Plane();
-            managers.Game.plane = this._plane;
+            this._player = new objects.Player();
+            managers.Game.player = this._player;
             //make a ref to the bullet manager in the game manager
             this._bulletManager = new managers.Bullet();
             managers.Game.bulletManager = this._bulletManager;
@@ -51,17 +51,17 @@ var scenes;
             var _this = this;
             //console.log("num objects: " + this.numChildren);
             this._space.Update();
-            this._plane.Update();
+            this._player.Update();
             this._enemy.Update();
             this._bulletManager.Update();
             //to be refine later
             this._coin.Update();
-            //check collision between plane and coin
-            managers.Collision.Check(this._plane, this._coin);
+            //check collision between player and coin
+            managers.Collision.Check(this._player, this._coin);
             this._tie.forEach(function (tie) {
                 tie.Update();
-                //check collision between plane and current tie
-                managers.Collision.Check(_this._plane, tie);
+                //check collision between player and current tie
+                managers.Collision.Check(_this._player, tie);
             });
             this._bulletManager.Bullets.forEach(function (bullet) {
                 managers.Collision.Check(bullet, _this._enemy);
@@ -83,9 +83,9 @@ var scenes;
             this.addChild(this._space);
             //add coin to the scene
             this.addChild(this._coin);
-            //add plane to the scene
-            this.addChild(this._plane);
-            this.addChild(this._plane.planeFlash);
+            //add player to the scene
+            this.addChild(this._player);
+            this.addChild(this._player.planeFlash);
             //add enemy to the scene
             this.addChild(this._enemy);
             //add bullets to the scene

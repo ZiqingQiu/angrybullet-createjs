@@ -1,5 +1,5 @@
 module objects {
-    export class Plane extends objects.GameObject {
+    export class Player extends objects.GameObject {
         //Private Instance Variables
         private _bulletSpawn: math.Vec2;
 

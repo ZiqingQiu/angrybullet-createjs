@@ -10,24 +10,24 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var Plane = /** @class */ (function (_super) {
-        __extends(Plane, _super);
+    var Player = /** @class */ (function (_super) {
+        __extends(Player, _super);
         //Constructor
-        function Plane() {
+        function Player() {
             var _this = _super.call(this, "playerlv1") || this;
             _this.Start();
             return _this;
         }
         //Private Methods
-        Plane.prototype._animatonEnded = function () {
+        Player.prototype._animatonEnded = function () {
             if (this.alpha == 0) {
                 this.alpha = 1;
                 this.planeFlash.alpha = 0;
             }
         };
-        Plane.prototype.Reset = function () {
+        Player.prototype.Reset = function () {
         };
-        Plane.prototype.Move = function () {
+        Player.prototype.Move = function () {
             //mouse controls
             //this.x = objects.Game.stage.mouseX;
             //keyboard controls
@@ -40,7 +40,7 @@ var objects;
             this.planeFlash.x = this.x;
             this.planeFlash.y = this.y;
         };
-        Plane.prototype.CheckBounds = function () {
+        Player.prototype.CheckBounds = function () {
             //right boundary
             if (this.x >= config.Screen.WIDTH - this.halfWidth) {
                 this.x = config.Screen.WIDTH - this.halfWidth;
@@ -51,7 +51,7 @@ var objects;
             }
         };
         //Public Methods
-        Plane.prototype.Start = function () {
+        Player.prototype.Start = function () {
             this.planeFlash = new objects.PlaneFlash();
             this.planeFlash.alpha = 0;
             this.planeFlash.on("animationend", this._animatonEnded.bind(this), false);
@@ -59,12 +59,12 @@ var objects;
             this.y = 430;
             this._bulletSpawn = new math.Vec2();
         };
-        Plane.prototype.Update = function () {
+        Player.prototype.Update = function () {
             this.Move();
             this.CheckBounds();
             this.BulletFire();
         };
-        Plane.prototype.BulletFire = function () {
+        Player.prototype.BulletFire = function () {
             if (this.alpha == 1) {
                 var ticker = createjs.Ticker.getTicks();
                 if (managers.Game.keyboardManager.fire && (ticker % 10 == 0)) {
@@ -78,8 +78,8 @@ var objects;
                 }
             }
         };
-        return Plane;
+        return Player;
     }(objects.GameObject));
-    objects.Plane = Plane;
+    objects.Player = Player;
 })(objects || (objects = {}));
-//# sourceMappingURL=plane.js.map
+//# sourceMappingURL=player.js.map
