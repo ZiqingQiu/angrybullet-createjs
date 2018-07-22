@@ -38,9 +38,9 @@ var scenes;
             for (var count = 0; count < this._tieNum; count++) {
                 this._tie[count] = new objects.TIE();
             }
-            this._engineSound = createjs.Sound.play("engine");
+            this._engineSound = createjs.Sound.play("stage1");
             this._engineSound.loop = -1; //play forever
-            this._engineSound.volume = 0.3;
+            this._engineSound.volume = 0.1;
             //create the scoreboard UI 
             this._scoreBoard = new managers.ScoreBoard();
             managers.Game.scoreBoard = this._scoreBoard;
