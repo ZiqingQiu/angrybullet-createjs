@@ -10,45 +10,44 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var Cloud = /** @class */ (function (_super) {
-        __extends(Cloud, _super);
-        //Private Instance Variables
+    var TIE = /** @class */ (function (_super) {
+        __extends(TIE, _super);
         //Public Properties
         //Constructor
-        function Cloud() {
-            var _this = _super.call(this, "cloud") || this;
+        function TIE() {
+            var _this = _super.call(this, "tie") || this;
             _this.Start();
             return _this;
         }
         //Private Methods
-        Cloud.prototype.Reset = function () {
+        TIE.prototype.Reset = function () {
             this.x = Math.floor((Math.random() * (640 - this.width)) + this.halfWidth);
             this.y = -this.height;
             //drift randomly
             this._dx = Math.floor((Math.random() * 4) - 2);
             this._dy = Math.floor((Math.random() * 5) + 5);
         };
-        Cloud.prototype.Move = function () {
+        TIE.prototype.Move = function () {
             this.y += this._dy;
             this.x += this._dx;
         };
-        Cloud.prototype.CheckBounds = function () {
+        TIE.prototype.CheckBounds = function () {
             //check lower bounds
             if (this.y >= 480 + this.height) {
                 this.Reset();
             }
         };
         //Public Methods
-        Cloud.prototype.Start = function () {
+        TIE.prototype.Start = function () {
             this._dy = 5;
             this.Reset();
         };
-        Cloud.prototype.Update = function () {
+        TIE.prototype.Update = function () {
             this.Move();
             this.CheckBounds();
         };
-        return Cloud;
+        return TIE;
     }(objects.GameObject));
-    objects.Cloud = Cloud;
+    objects.TIE = TIE;
 })(objects || (objects = {}));
-//# sourceMappingURL=cloud.js.map
+//# sourceMappingURL=TIE.js.map

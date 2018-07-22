@@ -3,8 +3,8 @@ module scenes {
         //Private Instance Variables
         private _space: objects.Space;
         private _plane: objects.Plane;
-        private _clouds: objects.Cloud[];
-        private _cloudNum: number;
+        private _tie: objects.TIE[];
+        private _tieNum: number;
 
         private _scoreBoard: managers.ScoreBoard;
         private _bulletManager: managers.Bullet;
@@ -43,11 +43,11 @@ module scenes {
 
             this._coin = new objects.Coin();
 
-            //inistantiate the cloud array
-            this._cloudNum = 2;
-            this._clouds = new Array<objects.Cloud>();
-            for (let count = 0; count < this._cloudNum; count++) {
-                this._clouds[count] = new objects.Cloud();
+            //inistantiate the TIE array
+            this._tieNum = 2;
+            this._tie = new Array<objects.TIE>();
+            for (let count = 0; count < this._tieNum; count++) {
+                this._tie[count] = new objects.TIE();
                 
             }
 
@@ -75,16 +75,18 @@ module scenes {
             //check collision between plane and coin
             managers.Collision.Check(this._plane, this._coin);
 
-            this._clouds.forEach(cloud => {
-                cloud.Update();
-                //check collision between plane and current cloud
-                managers.Collision.Check(this._plane, cloud);
+            this._tie.forEach(tie => {
+                tie.Update();
+                //check collision between plane and current tie
+                managers.Collision.Check(this._plane, tie);
             });
 
             this._bulletManager.Bullets.forEach(bullet =>
             {
                 managers.Collision.Check(bullet, this._enemy);
             })
+
+            //check bullet and TIH
 
             //if lives fall below zero, switch to game over scene
             if (this._scoreBoard.Lives <= 0)
@@ -113,9 +115,9 @@ module scenes {
             this._bulletManager.Bullets.forEach(bullet =>
                 {this.addChild(bullet);} 
             )        
-            //add clouds to the scene
-            this._clouds.forEach(cloud => {
-                this.addChild(cloud);
+            //add ties to the scene
+            this._tie.forEach(tie => {
+                this.addChild(tie);
             });
 
             //add score board to the scene

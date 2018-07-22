@@ -48,6 +48,19 @@ var managers;
             this.Score = 0;
             this.HighScore = 0;
         };
+        //Public Methods
+        ScoreBoard.prototype.addScore = function (score) {
+            managers.Game.scoreBoard.Score += score;
+            //live +1
+            if (managers.Game.scoreBoard.Score % 1000 == 0) {
+                managers.Game.scoreBoard.Lives += 1;
+                createjs.Sound.play("life");
+            }
+            if (managers.Game.HighScore < managers.Game.scoreBoard.Score) {
+                managers.Game.scoreBoard.HighScore = managers.Game.scoreBoard.Score;
+                managers.Game.HighScore = managers.Game.scoreBoard.HighScore;
+            }
+        };
         return ScoreBoard;
     }());
     managers.ScoreBoard = ScoreBoard;

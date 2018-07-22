@@ -32,11 +32,11 @@ var scenes;
             //create an enemy
             this._enemy = new objects.Enemy();
             this._coin = new objects.Coin();
-            //inistantiate the cloud array
-            this._cloudNum = 2;
-            this._clouds = new Array();
-            for (var count = 0; count < this._cloudNum; count++) {
-                this._clouds[count] = new objects.Cloud();
+            //inistantiate the TIE array
+            this._tieNum = 2;
+            this._tie = new Array();
+            for (var count = 0; count < this._tieNum; count++) {
+                this._tie[count] = new objects.TIE();
             }
             this._engineSound = createjs.Sound.play("engine");
             this._engineSound.loop = -1; //play forever
@@ -58,14 +58,15 @@ var scenes;
             this._coin.Update();
             //check collision between plane and coin
             managers.Collision.Check(this._plane, this._coin);
-            this._clouds.forEach(function (cloud) {
-                cloud.Update();
-                //check collision between plane and current cloud
-                managers.Collision.Check(_this._plane, cloud);
+            this._tie.forEach(function (tie) {
+                tie.Update();
+                //check collision between plane and current tie
+                managers.Collision.Check(_this._plane, tie);
             });
             this._bulletManager.Bullets.forEach(function (bullet) {
                 managers.Collision.Check(bullet, _this._enemy);
             });
+            //check bullet and TIH
             //if lives fall below zero, switch to game over scene
             if (this._scoreBoard.Lives <= 0) {
                 this._engineSound.stop();
@@ -89,9 +90,9 @@ var scenes;
             this.addChild(this._enemy);
             //add bullets to the scene
             this._bulletManager.Bullets.forEach(function (bullet) { _this.addChild(bullet); });
-            //add clouds to the scene
-            this._clouds.forEach(function (cloud) {
-                _this.addChild(cloud);
+            //add ties to the scene
+            this._tie.forEach(function (tie) {
+                _this.addChild(tie);
             });
             //add score board to the scene
             this.addChild(this._scoreBoard.LivesLabel);

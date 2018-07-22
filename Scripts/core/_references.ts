@@ -23,7 +23,7 @@
 /// <reference path="../../Scripts/objects/plane.ts" />
 /// <reference path="../../Scripts/objects/planeflash.ts" />
 /// <reference path="../../Scripts/objects/coin.ts" />
-/// <reference path="../../Scripts/objects/cloud.ts" />
+/// <reference path="../objects/TIE.ts" />
 /// <reference path="../../Scripts/objects/button.ts" />
 
 

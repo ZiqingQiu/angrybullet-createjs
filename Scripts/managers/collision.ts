@@ -12,34 +12,34 @@ module managers {
                         case "coin":
                             if (object2.alpha != 0) {
                                 createjs.Sound.play("coin");
-                                managers.Game.scoreBoard.Score += 100;
                                 object2.alpha = 0;
-
-                                //live +1
-                                if (managers.Game.scoreBoard.Score % 1000 == 0) {
-                                    managers.Game.scoreBoard.Lives += 1;
-                                    createjs.Sound.play("life");
-                                }
-                                if (managers.Game.HighScore < managers.Game.scoreBoard.Score) {
-                                    managers.Game.scoreBoard.HighScore = managers.Game.scoreBoard.Score;
-                                    managers.Game.HighScore = managers.Game.scoreBoard.HighScore;
-                                }
+                                managers.Game.scoreBoard.addScore(100);
                             }
 
                             break;
-                        case "cloud":
-                            if (object1.alpha != 0) {
-                                createjs.Sound.play("explosion");
-                                managers.Game.scoreBoard.Lives -= 1;
-
-                                let explosion = new objects.Explosion("explosion");
-                                explosion.x = object1.x;
-                                explosion.y = object1.y;
-                                managers.Game.currentSceneObject.addChild(explosion);
-                                object1.alpha = 0;
-                                managers.Game.plane.planeFlash.alpha = 1;
-                                managers.Game.plane.planeFlash.gotoAndPlay("planeflash");
+                        case "tie":
+                            if (object1.name == "playerlv1")
+                            {
+                                if (object1.alpha != 0) {
+                                    createjs.Sound.play("explosion");
+                                    managers.Game.scoreBoard.Lives -= 1;
+    
+                                    let explosion = new objects.Explosion("explosion");
+                                    explosion.x = object1.x;
+                                    explosion.y = object1.y;
+                                    managers.Game.currentSceneObject.addChild(explosion);
+                                    object1.alpha = 0;
+                                    managers.Game.plane.planeFlash.alpha = 1;
+                                    managers.Game.plane.planeFlash.gotoAndPlay("planeflash");
+                                }
                             }
+                            else if (object1.name == "bullet")
+                            {
+                                //update TIE lifes and explosions
+
+                                //update alpha
+                            }
+
                             break;
                         case "enemy":
                             if (object2.alpha != 0) {
@@ -50,7 +50,7 @@ module managers {
                                 explosion.y = object2.y;
                                 managers.Game.currentSceneObject.addChild(explosion);
                                 //points for destroy enemy
-                                managers.Game.scoreBoard.Score += 200;
+                                managers.Game.scoreBoard.addScore(200);
                                 //reset enemy
                                 object2.Reset();
                             }

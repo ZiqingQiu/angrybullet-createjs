@@ -1,13 +1,13 @@
 module objects {
-    export class Cloud extends objects.GameObject {
+    export class TIE extends objects.GameObject {
         //Private Instance Variables
-
+        private hp: number;
 
         //Public Properties
 
         //Constructor
         constructor() {
-            super("cloud");
+            super("tie");
             this.Start();
         }
         //Private Methods
