@@ -92,5 +92,21 @@ module objects {
                 }
             }
         }
+
+        //this method provides get hit update for the player object
+        public GetHit(): void {
+            if (this.alpha != 0) {
+                createjs.Sound.play("explosion");
+                managers.Game.scoreBoard.Lives -= 1;
+
+                let explosion = new objects.Explosion("explosion");
+                explosion.x = this.x;
+                explosion.y = this.y;
+                managers.Game.currentSceneObject.addChild(explosion);
+                this.alpha = 0;
+                managers.Game.player.planeFlash.alpha = 1;
+                managers.Game.player.planeFlash.gotoAndPlay("planeflash");
+            }
+        }
     }
 }

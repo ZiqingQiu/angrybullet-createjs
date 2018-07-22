@@ -5,6 +5,14 @@ var managers;
         function Bullet() {
             this.Start();
         }
+        Object.defineProperty(Bullet.prototype, "BulletCnts", {
+            //Public Properties
+            get: function () {
+                return this._bulletCount;
+            },
+            enumerable: true,
+            configurable: true
+        });
         //private methods
         Bullet.prototype._buildBulletPool = function () {
             for (var count = 0; count < this._bulletCount; count++) {

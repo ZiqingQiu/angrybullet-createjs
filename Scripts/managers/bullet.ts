@@ -7,6 +7,11 @@ module managers {
         public Bullets: objects.Bullet[];
         public CurrentBullet: number;
 
+        //Public Properties
+        get BulletCnts(): number {
+            return this._bulletCount;
+        }
+
         //constructors
         constructor (){
             this.Start();

@@ -29,9 +29,16 @@ module objects {
         public Reset(): void {
             this.x = -5000;
             this.y = -5000;
+
+            this.alpha = 0;
         }
 
         public CheckBounds(): void {
+            if (this.y >= 0 && this.alpha == 0)
+            {
+                this.alpha = 1;
+            }
+
             if (this.y <= -this.height)
             {
                 this.Reset();

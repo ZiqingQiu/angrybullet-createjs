@@ -78,6 +78,20 @@ var objects;
                 }
             }
         };
+        //this method provides get hit update for the player object
+        Player.prototype.GetHit = function () {
+            if (this.alpha != 0) {
+                createjs.Sound.play("explosion");
+                managers.Game.scoreBoard.Lives -= 1;
+                var explosion = new objects.Explosion("explosion");
+                explosion.x = this.x;
+                explosion.y = this.y;
+                managers.Game.currentSceneObject.addChild(explosion);
+                this.alpha = 0;
+                managers.Game.player.planeFlash.alpha = 1;
+                managers.Game.player.planeFlash.gotoAndPlay("planeflash");
+            }
+        };
         return Player;
     }(objects.GameObject));
     objects.Player = Player;

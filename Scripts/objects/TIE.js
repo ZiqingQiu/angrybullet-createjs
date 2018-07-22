@@ -26,12 +26,19 @@ var objects;
             //drift randomly
             this._dx = Math.floor((Math.random() * 4) - 2);
             this._dy = Math.floor((Math.random() * 5) + 5);
+            //reset enemy
+            this._hp = 10;
+            //reset alpha
+            this.alpha = 0;
         };
         TIE.prototype.Move = function () {
             this.y += this._dy;
             this.x += this._dx;
         };
         TIE.prototype.CheckBounds = function () {
+            if (this.y >= 0 && this.alpha == 0) {
+                this.alpha = 1;
+            }
             //check lower bounds
             if (this.y >= 480 + this.height) {
                 this.Reset();
@@ -40,11 +47,29 @@ var objects;
         //Public Methods
         TIE.prototype.Start = function () {
             this._dy = 5;
+            this._hp = 10;
             this.Reset();
         };
         TIE.prototype.Update = function () {
             this.Move();
             this.CheckBounds();
+        };
+        TIE.prototype.GetHit = function () {
+            if (this.alpha != 0) {
+                //add explosion
+                createjs.Sound.play("explosion");
+                var explosion = new objects.Explosion("smallexplosion");
+                explosion.x = this.x;
+                explosion.y = this.y;
+                managers.Game.currentSceneObject.addChild(explosion);
+                //points for destroy enemy
+                managers.Game.scoreBoard.addScore(200);
+                this._hp--;
+                if (this._hp <= 0) {
+                    //reset enemy
+                    this.Reset();
+                }
+            }
         };
         return TIE;
     }(objects.GameObject));

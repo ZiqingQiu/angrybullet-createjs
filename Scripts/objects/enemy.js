@@ -47,6 +47,20 @@ var objects;
             this.Move();
             this.CheckBounds();
         };
+        Enemy.prototype.GetHit = function () {
+            if (this.alpha != 0) {
+                //add explosion
+                createjs.Sound.play("explosion");
+                var explosion = new objects.Explosion("smallexplosion");
+                explosion.x = this.x;
+                explosion.y = this.y;
+                managers.Game.currentSceneObject.addChild(explosion);
+                //points for destroy enemy
+                managers.Game.scoreBoard.addScore(200);
+                //reset enemy
+                this.Reset();
+            }
+        };
         return Enemy;
     }(objects.GameObject));
     objects.Enemy = Enemy;

@@ -19,40 +19,20 @@ module managers {
                         case "tie":
                             if (object1.name == "playerlv1")
                             {
-                                if (object1.alpha != 0) {
-                                    createjs.Sound.play("explosion");
-                                    managers.Game.scoreBoard.Lives -= 1;
-    
-                                    let explosion = new objects.Explosion("explosion");
-                                    explosion.x = object1.x;
-                                    explosion.y = object1.y;
-                                    managers.Game.currentSceneObject.addChild(explosion);
-                                    object1.alpha = 0;
-                                    managers.Game.player.planeFlash.alpha = 1;
-                                    managers.Game.player.planeFlash.gotoAndPlay("planeflash");
-                                }
+                                //downcast to player object
+                                (object1 as objects.Player).GetHit();
                             }
                             else if (object1.name == "bullet")
                             {
                                 //update TIE lifes and explosions
-
+                                (object2 as objects.TIE).GetHit();
                                 //update alpha
                             }
 
                             break;
                         case "enemy":
-                            if (object2.alpha != 0) {
-                                //add explosion
-                                createjs.Sound.play("explosion");
-                                let explosion = new objects.Explosion("smallexplosion");
-                                explosion.x = object2.x;
-                                explosion.y = object2.y;
-                                managers.Game.currentSceneObject.addChild(explosion);
-                                //points for destroy enemy
-                                managers.Game.scoreBoard.addScore(200);
-                                //reset enemy
-                                object2.Reset();
-                            }
+                                //downcast to player enemy
+                                (object2 as objects.Enemy).GetHit();
                             break;
                     }
                 }

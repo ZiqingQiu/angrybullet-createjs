@@ -45,5 +45,20 @@ module objects {
             this.Move();
             this.CheckBounds();
         }
+
+        public GetHit(): void {
+            if (this.alpha != 0) {
+                //add explosion
+                createjs.Sound.play("explosion");
+                let explosion = new objects.Explosion("smallexplosion");
+                explosion.x = this.x;
+                explosion.y = this.y;
+                managers.Game.currentSceneObject.addChild(explosion);
+                //points for destroy enemy
+                managers.Game.scoreBoard.addScore(200);
+                //reset enemy
+                this.Reset();
+            }
+        }
     }
 }

@@ -64,7 +64,7 @@ module scenes {
 
         //triggered every frame
         public Update(): void {
-            //console.log("num objects: " + this.numChildren);
+            console.log("num objects: " + this.numChildren);
             this._space.Update();
             this._player.Update();
             this._enemy.Update();
@@ -87,6 +87,17 @@ module scenes {
             })
 
             //check bullet and TIH
+            for (let count = 0; count < this._tieNum; count++) {
+                if (this._tie[count].alpha == 1){
+                    for (let bulletCount = 0; bulletCount < this._bulletManager.BulletCnts; bulletCount++)
+                    {
+                        if (this._bulletManager.Bullets[bulletCount].alpha == 1)
+                        {
+                            managers.Collision.Check(this._bulletManager.Bullets[bulletCount], this._tie[count]);
+                        }
+                    }
+                }               
+            }
 
             //if lives fall below zero, switch to game over scene
             if (this._scoreBoard.Lives <= 0)

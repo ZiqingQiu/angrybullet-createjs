@@ -34,8 +34,12 @@ var objects;
         Bullet.prototype.Reset = function () {
             this.x = -5000;
             this.y = -5000;
+            this.alpha = 0;
         };
         Bullet.prototype.CheckBounds = function () {
+            if (this.y >= 0 && this.alpha == 0) {
+                this.alpha = 1;
+            }
             if (this.y <= -this.height) {
                 this.Reset();
             }

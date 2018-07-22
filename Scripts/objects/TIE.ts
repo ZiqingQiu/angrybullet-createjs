@@ -1,7 +1,7 @@
 module objects {
     export class TIE extends objects.GameObject {
         //Private Instance Variables
-        private hp: number;
+        private _hp: number;
 
         //Public Properties
 
@@ -17,6 +17,10 @@ module objects {
             //drift randomly
             this._dx = Math.floor((Math.random() * 4) - 2);
             this._dy = Math.floor((Math.random() * 5) + 5);
+            //reset enemy
+            this._hp = 10;
+            //reset alpha
+            this.alpha = 0;
         }
 
         public Move(): void {
@@ -25,22 +29,48 @@ module objects {
         }
 
         public CheckBounds(): void {
+            if (this.y >= 0 && this.alpha == 0)
+            {
+                this.alpha = 1;
+            }
+
             //check lower bounds
             if (this.y >= 480 + this.height)
             {
                 this.Reset();
             }
+
         }
 
         //Public Methods
         public Start(): void {
             this._dy = 5;
+            this._hp = 10; 
             this.Reset();
         }
 
         public Update(): void {
             this.Move();
             this.CheckBounds();
+        }
+
+        public GetHit(): void {
+            if (this.alpha != 0) {
+                //add explosion
+                createjs.Sound.play("explosion");
+                let explosion = new objects.Explosion("smallexplosion");
+                explosion.x = this.x;
+                explosion.y = this.y;
+                managers.Game.currentSceneObject.addChild(explosion);
+                //points for destroy enemy
+                managers.Game.scoreBoard.addScore(200);
+                this._hp--;
+                if (this._hp <= 0)
+                {
+                    //reset enemy
+                    this.Reset();
+                }                
+            }
         }
     }
 }
