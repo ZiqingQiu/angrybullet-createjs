@@ -50,17 +50,22 @@ var managers;
         };
         //Public Methods
         ScoreBoard.prototype.addScore = function (score) {
-            managers.Game.scoreBoard.Score += score;
+            this.Score += score;
+            var roundScore = Math.floor(this.Score / ScoreBoard._lifeupscore);
             //live +1
-            if (managers.Game.scoreBoard.Score % 1000 == 0) {
-                managers.Game.scoreBoard.Lives += 1;
+            if (roundScore != ScoreBoard._quotient) {
+                console.log(roundScore + " " + ScoreBoard._quotient);
+                ScoreBoard._quotient = roundScore;
+                this.Lives += 1;
                 createjs.Sound.play("life");
             }
-            if (managers.Game.HighScore < managers.Game.scoreBoard.Score) {
-                managers.Game.scoreBoard.HighScore = managers.Game.scoreBoard.Score;
-                managers.Game.HighScore = managers.Game.scoreBoard.HighScore;
+            if (managers.Game.HighScore < this.Score) {
+                this.HighScore = this.Score;
+                managers.Game.HighScore = this.HighScore;
             }
         };
+        ScoreBoard._quotient = 0;
+        ScoreBoard._lifeupscore = 10000;
         return ScoreBoard;
     }());
     managers.ScoreBoard = ScoreBoard;

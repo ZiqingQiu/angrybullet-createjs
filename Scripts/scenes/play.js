@@ -49,7 +49,7 @@ var scenes;
         //triggered every frame
         PlayScene.prototype.Update = function () {
             var _this = this;
-            console.log("num objects: " + this.numChildren);
+            //console.log("num objects: " + this.numChildren);
             this._space.Update();
             this._player.Update();
             this._enemy.Update();

@@ -5,6 +5,9 @@ module managers {
         private _score: number;
         private _highScore: number;
 
+        private static _quotient: number = 0;
+        private static _lifeupscore: number = 10000;
+
         //Public Instance Variables
         public LivesLabel: objects.Label;
         public ScoreLabel: objects.Label;
@@ -56,15 +59,18 @@ module managers {
         //Public Methods
         public addScore(score: number): void {
 
-            managers.Game.scoreBoard.Score += score;
+            this.Score += score;
+            let roundScore = Math.floor(this.Score / ScoreBoard._lifeupscore)
             //live +1
-            if (managers.Game.scoreBoard.Score % 1000 == 0) {
-                managers.Game.scoreBoard.Lives += 1;
+            if (roundScore != ScoreBoard._quotient) {
+                console.log(roundScore + " " + ScoreBoard._quotient)
+                ScoreBoard._quotient = roundScore;
+                this.Lives += 1;
                 createjs.Sound.play("life");
             }
-            if (managers.Game.HighScore < managers.Game.scoreBoard.Score) {
-                managers.Game.scoreBoard.HighScore = managers.Game.scoreBoard.Score;
-                managers.Game.HighScore = managers.Game.scoreBoard.HighScore;
+            if (managers.Game.HighScore < this.Score) {
+                this.HighScore = this.Score;
+                managers.Game.HighScore = this.HighScore;
             }
         }
 
