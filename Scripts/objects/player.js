@@ -57,7 +57,6 @@ var objects;
             this.planeFlash.on("animationend", this._animatonEnded.bind(this), false);
             this.x = config.Screen.HALF_WIDTH;
             this.y = 430;
-            this._bulletSpawn = new math.Vec2();
         };
         Player.prototype.Update = function () {
             this.Move();
@@ -65,17 +64,8 @@ var objects;
             this.BulletFire();
         };
         Player.prototype.BulletFire = function () {
-            if (this.alpha == 1) {
-                var ticker = createjs.Ticker.getTicks();
-                if (managers.Game.keyboardManager.fire && (ticker % 10 == 0)) {
-                    this._bulletSpawn = new math.Vec2(this.x, this.y - this.halfHeight);
-                    var currentBullet = managers.Game.bulletManager.CurrentBullet;
-                    var bullet = managers.Game.bulletManager.Bullets[currentBullet];
-                    bullet.x = this._bulletSpawn.x;
-                    bullet.y = this._bulletSpawn.y;
-                    managers.Game.bulletManager.CurrentBullet = (managers.Game.bulletManager.CurrentBullet + 1) % 50;
-                    createjs.Sound.play("bulletSound");
-                }
+            if (this.alpha == 1 && managers.Game.keyboardManager.fire) {
+                managers.Game.bulletManager.BulletFire("playerlv1", this.x, this.y, this.halfHeight);
             }
         };
         //this method provides get hit update for the player object

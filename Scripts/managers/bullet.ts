@@ -44,5 +44,29 @@ module managers {
                 bullet => {bullet.Update();}
             );
         }
+
+        public BulletFire(bulletCarrier: string, x: number, y: number, halfHeight: number): void {
+            let ticker: number = createjs.Ticker.getTicks();
+            let tickerPeriod: number;
+
+            switch (bulletCarrier)
+            {
+                case "playerlv1":
+                tickerPeriod = 10;
+                break;
+            }
+
+
+            if (ticker % tickerPeriod == 0)
+            {
+                let bulletSpawn: math.Vec2 = new math.Vec2(x, y - halfHeight);
+                let currentBullet = managers.Game.bulletManager.CurrentBullet;
+                let bullet = managers.Game.bulletManager.Bullets[currentBullet];
+                bullet.x = bulletSpawn.x;
+                bullet.y = bulletSpawn.y;
+                managers.Game.bulletManager.CurrentBullet = (managers.Game.bulletManager.CurrentBullet + 1) % 50;
+                createjs.Sound.play("bulletSound");
+            }
+        }
     }
 }

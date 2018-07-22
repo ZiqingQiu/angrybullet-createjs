@@ -33,6 +33,24 @@ var managers;
         Bullet.prototype.Update = function () {
             this.Bullets.forEach(function (bullet) { bullet.Update(); });
         };
+        Bullet.prototype.BulletFire = function (bulletCarrier, x, y, halfHeight) {
+            var ticker = createjs.Ticker.getTicks();
+            var tickerPeriod;
+            switch (bulletCarrier) {
+                case "playerlv1":
+                    tickerPeriod = 10;
+                    break;
+            }
+            if (ticker % tickerPeriod == 0) {
+                var bulletSpawn = new math.Vec2(x, y - halfHeight);
+                var currentBullet = managers.Game.bulletManager.CurrentBullet;
+                var bullet = managers.Game.bulletManager.Bullets[currentBullet];
+                bullet.x = bulletSpawn.x;
+                bullet.y = bulletSpawn.y;
+                managers.Game.bulletManager.CurrentBullet = (managers.Game.bulletManager.CurrentBullet + 1) % 50;
+                createjs.Sound.play("bulletSound");
+            }
+        };
         return Bullet;
     }());
     managers.Bullet = Bullet;

@@ -1,7 +1,6 @@
 module objects {
     export class Player extends objects.GameObject {
         //Private Instance Variables
-        private _bulletSpawn: math.Vec2;
 
         //Public Properties
         public planeFlash: objects.PlaneFlash;
@@ -67,7 +66,6 @@ module objects {
 
             this.x = config.Screen.HALF_WIDTH;
             this.y = 430;
-            this._bulletSpawn =  new math.Vec2();
         }
 
         public Update(): void {
@@ -77,19 +75,9 @@ module objects {
         }
 
         public BulletFire(): void {
-            if (this.alpha == 1)
+            if (this.alpha == 1 && managers.Game.keyboardManager.fire)
             {
-                let ticker: number = createjs.Ticker.getTicks();
-                if (managers.Game.keyboardManager.fire && (ticker % 10 == 0))
-                {
-                    this._bulletSpawn = new math.Vec2(this.x, this.y - this.halfHeight);
-                    let currentBullet = managers.Game.bulletManager.CurrentBullet;
-                    let bullet = managers.Game.bulletManager.Bullets[currentBullet];
-                    bullet.x = this._bulletSpawn.x;
-                    bullet.y = this._bulletSpawn.y;
-                    managers.Game.bulletManager.CurrentBullet = (managers.Game.bulletManager.CurrentBullet + 1) % 50;
-                    createjs.Sound.play("bulletSound");
-                }
+                managers.Game.bulletManager.BulletFire("playerlv1", this.x, this.y, this.halfHeight);
             }
         }
 
