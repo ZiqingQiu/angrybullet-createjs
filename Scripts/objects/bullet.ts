@@ -1,7 +1,6 @@
 module objects {
     export class Bullet extends objects.GameObject {
         //private instance variables
-
         //public properties
 
 
@@ -50,7 +49,7 @@ module objects {
         }
 
         public DisappearBullet(): void {
-            this.alpha = 0;
+            this.Reset();
         }
 
     }

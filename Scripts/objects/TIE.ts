@@ -18,7 +18,7 @@ module objects {
             this._dx = Math.floor((Math.random() * 4) - 2);
             this._dy = Math.floor((Math.random() * 5) + 5);
             //reset enemy
-            this._hp = 5;
+            this._hp = 3;
             //reset alpha
             this.alpha = 0;
         }
@@ -45,7 +45,7 @@ module objects {
         //Public Methods
         public Start(): void {
             this._dy = 5;
-            this._hp = 5; 
+            this._hp = 3; 
             this.Reset();
         }
 

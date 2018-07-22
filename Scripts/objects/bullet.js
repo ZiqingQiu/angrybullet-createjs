@@ -48,7 +48,7 @@ var objects;
             this.y += this._dy;
         };
         Bullet.prototype.DisappearBullet = function () {
-            this.alpha = 0;
+            this.Reset();
         };
         return Bullet;
     }(objects.GameObject));
