@@ -83,10 +83,10 @@ module scenes {
 
             let bulletIdxArray : number[] = [];
             let bullets: objects.Bullet[] = [];
-            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("player");
+            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("playerlv1");
             for (let idx: number = 0; idx < bulletIdxArray.length; idx++)
             {
-                bullets = managers.Game.bulletManager.GetBullets("player", bulletIdxArray[idx]);
+                bullets = managers.Game.bulletManager.GetBullets("playerlv1", bulletIdxArray[idx]);
                 bullets.forEach(bullet =>
                     {
                         bullet.Update();
@@ -134,7 +134,7 @@ module scenes {
             this.addChild(this._enemy);
 
             //add bullets to the scene
-            managers.Game.bulletManager.RegisterBullet(this, "player");
+            managers.Game.bulletManager.RegisterBullet(this, "playerlv1");
             //add ties to the scene
             this._tie.forEach(tie => {
                 this.addChild(tie);

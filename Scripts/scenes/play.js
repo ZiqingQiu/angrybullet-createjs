@@ -65,9 +65,9 @@ var scenes;
             });
             var bulletIdxArray = [];
             var bullets = [];
-            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("player");
+            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("playerlv1");
             for (var idx = 0; idx < bulletIdxArray.length; idx++) {
-                bullets = managers.Game.bulletManager.GetBullets("player", bulletIdxArray[idx]);
+                bullets = managers.Game.bulletManager.GetBullets("playerlv1", bulletIdxArray[idx]);
                 bullets.forEach(function (bullet) {
                     bullet.Update();
                     if (bullet.alpha == 1) {
@@ -106,7 +106,7 @@ var scenes;
             //add enemy to the scene
             this.addChild(this._enemy);
             //add bullets to the scene
-            managers.Game.bulletManager.RegisterBullet(this, "player");
+            managers.Game.bulletManager.RegisterBullet(this, "playerlv1");
             //add ties to the scene
             this._tie.forEach(function (tie) {
                 _this.addChild(tie);

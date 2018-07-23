@@ -26,9 +26,10 @@ module managers {
             let myarray: BulletInfo[] = [];
             this._objBulletMap = new Map<string, BulletInfo[]>();
 
+            //playerlv1
             //add blt_playerlv1
             myarray.push({name : "blt_playerlv1" , isenabled : true, totalcnt : 20 , curcnt : 0, ref: this._buildBulletPool("blt_playerlv1", 20)});
-            this._objBulletMap.set("player", myarray);
+            this._objBulletMap.set("playerlv1", myarray);
 
         }
 
