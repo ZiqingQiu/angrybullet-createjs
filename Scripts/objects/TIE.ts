@@ -74,6 +74,9 @@ module objects {
                     case "blt_playerlv1":
                     hitHP = 1;
                     break;
+                    case "blt_playerlv2":
+                    hitHP = 2;
+                    break;
                     defualt:
                     break;
                 }
