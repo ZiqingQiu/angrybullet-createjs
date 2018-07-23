@@ -15,12 +15,17 @@ var managers;
         };
         //public methods
         Bullet.prototype.Start = function () {
-            var myarray = [];
             this._objBulletMap = new Map();
             //playerlv1
             //add blt_playerlv1
-            myarray.push({ name: "blt_playerlv1", isenabled: true, totalcnt: 20, curcnt: 0, ref: this._buildBulletPool("blt_playerlv1", 20) });
-            this._objBulletMap.set("playerlv1", myarray);
+            var blt_playerlv1Array = [];
+            blt_playerlv1Array.push({ name: "blt_playerlv1", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 20, ref: this._buildBulletPool("blt_playerlv1", 20) });
+            this._objBulletMap.set("playerlv1", blt_playerlv1Array);
+            //playerlv2
+            //add blt_playerlv2
+            var blt_playerlv2Array = [];
+            blt_playerlv2Array.push({ name: "blt_playerlv2", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 10, ref: this._buildBulletPool("blt_playerlv2", 20) });
+            this._objBulletMap.set("playerlv2", blt_playerlv2Array);
         };
         Bullet.prototype.Update = function () {
             //only update the bullet that has been enabled
@@ -37,40 +42,73 @@ var managers;
             var tickerPeriod;
             switch (bulletCarrier) {
                 case "player":
-                    tickerPeriod = 10;
+                    //### hard code 2 here
+                    var bulletInfo = void 0;
+                    bulletInfo = this._objBulletMap.get(this._lastPlayerRegisterLevel);
+                    for (var idx = 0; idx < bulletInfo.length; idx++) {
+                        tickerPeriod = bulletInfo[idx].tickerPeriod;
+                        if (ticker % tickerPeriod == 0) {
+                            var bulletSpawn = new math.Vec2(x, y - halfHeight);
+                            var currentBullet = bulletInfo[idx].curcnt;
+                            var bullet = bulletInfo[idx].ref[currentBullet];
+                            var bulletTotalCnt = bulletInfo[idx].totalcnt;
+                            bullet.alpha = 1;
+                            bullet.x = bulletSpawn.x;
+                            bullet.y = bulletSpawn.y;
+                            currentBullet = (currentBullet + 1) % bulletTotalCnt;
+                            bulletInfo[idx].curcnt = currentBullet;
+                            createjs.Sound.play("bulletSound");
+                        }
+                    }
                     break;
-            }
-            if (ticker % tickerPeriod == 0) {
-                var bulletSpawn = new math.Vec2(x, y - halfHeight);
-                var currentBullet = this._objBulletMap.get("playerlv1")[0].curcnt; //####hard code 0 for now
-                var bullet = this._objBulletMap.get("playerlv1")[0].ref[currentBullet];
-                var bulletTotalCnt = this._objBulletMap.get("playerlv1")[0].totalcnt;
-                bullet.alpha = 1;
-                bullet.x = bulletSpawn.x;
-                bullet.y = bulletSpawn.y;
-                currentBullet = (currentBullet + 1) % bulletTotalCnt;
-                this._objBulletMap.get("playerlv1")[0].curcnt = currentBullet;
-                createjs.Sound.play("bulletSound");
             }
         };
         Bullet.prototype.RegisterBullet = function (tarScene, objectname) {
             var bulletInfo = this._objBulletMap.get(objectname);
             for (var idx = 0; idx < bulletInfo.length; idx++) {
+                bulletInfo[idx].isenabled = true;
                 var bullets = bulletInfo[idx].ref;
                 bullets.forEach(function (bullet) { tarScene.addChild(bullet); });
             }
+            //if player has multi level bullet, need disable other bullet types
+            if (objectname.search("player") != -1) {
+                var playerLevelString = objectname.substring(8, 9);
+                var playerLevel = parseInt(playerLevelString);
+                this._lastPlayerRegisterLevel = objectname; //store the latest playerlvl
+                //go through all the player bullet types
+                //### 2 is hard code, should be 3
+                for (var lvlidx = 1; lvlidx <= 2; lvlidx++) {
+                    if (lvlidx != playerLevel) {
+                        bulletInfo = this._objBulletMap.get("playerlv" + lvlidx);
+                        for (var idx = 0; idx < bulletInfo.length; idx++) {
+                            bulletInfo[idx].isenabled = false;
+                            var bullets = bulletInfo[idx].ref;
+                            bullets.forEach(function (bullet) { tarScene.removeChild(bullet); });
+                        }
+                    }
+                }
+            }
         };
         Bullet.prototype.GetTotalBulletTypes = function (objectname) {
+            if (objectname.search("player") != -1) //player
+             {
+                objectname = this._lastPlayerRegisterLevel;
+            }
             var totBulletTypes = [];
             var bulletInfo = this._objBulletMap.get(objectname);
             for (var idx = 0; idx < bulletInfo.length; idx++) {
-                if (bulletInfo[idx].isenabled) {
+                if (bulletInfo[idx].isenabled) //only return currently enabled bullet
+                 {
                     totBulletTypes.push(idx);
                 }
             }
             return totBulletTypes;
         };
         Bullet.prototype.GetBullets = function (objectname, bulletIdx) {
+            if (objectname.search("player") != -1) //player
+             {
+                objectname = this._lastPlayerRegisterLevel;
+            }
             var bulletInfo = this._objBulletMap.get(objectname);
             return bulletInfo[bulletIdx].ref;
         };

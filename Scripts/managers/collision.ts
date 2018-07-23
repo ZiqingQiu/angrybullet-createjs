@@ -14,6 +14,7 @@ module managers {
                                 createjs.Sound.play("coin");
                                 object2.alpha = 0;
                                 managers.Game.scoreBoard.addScore(100);
+                                managers.Game.bulletManager.RegisterBullet(managers.Game.currentSceneObject, "playerlv2");
                             }
                             break;
                         case "tie":
@@ -24,7 +25,7 @@ module managers {
 
                                 (object2 as objects.TIE).GetHit(object1.name);
                             }
-                            else if (object1.name == "blt_playerlv1")
+                            else if (object1.name == "blt_playerlv1" || object1.name == "blt_playerlv2")
                             {
                                 //update TIE lifes and explosions
                                 (object2 as objects.TIE).GetHit(object1.name);
@@ -37,7 +38,7 @@ module managers {
                         case "enemy":
                                 //downcast to player enemy
                                 (object2 as objects.Enemy).GetHit();
-                                if (object1.name == "blt_playerlv1")
+                                if (object1.name == "blt_playerlv1" || object1.name == "blt_playerlv2")
                                 {
                                     //make bullet disappear
                                     (object1 as objects.Bullet).DisappearBullet();
