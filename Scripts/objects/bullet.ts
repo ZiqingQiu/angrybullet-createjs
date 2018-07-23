@@ -5,8 +5,8 @@ module objects {
 
 
         //constructors
-        constructor() {
-            super("bullet");
+        constructor(bulletType: string) {
+            super(bulletType);
             this.Start();
         }
 
@@ -17,7 +17,7 @@ module objects {
         public Start(): void {
             this._dx = 0;
             this._dy = -10;
-            this.Reset();
+            this.Reset();            
         }
 
         public Update(): void {

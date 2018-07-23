@@ -81,22 +81,27 @@ module scenes {
                 managers.Collision.Check(this._player, tie);
             });
 
-            this._bulletManager.Bullets.forEach(bullet =>
+            let bulletIdxArray : number[] = [];
+            let bullets: objects.Bullet[] = [];
+            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("playerlv1");
+            for (let idx: number = 0; idx < bulletIdxArray.length; idx++)
             {
-                managers.Collision.Check(bullet, this._enemy);
-            })
-
-            //check bullet and TIH
-            for (let count = 0; count < this._tieNum; count++) {
-                if (this._tie[count].alpha == 1){
-                    for (let bulletCount = 0; bulletCount < this._bulletManager.BulletCnts; bulletCount++)
+                bullets = managers.Game.bulletManager.GetBullets("playerlv1", bulletIdxArray[idx]);
+                bullets.forEach(bullet =>
                     {
-                        if (this._bulletManager.Bullets[bulletCount].alpha == 1)
+                        bullet.Update();
+                        if (bullet.alpha == 1)
                         {
-                            managers.Collision.Check(this._bulletManager.Bullets[bulletCount], this._tie[count]);
+                            //check collision player-bullet -- enemy
+                            managers.Collision.Check(bullet, this._enemy);  
+                            //check collision player-bullet -- TIE
+                            for (let count = 0; count < this._tieNum; count++) {
+                                if (this._tie[count].alpha == 1){
+                                    managers.Collision.Check(bullet, this._tie[count]);
+                                }               
+                            }
                         }
-                    }
-                }               
+                    })
             }
 
             //if lives fall below zero, switch to game over scene
@@ -122,10 +127,9 @@ module scenes {
             this.addChild(this._player.planeFlash);    
             //add enemy to the scene
             this.addChild(this._enemy);
+
             //add bullets to the scene
-            this._bulletManager.Bullets.forEach(bullet =>
-                {this.addChild(bullet);} 
-            )        
+            managers.Game.bulletManager.RegisterBullet(this, "playerlv1");
             //add ties to the scene
             this._tie.forEach(tie => {
                 this.addChild(tie);

@@ -69,7 +69,7 @@
         ],
         
         "animations": {
-            "bullet": { "frames": [0] },
+            "bluedotbullet": { "frames": [0] },
             "coin": { "frames": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], "speed": 0.33 },
             "enemy": { "frames": [11, 12, 13], "speed": 0.33 },
             "exitButton": { "frames": [14] },

@@ -1,48 +1,53 @@
+
+type BulletInfo = { name: string; isenabled: boolean; totalcnt: number; curcnt: number; ref: objects.Bullet[] };
+
 module managers {
     export class Bullet {
         //private instance variables
-        private _bulletCount: number;
-
-        //public properties
-        public Bullets: objects.Bullet[];
-        public CurrentBullet: number;
-
-        //Public Properties
-        get BulletCnts(): number {
-            return this._bulletCount;
-        }
-
+        private _objBulletMap : Map<string, BulletInfo[]>;
+    
         //constructors
         constructor (){
-            this.Start();
+            this.Start();  //to be refined
+
         }
 
         //private methods
-        private _buildBulletPool(): void {
-            for (let count = 0; count < this._bulletCount; count++) {
-                this.Bullets[count] = new objects.Bullet();             
+        private _buildBulletPool(bulletname: string, totalCnt: number): objects.Bullet[] {
+            let bullets: objects.Bullet[] = [];
+            for (let count = 0; count < totalCnt; count++) {
+                bullets[count] = new objects.Bullet(bulletname);             
             }
+            return bullets;
         }
 
         //public methods
         public Start(): void {
-            //set the default bullet count
-            this._bulletCount = 50;
+            //####to be merged
+            let myarray: BulletInfo[] = [];
+            this._objBulletMap = new Map<string, BulletInfo[]>();
 
-            //create the bullet container
-            this.Bullets = new Array<objects.Bullet>();
 
-            //build bullet array
-            this._buildBulletPool();
+            myarray.push({name : "bluedotbullet" , isenabled : true, totalcnt : 20 , curcnt : 0, ref: this._buildBulletPool("bluedotbullet", 20)});
+            this._objBulletMap.set("playerlv1", myarray);
 
-            //set the current bullet to 0
-            this.CurrentBullet = 0;
         }
 
+
         public Update(): void {
-            this.Bullets.forEach(
-                bullet => {bullet.Update();}
-            );
+        //only update the bullet that has been enabled
+            for (let idx: number = 0; idx < this._objBulletMap.length; idx ++)
+            {
+                for (let bulletidx: number = 0; bulletidx < this._objBulletMap[idx].BulletInfo.length; bulletidx ++)
+                {
+                    if (this._objBulletMap[idx].BulletInfo[bulletidx].isenabled)
+                    {
+                        this._objBulletMap[idx].BulletInfo[bulletidx].ref.forEach(
+                            bullet => {bullet.Update();}
+                        );
+                    }
+                }
+            }
         }
 
         public BulletFire(bulletCarrier: string, x: number, y: number, halfHeight: number): void {
@@ -60,13 +65,47 @@ module managers {
             if (ticker % tickerPeriod == 0)
             {
                 let bulletSpawn: math.Vec2 = new math.Vec2(x, y - halfHeight);
-                let currentBullet = managers.Game.bulletManager.CurrentBullet;
-                let bullet = managers.Game.bulletManager.Bullets[currentBullet];
+                let currentBullet = this._objBulletMap.get("playerlv1")[0].curcnt;  //####hard code 0 for now
+                let bullet = this._objBulletMap.get("playerlv1")[0].ref[currentBullet];
+                let bulletTotalCnt = this._objBulletMap.get("playerlv1")[0].totalcnt;
+                bullet.alpha = 1;
                 bullet.x = bulletSpawn.x;
                 bullet.y = bulletSpawn.y;
-                managers.Game.bulletManager.CurrentBullet = (managers.Game.bulletManager.CurrentBullet + 1) % 50;
+                currentBullet = (currentBullet + 1) % bulletTotalCnt;
+                this._objBulletMap.get("playerlv1")[0].curcnt = currentBullet;
                 createjs.Sound.play("bulletSound");
             }
+        }
+
+
+        public RegisterBullet(tarScene : objects.Scene, objectname : string): void
+        {
+            let bulletInfo : BulletInfo[] = this._objBulletMap.get(objectname);
+            for (let idx: number = 0; idx < bulletInfo.length; idx++)
+            {
+                let bullets: objects.Bullet[] = bulletInfo[idx].ref;
+                bullets.forEach(bullet =>
+                    {tarScene.addChild(bullet);})
+            }
+
+        }
+
+        public GetTotalBulletTypes(objectname : string): number[] {
+            let totBulletTypes : number[] = [];
+            let bulletInfo : BulletInfo[] = this._objBulletMap.get(objectname);
+            for (let idx:number = 0; idx < bulletInfo.length; idx++)
+            {
+                if (bulletInfo[idx].isenabled)
+                {
+                    totBulletTypes.push(idx);
+                }
+            }
+            return totBulletTypes;
+        }
+
+        public GetBullets(objectname : string, bulletIdx : number): objects.Bullet[] {
+            let bulletInfo : BulletInfo[] = this._objBulletMap.get(objectname);
+            return bulletInfo[bulletIdx].ref;
         }
     }
 }

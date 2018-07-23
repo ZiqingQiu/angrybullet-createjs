@@ -15,8 +15,8 @@ var objects;
         //private instance variables
         //public properties
         //constructors
-        function Bullet() {
-            var _this = _super.call(this, "bullet") || this;
+        function Bullet(bulletType) {
+            var _this = _super.call(this, bulletType) || this;
             _this.Start();
             return _this;
         }

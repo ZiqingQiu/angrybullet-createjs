@@ -63,18 +63,24 @@ var scenes;
                 //check collision between player and current tie
                 managers.Collision.Check(_this._player, tie);
             });
-            this._bulletManager.Bullets.forEach(function (bullet) {
-                managers.Collision.Check(bullet, _this._enemy);
-            });
-            //check bullet and TIH
-            for (var count = 0; count < this._tieNum; count++) {
-                if (this._tie[count].alpha == 1) {
-                    for (var bulletCount = 0; bulletCount < this._bulletManager.BulletCnts; bulletCount++) {
-                        if (this._bulletManager.Bullets[bulletCount].alpha == 1) {
-                            managers.Collision.Check(this._bulletManager.Bullets[bulletCount], this._tie[count]);
+            var bulletIdxArray = [];
+            var bullets = [];
+            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("playerlv1");
+            for (var idx = 0; idx < bulletIdxArray.length; idx++) {
+                bullets = managers.Game.bulletManager.GetBullets("playerlv1", bulletIdxArray[idx]);
+                bullets.forEach(function (bullet) {
+                    bullet.Update();
+                    if (bullet.alpha == 1) {
+                        //check collision player-bullet -- enemy
+                        managers.Collision.Check(bullet, _this._enemy);
+                        //check collision player-bullet -- TIE
+                        for (var count = 0; count < _this._tieNum; count++) {
+                            if (_this._tie[count].alpha == 1) {
+                                managers.Collision.Check(bullet, _this._tie[count]);
+                            }
                         }
                     }
-                }
+                });
             }
             //if lives fall below zero, switch to game over scene
             if (this._scoreBoard.Lives <= 0) {
@@ -98,7 +104,7 @@ var scenes;
             //add enemy to the scene
             this.addChild(this._enemy);
             //add bullets to the scene
-            this._bulletManager.Bullets.forEach(function (bullet) { _this.addChild(bullet); });
+            managers.Game.bulletManager.RegisterBullet(this, "playerlv1");
             //add ties to the scene
             this._tie.forEach(function (tie) {
                 _this.addChild(tie);

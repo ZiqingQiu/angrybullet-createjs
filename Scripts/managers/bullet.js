@@ -3,35 +3,33 @@ var managers;
     var Bullet = /** @class */ (function () {
         //constructors
         function Bullet() {
-            this.Start();
+            this.Start(); //to be refined
         }
-        Object.defineProperty(Bullet.prototype, "BulletCnts", {
-            //Public Properties
-            get: function () {
-                return this._bulletCount;
-            },
-            enumerable: true,
-            configurable: true
-        });
         //private methods
-        Bullet.prototype._buildBulletPool = function () {
-            for (var count = 0; count < this._bulletCount; count++) {
-                this.Bullets[count] = new objects.Bullet();
+        Bullet.prototype._buildBulletPool = function (bulletname, totalCnt) {
+            var bullets = [];
+            for (var count = 0; count < totalCnt; count++) {
+                bullets[count] = new objects.Bullet(bulletname);
             }
+            return bullets;
         };
         //public methods
         Bullet.prototype.Start = function () {
-            //set the default bullet count
-            this._bulletCount = 50;
-            //create the bullet container
-            this.Bullets = new Array();
-            //build bullet array
-            this._buildBulletPool();
-            //set the current bullet to 0
-            this.CurrentBullet = 0;
+            //####to be merged
+            var myarray = [];
+            this._objBulletMap = new Map();
+            myarray.push({ name: "bluedotbullet", isenabled: true, totalcnt: 20, curcnt: 0, ref: this._buildBulletPool("bluedotbullet", 20) });
+            this._objBulletMap.set("playerlv1", myarray);
         };
         Bullet.prototype.Update = function () {
-            this.Bullets.forEach(function (bullet) { bullet.Update(); });
+            //only update the bullet that has been enabled
+            for (var idx = 0; idx < this._objBulletMap.length; idx++) {
+                for (var bulletidx = 0; bulletidx < this._objBulletMap[idx].BulletInfo.length; bulletidx++) {
+                    if (this._objBulletMap[idx].BulletInfo[bulletidx].isenabled) {
+                        this._objBulletMap[idx].BulletInfo[bulletidx].ref.forEach(function (bullet) { bullet.Update(); });
+                    }
+                }
+            }
         };
         Bullet.prototype.BulletFire = function (bulletCarrier, x, y, halfHeight) {
             var ticker = createjs.Ticker.getTicks();
@@ -43,13 +41,37 @@ var managers;
             }
             if (ticker % tickerPeriod == 0) {
                 var bulletSpawn = new math.Vec2(x, y - halfHeight);
-                var currentBullet = managers.Game.bulletManager.CurrentBullet;
-                var bullet = managers.Game.bulletManager.Bullets[currentBullet];
+                var currentBullet = this._objBulletMap.get("playerlv1")[0].curcnt; //####hard code 0 for now
+                var bullet = this._objBulletMap.get("playerlv1")[0].ref[currentBullet];
+                var bulletTotalCnt = this._objBulletMap.get("playerlv1")[0].totalcnt;
+                bullet.alpha = 1;
                 bullet.x = bulletSpawn.x;
                 bullet.y = bulletSpawn.y;
-                managers.Game.bulletManager.CurrentBullet = (managers.Game.bulletManager.CurrentBullet + 1) % 50;
+                currentBullet = (currentBullet + 1) % bulletTotalCnt;
+                this._objBulletMap.get("playerlv1")[0].curcnt = currentBullet;
                 createjs.Sound.play("bulletSound");
             }
+        };
+        Bullet.prototype.RegisterBullet = function (tarScene, objectname) {
+            var bulletInfo = this._objBulletMap.get(objectname);
+            for (var idx = 0; idx < bulletInfo.length; idx++) {
+                var bullets = bulletInfo[idx].ref;
+                bullets.forEach(function (bullet) { tarScene.addChild(bullet); });
+            }
+        };
+        Bullet.prototype.GetTotalBulletTypes = function (objectname) {
+            var totBulletTypes = [];
+            var bulletInfo = this._objBulletMap.get(objectname);
+            for (var idx = 0; idx < bulletInfo.length; idx++) {
+                if (bulletInfo[idx].isenabled) {
+                    totBulletTypes.push(idx);
+                }
+            }
+            return totBulletTypes;
+        };
+        Bullet.prototype.GetBullets = function (objectname, bulletIdx) {
+            var bulletInfo = this._objBulletMap.get(objectname);
+            return bulletInfo[bulletIdx].ref;
         };
         return Bullet;
     }());
