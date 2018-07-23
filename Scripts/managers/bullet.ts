@@ -23,13 +23,12 @@ module managers {
 
         //public methods
         public Start(): void {
-            //####to be merged
             let myarray: BulletInfo[] = [];
             this._objBulletMap = new Map<string, BulletInfo[]>();
 
-
-            myarray.push({name : "bluedotbullet" , isenabled : true, totalcnt : 20 , curcnt : 0, ref: this._buildBulletPool("bluedotbullet", 20)});
-            this._objBulletMap.set("playerlv1", myarray);
+            //add blt_playerlv1
+            myarray.push({name : "blt_playerlv1" , isenabled : true, totalcnt : 20 , curcnt : 0, ref: this._buildBulletPool("blt_playerlv1", 20)});
+            this._objBulletMap.set("player", myarray);
 
         }
 
@@ -56,7 +55,7 @@ module managers {
 
             switch (bulletCarrier)
             {
-                case "playerlv1":
+                case "player":
                 tickerPeriod = 10;
                 break;
             }
@@ -65,14 +64,14 @@ module managers {
             if (ticker % tickerPeriod == 0)
             {
                 let bulletSpawn: math.Vec2 = new math.Vec2(x, y - halfHeight);
-                let currentBullet = this._objBulletMap.get("playerlv1")[0].curcnt;  //####hard code 0 for now
-                let bullet = this._objBulletMap.get("playerlv1")[0].ref[currentBullet];
-                let bulletTotalCnt = this._objBulletMap.get("playerlv1")[0].totalcnt;
+                let currentBullet = this._objBulletMap.get("player")[0].curcnt;  //####hard code 0 for now
+                let bullet = this._objBulletMap.get("player")[0].ref[currentBullet];
+                let bulletTotalCnt = this._objBulletMap.get("player")[0].totalcnt;
                 bullet.alpha = 1;
                 bullet.x = bulletSpawn.x;
                 bullet.y = bulletSpawn.y;
                 currentBullet = (currentBullet + 1) % bulletTotalCnt;
-                this._objBulletMap.get("playerlv1")[0].curcnt = currentBullet;
+                this._objBulletMap.get("player")[0].curcnt = currentBullet;
                 createjs.Sound.play("bulletSound");
             }
         }

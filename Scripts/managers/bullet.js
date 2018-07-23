@@ -15,11 +15,11 @@ var managers;
         };
         //public methods
         Bullet.prototype.Start = function () {
-            //####to be merged
             var myarray = [];
             this._objBulletMap = new Map();
-            myarray.push({ name: "bluedotbullet", isenabled: true, totalcnt: 20, curcnt: 0, ref: this._buildBulletPool("bluedotbullet", 20) });
-            this._objBulletMap.set("playerlv1", myarray);
+            //add blt_playerlv1
+            myarray.push({ name: "blt_playerlv1", isenabled: true, totalcnt: 20, curcnt: 0, ref: this._buildBulletPool("blt_playerlv1", 20) });
+            this._objBulletMap.set("player", myarray);
         };
         Bullet.prototype.Update = function () {
             //only update the bullet that has been enabled
@@ -35,20 +35,20 @@ var managers;
             var ticker = createjs.Ticker.getTicks();
             var tickerPeriod;
             switch (bulletCarrier) {
-                case "playerlv1":
+                case "player":
                     tickerPeriod = 10;
                     break;
             }
             if (ticker % tickerPeriod == 0) {
                 var bulletSpawn = new math.Vec2(x, y - halfHeight);
-                var currentBullet = this._objBulletMap.get("playerlv1")[0].curcnt; //####hard code 0 for now
-                var bullet = this._objBulletMap.get("playerlv1")[0].ref[currentBullet];
-                var bulletTotalCnt = this._objBulletMap.get("playerlv1")[0].totalcnt;
+                var currentBullet = this._objBulletMap.get("player")[0].curcnt; //####hard code 0 for now
+                var bullet = this._objBulletMap.get("player")[0].ref[currentBullet];
+                var bulletTotalCnt = this._objBulletMap.get("player")[0].totalcnt;
                 bullet.alpha = 1;
                 bullet.x = bulletSpawn.x;
                 bullet.y = bulletSpawn.y;
                 currentBullet = (currentBullet + 1) % bulletTotalCnt;
-                this._objBulletMap.get("playerlv1")[0].curcnt = currentBullet;
+                this._objBulletMap.get("player")[0].curcnt = currentBullet;
                 createjs.Sound.play("bulletSound");
             }
         };

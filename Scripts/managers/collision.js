@@ -18,12 +18,12 @@ var managers;
                             }
                             break;
                         case "tie":
-                            if (object1.name == "playerlv1") {
+                            if (object1.name == "player") {
                                 //downcast to player object
                                 object1.GetHit();
                                 object2.GetHit(object1.name);
                             }
-                            else if (object1.name == "bullet") {
+                            else if (object1.name == "blt_playerlv1") {
                                 //update TIE lifes and explosions
                                 object2.GetHit(object1.name);
                                 //make bullet disappear
@@ -33,7 +33,7 @@ var managers;
                         case "enemy":
                             //downcast to player enemy
                             object2.GetHit();
-                            if (object1.name == "bullet") {
+                            if (object1.name == "blt_playerlv1") {
                                 //make bullet disappear
                                 object1.DisappearBullet();
                             }

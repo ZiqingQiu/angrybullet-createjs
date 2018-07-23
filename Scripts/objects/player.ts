@@ -7,7 +7,7 @@ module objects {
 
         //Constructor
         constructor() {
-            super("playerlv1");
+            super("player");
             this.Start();
         }
         //Private Methods
@@ -77,7 +77,7 @@ module objects {
         public BulletFire(): void {
             if (this.alpha == 1 && managers.Game.keyboardManager.fire)
             {
-                managers.Game.bulletManager.BulletFire("playerlv1", this.x, this.y, this.halfHeight);
+                managers.Game.bulletManager.BulletFire("player", this.x, this.y, this.halfHeight);
             }
         }
 

@@ -66,10 +66,10 @@ var objects;
                 managers.Game.scoreBoard.addScore(200);
                 var hitHP = 1;
                 switch (hitType) {
-                    case "playerlv1":
+                    case "player":
                         hitHP = 3;
                         break;
-                    case "bullet":
+                    case "blt_playerlv1":
                         hitHP = 1;
                         break;
                         defualt: break;

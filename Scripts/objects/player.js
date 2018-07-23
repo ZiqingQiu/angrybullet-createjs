@@ -14,7 +14,7 @@ var objects;
         __extends(Player, _super);
         //Constructor
         function Player() {
-            var _this = _super.call(this, "playerlv1") || this;
+            var _this = _super.call(this, "player") || this;
             _this.Start();
             return _this;
         }
@@ -65,7 +65,7 @@ var objects;
         };
         Player.prototype.BulletFire = function () {
             if (this.alpha == 1 && managers.Game.keyboardManager.fire) {
-                managers.Game.bulletManager.BulletFire("playerlv1", this.x, this.y, this.halfHeight);
+                managers.Game.bulletManager.BulletFire("player", this.x, this.y, this.halfHeight);
             }
         };
         //this method provides get hit update for the player object

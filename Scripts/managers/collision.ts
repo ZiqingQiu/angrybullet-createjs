@@ -17,14 +17,14 @@ module managers {
                             }
                             break;
                         case "tie":
-                            if (object1.name == "playerlv1")
+                            if (object1.name == "player")
                             {
                                 //downcast to player object
                                 (object1 as objects.Player).GetHit();
 
                                 (object2 as objects.TIE).GetHit(object1.name);
                             }
-                            else if (object1.name == "bullet")
+                            else if (object1.name == "blt_playerlv1")
                             {
                                 //update TIE lifes and explosions
                                 (object2 as objects.TIE).GetHit(object1.name);
@@ -37,7 +37,7 @@ module managers {
                         case "enemy":
                                 //downcast to player enemy
                                 (object2 as objects.Enemy).GetHit();
-                                if (object1.name == "bullet")
+                                if (object1.name == "blt_playerlv1")
                                 {
                                     //make bullet disappear
                                     (object1 as objects.Bullet).DisappearBullet();
