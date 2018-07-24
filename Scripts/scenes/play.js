@@ -91,6 +91,7 @@ var scenes;
             }
         };
         PlayScene.prototype.Destroy = function () {
+            this._engineSound.stop();
             this.removeAllChildren();
         };
         PlayScene.prototype.Main = function () {

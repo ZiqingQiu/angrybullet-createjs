@@ -15,7 +15,8 @@
     // let stats: Stats;
     textureAtlasData = {
         "images": [
-            "./Assets/sprites/textureAtlas.png"
+            ""
+            //"./Assets/sprites/textureAtlas.png"
         ],
         "frames": [
             [1, 1, 11, 28, 0, 0, 0],
@@ -89,7 +90,6 @@
     function Init() {
         console.log("Init Function...");
         //load assets
-        textureAtlas = new createjs.SpriteSheet(textureAtlasData);
         assetManager = new createjs.LoadQueue();
         assetManager.installPlugin(createjs.Sound);
         assetManager.loadManifest(assetManifest);
@@ -102,6 +102,8 @@
     }
     function Start() {
         console.log("%c Start Function...", "font-weight:bold; font-size:20px; color:red");
+        textureAtlasData.images = [assetManager.getResult("textureAtlas")];
+        textureAtlas = new createjs.SpriteSheet(textureAtlasData);
         InitStats();
         stage = new createjs.Stage(canvas);
         createjs.Ticker.framerate = 60; //60 frames per second

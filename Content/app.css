@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Starjedi';
+    src: url('../Assets/fonts/starjedi.woff2') format('woff2'),
+         url('../Assets/fonts/starjedi.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
 #canvas{
     border-radius: 1px blackdotted;
     background-color: white;

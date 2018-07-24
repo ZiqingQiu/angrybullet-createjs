@@ -118,6 +118,7 @@ module scenes {
         }
 
         public Destroy():void {
+            this._engineSound.stop();
             this.removeAllChildren();
         }
 

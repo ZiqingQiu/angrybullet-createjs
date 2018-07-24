@@ -27,7 +27,7 @@ var scenes;
         //Initialize Game Variables and objects
         StartScene.prototype.Start = function () {
             this._space = new objects.Space();
-            this._welcomeLabel = new objects.Label("STAR WARS", "60px", "Consolas", "#FFFF00", 320, 240, true);
+            this._welcomeLabel = new objects.Label("Start Game", "50px", "Starjedi", "#FFFF00", 270, 220, true);
             this._startButtton = new objects.Button("startButton", 320, 340);
             this.Main();
         };

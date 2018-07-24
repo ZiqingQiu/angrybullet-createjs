@@ -25,7 +25,7 @@ module scenes {
         //Initialize Game Variables and objects
         public Start(): void {
             this._space = new objects.Space();
-            this._overLabel = new objects.Label("Game Over", "60px", "Consolas", "#000000", 320, 140, true);
+            this._overLabel = new objects.Label("Game over", "50px", "Starjedi", "#FFFF00", 310, 140, true);
             this._backButtton = new objects.Button("restartButton", 320, 340);
 
             this._scoreboard = new managers.ScoreBoard();
