@@ -46,8 +46,8 @@
     [439, 244, 32, 32, 0, 0, 0],
     [473, 244, 32, 32, 0, 0, 0],
     [1, 311, 32, 32, 0, 0, 0],
-    [35, 311, 200, 50, 0, 0, 0],
-    [237, 311, 98, 85, 0, 0, 0]
+    [35, 311, 187, 80, 0, 0, 0],
+    [224, 311, 98, 85, 0, 0, 0]
 ],
 
 "animations": {
@@ -67,7 +67,7 @@
 },
 
 "texturepacker": [
-        "SmartUpdateHash: $TexturePacker:SmartUpdate:fde2b4a5d0bca817956bf9785e96824f:90747fa0fd101ff6ea853505e0dc85c0:2b5604bc88faefd55ddac16e9bce1532$",
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:0bce69d3cb48d86a0039a902ffeb35d4:0c8b55912d245de05edbbba14eeb10d4:2b5604bc88faefd55ddac16e9bce1532$",
         "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
 ]
 
