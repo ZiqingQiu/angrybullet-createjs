@@ -20,6 +20,8 @@
 /// <reference path="../objects/TIE.ts" />
 /// <reference path="../../Scripts/objects/button.ts" />
 /// <reference path="../../Scripts/scenes/over.ts" />
+/// <reference path="../../Scripts/scenes/level1final.ts" />
 /// <reference path="../../Scripts/scenes/play.ts" />
+/// <reference path="../../Scripts/scenes/instruction.ts" />
 /// <reference path="../../Scripts/scenes/start.ts" />
 //# sourceMappingURL=_references.js.map

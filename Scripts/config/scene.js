@@ -14,7 +14,8 @@ var config;
         Scene[Scene["START"] = 0] = "START";
         Scene[Scene["INSTRUCTION"] = 1] = "INSTRUCTION";
         Scene[Scene["PLAY"] = 2] = "PLAY";
-        Scene[Scene["OVER"] = 3] = "OVER";
+        Scene[Scene["LEVE1_FINAL"] = 3] = "LEVE1_FINAL";
+        Scene[Scene["OVER"] = 4] = "OVER";
     })(Scene = config.Scene || (config.Scene = {}));
 })(config || (config = {}));
 //# sourceMappingURL=scene.js.map

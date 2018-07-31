@@ -12,6 +12,7 @@ module config {
         START,
         INSTRUCTION,
         PLAY,
+        LEVE1_FINAL,
         OVER
     }
 }
