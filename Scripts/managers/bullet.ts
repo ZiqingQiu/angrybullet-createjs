@@ -1,4 +1,13 @@
 
+/*
+* File name: bullet.ts
+* Author: Ziqing(James) Qiu 300919236
+* Last modified by: Ziqing(James) Qiu
+* Date last modified: Jul 30 2018
+* Description: manage the bullet types
+* Revision history:
+* June 24 2018 created file
+*/
 type BulletInfo = { name: string; isenabled: boolean; totalcnt: number; curcnt: number; tickerPeriod: number; ref: objects.Bullet[] };
 
 module managers {
@@ -45,7 +54,7 @@ module managers {
 
         public Update(): void {
         //only update the bullet that has been enabled
-            for (let idx: number = 0; idx < this._objBulletMap.length; idx ++)
+            for (let idx: number = 0; idx < this._objBulletMap.keys.length; idx ++)
             {
                 for (let bulletidx: number = 0; bulletidx < this._objBulletMap[idx].BulletInfo.length; bulletidx ++)
                 {

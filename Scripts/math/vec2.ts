@@ -1,3 +1,12 @@
+/*
+* File name: vec2.ts
+* Author: Ziqing(James) Qiu 300919236
+* Last modified by: Ziqing(James) Qiu
+* Date last modified: Jul 30 2018
+* Description: manages the distance calculation between two objects
+* Revision history:
+* June 24 2018 created file
+*/
 module math {
     export class Vec2 extends createjs.Point {
 

@@ -8,6 +8,15 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/*
+* File name: vec2.ts
+* Author: Ziqing(James) Qiu 300919236
+* Last modified by: Ziqing(James) Qiu
+* Date last modified: Jul 30 2018
+* Description: manages the distance calculation between two objects
+* Revision history:
+* June 24 2018 created file
+*/
 var math;
 (function (math) {
     var Vec2 = /** @class */ (function (_super) {

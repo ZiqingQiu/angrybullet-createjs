@@ -1,3 +1,12 @@
+/*
+* File name: coin.ts
+* Author: Ziqing(James) Qiu 300919236
+* Last modified by: Ziqing(James) Qiu
+* Date last modified: Jul 30 2018
+* Description: defines the game object of coin
+* Revision history:
+* June 24 2018 created file
+*/
 module objects {
     export class Coin extends objects.GameObject {
         //Private instance variables

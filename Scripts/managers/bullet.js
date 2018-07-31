@@ -29,7 +29,7 @@ var managers;
         };
         Bullet.prototype.Update = function () {
             //only update the bullet that has been enabled
-            for (var idx = 0; idx < this._objBulletMap.length; idx++) {
+            for (var idx = 0; idx < this._objBulletMap.keys.length; idx++) {
                 for (var bulletidx = 0; bulletidx < this._objBulletMap[idx].BulletInfo.length; bulletidx++) {
                     if (this._objBulletMap[idx].BulletInfo[bulletidx].isenabled) {
                         this._objBulletMap[idx].BulletInfo[bulletidx].ref.forEach(function (bullet) { bullet.Update(); });

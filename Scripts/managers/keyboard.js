@@ -1,3 +1,12 @@
+/*
+* File name: keyboard.ts
+* Author: Ziqing(James) Qiu 300919236
+* Last modified by: Ziqing(James) Qiu
+* Date last modified: Jul 30 2018
+* Description: handle keyboard event listener
+* Revision history:
+* June 24 2018 created file
+*/
 var managers;
 (function (managers) {
     var Keyboard = /** @class */ (function () {

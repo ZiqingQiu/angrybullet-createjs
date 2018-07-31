@@ -1,3 +1,12 @@
+/*
+* File name: keys.ts
+* Author: Ziqing(James) Qiu 300919236
+* Last modified by: Ziqing(James) Qiu
+* Date last modified: Jul 30 2018
+* Description: contains all the keys and its ASCII code
+* Revision history:
+* June 24 2018 created file
+*/
 var config;
 (function (config) {
     var Keys = /** @class */ (function () {

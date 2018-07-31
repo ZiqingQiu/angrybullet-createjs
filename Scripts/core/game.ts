@@ -1,3 +1,13 @@
+/*
+* File name: game.ts
+* Author: Ziqing(James) Qiu 300919236
+* Last modified by: Ziqing(James) Qiu
+* Date last modified: Jul 30 2018
+* Description: holds all the main logic of the game
+* Revision history:
+* June 24 2018 created file
+*/
+
 /// <reference path="_references.ts"/>
 
 //IIFE -- Immediately Invoked Function Expression

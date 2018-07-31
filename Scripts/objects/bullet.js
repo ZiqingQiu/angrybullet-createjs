@@ -8,6 +8,15 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/*
+* File name: bullet.ts
+* Author: Ziqing(James) Qiu 300919236
+* Last modified by: Ziqing(James) Qiu
+* Date last modified: Jul 30 2018
+* Description: defines the game object of bullets
+* Revision history:
+* June 24 2018 created file
+*/
 var objects;
 (function (objects) {
     var Bullet = /** @class */ (function (_super) {

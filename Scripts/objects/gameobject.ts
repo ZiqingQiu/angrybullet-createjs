@@ -1,3 +1,12 @@
+/*
+* File name: gameobject.ts
+* Author: Ziqing(James) Qiu 300919236
+* Last modified by: Ziqing(James) Qiu
+* Date last modified: Jul 30 2018
+* Description: defines the sub class of game object
+* Revision history:
+* June 24 2018 created file
+*/
 module objects {
     export abstract class GameObject extends createjs.Sprite {
         //private instance variables

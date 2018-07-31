@@ -1,3 +1,12 @@
+/*
+* File name: explosion.ts
+* Author: Ziqing(James) Qiu 300919236
+* Last modified by: Ziqing(James) Qiu
+* Date last modified: Jul 30 2018
+* Description: defines the game object of explosion
+* Revision history:
+* June 24 2018 created file
+*/
 module objects {
     export class Explosion extends objects.GameObject {
         //private instance variables
