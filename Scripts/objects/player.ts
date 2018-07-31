@@ -36,19 +36,27 @@ module objects {
         }
 
         public Move(): void {
-            //mouse controls
-            //this.x = objects.Game.stage.mouseX;
-
             //keyboard controls
             if (managers.Game.keyboardManager.moveLeft)
             {
-                this.x -= 5;
+                this.x -= 3;
             }
 
             if (managers.Game.keyboardManager.moveRight)
             {
-                this.x += 5;
+                this.x += 3;
             }
+
+            if (managers.Game.keyboardManager.moveForward)
+            {
+                this.y -= 5;
+            }
+
+            if (managers.Game.keyboardManager.moveBackward)
+            {
+                this.y += 2;
+            }
+
 
             this.planeFlash.x = this.x;
             this.planeFlash.y = this.y;
@@ -64,6 +72,16 @@ module objects {
             if (this.x <= this.halfWidth)
             {
                 this.x = this.halfWidth;
+            }
+            //bottom boundary
+            if (this.y >= config.Screen.HEIGHT - this.halfHeight)
+            {
+                this.y = config.Screen.HEIGHT  - this.halfHeight;
+            }
+            //upper boundary
+            if (this.y <= this.halfHeight)
+            {
+                this.y = this.halfHeight;
             }
         }
 
