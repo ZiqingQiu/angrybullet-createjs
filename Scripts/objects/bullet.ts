@@ -14,8 +14,10 @@ module objects {
 
 
         //constructors
-        constructor(bulletType: string) {
+        constructor(bulletType: string, dx: number, dy: number) {
             super(bulletType);
+            this._dx = dx;
+            this._dy = dy;
             this.Start();
         }
 

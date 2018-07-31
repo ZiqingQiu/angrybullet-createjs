@@ -16,7 +16,7 @@ module objects {
 
         //Constructor
         constructor() {
-            super("player");
+            super("player_lv1");
             this.Start();
         }
         //Private Methods

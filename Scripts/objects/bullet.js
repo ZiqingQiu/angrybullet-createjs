@@ -24,8 +24,10 @@ var objects;
         //private instance variables
         //public properties
         //constructors
-        function Bullet(bulletType) {
+        function Bullet(bulletType, dx, dy) {
             var _this = _super.call(this, bulletType) || this;
+            _this._dx = dx;
+            _this._dy = dy;
             _this.Start();
             return _this;
         }

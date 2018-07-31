@@ -23,7 +23,7 @@ var objects;
         __extends(Player, _super);
         //Constructor
         function Player() {
-            var _this = _super.call(this, "player") || this;
+            var _this = _super.call(this, "player_lv1") || this;
             _this.Start();
             return _this;
         }
