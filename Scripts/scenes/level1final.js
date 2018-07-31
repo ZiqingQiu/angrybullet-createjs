@@ -88,7 +88,7 @@ var scenes;
         //public methods
         Level1FinalScene.prototype.Start = function () {
             this._space = new objects.Space();
-            this._boss1 = new objects.BOSS1();
+            this._boss1 = new objects.Level1BOSS();
             this._boss1.alpha = 0;
             this._warnLabel = new objects.Label("be aware", "50px", "Starjedi", "#FFFF00", 300, 150, true);
             this._bossHPLabel = new objects.Label("boss hp ", "20px", "Starjedi", "#FFFF00", 260, 10, false);
@@ -98,7 +98,7 @@ var scenes;
         Level1FinalScene.prototype.Update = function () {
             var _this = this;
             console.log("num objects: " + this.numChildren);
-            this._ocean.Update();
+            this._space.Update();
             this._boss1.Update();
             this._player.Update();
             this._bulletManager.Update();
@@ -136,7 +136,7 @@ var scenes;
         };
         Level1FinalScene.prototype.Main = function () {
             //add ocean to the scene
-            this.addChild(this._ocean);
+            this.addChild(this._space);
             //add label for 10s
             this.addChild(this._warnLabel);
             //add player to the scene
@@ -145,7 +145,7 @@ var scenes;
             //add boss1 to the scene
             this.addChild(this._boss1);
             //add bullets to the scene
-            managers.Game.bulletManager.RegisterBullet(this, "boss1");
+            managers.Game.bulletManager.RegisterBullet(this, "level1_boss");
             managers.Game.bulletManager.RegisterPlayerPreviousBullet(this);
             //add score board to the scene
             this.addChild(this._scoreBoard.LivesLabel);

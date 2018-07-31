@@ -14,7 +14,7 @@ module scenes {
         private  _warnLabel: objects.Label;
         private _bossHPLabel: objects.Label;  //display BOSS HP
         private _space: objects.Space;
-        private _boss1: objects.BOSS1;
+        private _boss1: objects.Level1BOSS;
         private _player: objects.Player = managers.Game.player;
 
         private _scoreBoard: managers.ScoreBoard;
@@ -44,7 +44,7 @@ module scenes {
         //public methods
         public Start(): void {
             this._space = new objects.Space();
-            this._boss1 = new objects.BOSS1();
+            this._boss1 = new objects.Level1BOSS();
             this._boss1.alpha = 0;
             this._warnLabel = new objects.Label("be aware", "50px", "Starjedi", "#FFFF00", 300, 150, true);
             this._bossHPLabel = new objects.Label("boss hp ", "20px", "Starjedi", "#FFFF00", 260, 10, false);
@@ -55,7 +55,7 @@ module scenes {
         public Update(): void {
             console.log("num objects: " + this.numChildren);
 
-            this._ocean.Update();
+            this._space.Update();
             this._boss1.Update();
             this._player.Update();
 
@@ -104,7 +104,7 @@ module scenes {
 
         public Main(): void {
             //add ocean to the scene
-            this.addChild(this._ocean);
+            this.addChild(this._space);
             //add label for 10s
             this.addChild(this._warnLabel);
             //add player to the scene
@@ -113,7 +113,7 @@ module scenes {
             //add boss1 to the scene
             this.addChild(this._boss1);
             //add bullets to the scene
-            managers.Game.bulletManager.RegisterBullet(this, "boss1");
+            managers.Game.bulletManager.RegisterBullet(this, "level1_boss");
             managers.Game.bulletManager.RegisterPlayerPreviousBullet(this);
 
             //add score board to the scene
