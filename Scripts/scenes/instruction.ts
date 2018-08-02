@@ -84,21 +84,21 @@ module scenes {
             this._kb_d = this._positionKbBtn("kb_d", cur_x, cur_y);
             cur_y += yoffset;
             this._kb_space = this._positionKbBtn("kb_blankspace", cur_x, cur_y);
-            this._fireLabel = this._positionLbl("Fire Missile and Torpedo", cur_x + lblxoffset + xoffset, cur_y);
+            this._fireLabel = this._positionLbl("Fire Missiles", cur_x + lblxoffset + xoffset, cur_y);
 
             cur_y = 100;
             cur_x += xoffset;
             this._kb_up = this._positionKbBtn("kb_up", cur_x, cur_y);
-            this._riseLabel = this._positionLbl("Rising -- Fast", cur_x + lblxoffset, cur_y);
+            this._riseLabel = this._positionLbl("Forward -- Fast", cur_x + lblxoffset, cur_y);
             cur_y += yoffset;
             this._kb_left = this._positionKbBtn("kb_left", cur_x, cur_y);
-            this._forwardLabel = this._positionLbl("Forward -- Fast", cur_x + lblxoffset, cur_y);
+            this._forwardLabel = this._positionLbl("Left -- Slow", cur_x + lblxoffset, cur_y);
             cur_y += yoffset;
             this._kb_down = this._positionKbBtn("kb_down", cur_x, cur_y);
-            this._backwardLabel = this._positionLbl("Dive -- Slow", cur_x + lblxoffset, cur_y);
+            this._backwardLabel = this._positionLbl("Backward -- Slow", cur_x + lblxoffset, cur_y);
             cur_y += yoffset;
             this._kb_right = this._positionKbBtn("kb_right", cur_x, cur_y);
-            this._diveLabel = this._positionLbl("Backward -- Slow", cur_x + lblxoffset, cur_y);
+            this._diveLabel = this._positionLbl("Right -- Slow", cur_x + lblxoffset, cur_y);
 
             //btns
             this._backButtton = new objects.Button("btn_back", 180, 400);
