@@ -110,6 +110,7 @@ var scenes;
             //check player's bullet
             this.CheckPlayerBullet();
             //check enemy's bullet
+            this.CheckEnemyBullet();
         };
         Level1Scene.prototype.Destroy = function () {
             this._engineSound.stop();

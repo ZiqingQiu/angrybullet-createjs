@@ -215,7 +215,7 @@
                 break;
             case config.Scene.INSTRUCTION:
                 currentScene =  new scenes.InstructionScene();
-            break;
+                break;
             case config.Scene.LEVEL1:
                 currentScene =  new scenes.Level1Scene();
                 break;

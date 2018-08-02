@@ -137,7 +137,7 @@ module scenes {
             //check player's bullet
             this.CheckPlayerBullet();
             //check enemy's bullet
-
+            this.CheckEnemyBullet();
 
         }
 

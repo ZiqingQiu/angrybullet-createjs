@@ -53,7 +53,7 @@ module managers {
                                     (object1 as objects.Bullet).DisappearBullet();
                                 }
                             break;
-                        case "player":  //player gets hit by enemy bullet
+                        case "player_lv1":  //player gets hit by enemy bullet
                                 (object2 as objects.Player).GetHit();
                                 if (object1.name.search("enemy") != -1)
                                 {
