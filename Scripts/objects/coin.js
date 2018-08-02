@@ -25,27 +25,29 @@ var objects;
         //Public properties
         //Constructors
         function Coin() {
-            var _this = _super.call(this, "coin") || this;
+            var _this = _super.call(this, "power_up") || this;
             _this.Start();
             return _this;
         }
         //Private methods
         //Public methods
         Coin.prototype.Reset = function () {
-            this.x = Math.floor((Math.random() * (640 - this.width)) + this.halfWidth);
-            this.y = -this.height;
+            this.x = -this.halfWidth;
+            this.y = config.Screen.HALF_HEIGHT;
             this.alpha = 1;
         };
         Coin.prototype.Move = function () {
+            this._dy = Math.floor((Math.random() * 4) - 2);
             this.y += this._dy;
+            this.x += this._dx;
         };
         Coin.prototype.CheckBounds = function () {
-            if (this.y >= (480 + this.height)) {
+            if (this.x >= (config.Screen.WIDTH - this.halfWidth)) {
                 this.Reset();
             }
         };
         Coin.prototype.Start = function () {
-            this._dy = 5;
+            this._dx = 4;
             this.Reset();
         };
         Coin.prototype.Update = function () {

@@ -27,7 +27,7 @@ module scenes {
 
         //Private Methods
         private CheckCollisionWOBullet(): void{
-            //check collision between player and coin
+            //check collision between player and power_up
             managers.Collision.Check(this._player, this._coin);
 
             //check collision between player and current tie

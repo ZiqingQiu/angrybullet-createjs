@@ -18,7 +18,7 @@ module managers {
                 if (!object2.isColliding) {
                     object2.isColliding = true;
                     switch (object2.name) {
-                        case "coin":
+                        case "power_up":
                             if (object2.alpha != 0) {
                                 createjs.Sound.play("coin");
                                 object2.alpha = 0;

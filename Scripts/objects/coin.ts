@@ -15,7 +15,7 @@ module objects {
 
         //Constructors
         constructor() {
-            super("coin");
+            super("power_up");
             this.Start();
         }
 
@@ -24,24 +24,26 @@ module objects {
 
         //Public methods
         public Reset(): void {
-            this.x = Math.floor((Math.random() * (640 - this.width)) + this.halfWidth);
-            this.y = - this.height;
+            this.x = -this.halfWidth;
+            this.y = config.Screen.HALF_HEIGHT;            
             this.alpha = 1;
         }
 
         public Move(): void {
+            this._dy = Math.floor((Math.random() * 4) - 2);
             this.y += this._dy;
+            this.x += this._dx;
         }
 
         public CheckBounds(): void {
-            if (this.y >= (480 + this.height))
+            if (this.x >= (config.Screen.WIDTH - this.halfWidth))
             {
                 this.Reset();
             }
         }
 
         public Start(): void {
-            this._dy = 5;
+            this._dx = 4;
             this.Reset();
         }
 
