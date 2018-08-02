@@ -68,11 +68,11 @@ var managers;
                 case "player":
                     bulletInfo = this._objBulletMap.get(this._lastPlayerRegisterLevel);
                     break;
-                case "warship":
-                    bulletInfo = this._objBulletMap.get("warship");
+                case "tie":
+                    bulletInfo = this._objBulletMap.get("tie");
                     break;
-                case "boss1":
-                    bulletInfo = this._objBulletMap.get("boss1");
+                case "boss_lv1":
+                    bulletInfo = this._objBulletMap.get("boss_bullet_lv1");
                     break;
             }
             for (var idx = 0; idx < bulletInfo.length; idx++) {
@@ -110,7 +110,7 @@ var managers;
                 //### 2 is player level hard code, should be 3
                 for (var lvlidx = 1; lvlidx <= 2; lvlidx++) {
                     if (lvlidx != playerLevel) {
-                        bulletInfo = this._objBulletMap.get("playerlv" + lvlidx);
+                        bulletInfo = this._objBulletMap.get("player_bullet_lv" + lvlidx);
                         for (var idx = 0; idx < bulletInfo.length; idx++) {
                             bulletInfo[idx].isenabled = false;
                             var bullets = bulletInfo[idx].ref;

@@ -113,7 +113,7 @@ module objects {
             if (this.alpha != 0) {
                 createjs.Sound.play("explosion");
                 managers.Game.scoreBoard.Lives -= 1;
-                managers.Game.bulletManager.RegisterBullet(managers.Game.currentSceneObject, "playerlv1");                
+                managers.Game.bulletManager.RegisterBullet(managers.Game.currentSceneObject, "player_bullet_lv1");                
 
                 let explosion = new objects.Explosion("explosion");
                 explosion.x = this.x;

@@ -99,11 +99,11 @@ module managers {
                 case "player":
                     bulletInfo = this._objBulletMap.get(this._lastPlayerRegisterLevel);
                     break;
-                case "warship":
-                    bulletInfo = this._objBulletMap.get("warship");
+                case "tie":
+                    bulletInfo = this._objBulletMap.get("tie");
                     break;
-                case "boss1":
-                    bulletInfo = this._objBulletMap.get("boss1");
+                case "boss_lv1":
+                    bulletInfo = this._objBulletMap.get("boss_bullet_lv1");
                     break;
             }
 
@@ -148,7 +148,7 @@ module managers {
                 //### 2 is player level hard code, should be 3
                 for (let lvlidx: number = 1; lvlidx <= 2; lvlidx++) {
                     if (lvlidx != playerLevel) {
-                        bulletInfo = this._objBulletMap.get("playerlv" + lvlidx);
+                        bulletInfo = this._objBulletMap.get("player_bullet_lv" + lvlidx);
                         for (let idx: number = 0; idx < bulletInfo.length; idx++) {
                             bulletInfo[idx].isenabled = false;
                             let bullets: objects.Bullet[] = bulletInfo[idx].ref;
