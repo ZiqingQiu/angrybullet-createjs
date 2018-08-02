@@ -135,6 +135,7 @@ module scenes {
 
             //add bullets to the scene
             managers.Game.bulletManager.RegisterBullet(this, "player_bullet_lv1");
+            managers.Game.bulletManager.RegisterBullet(this, "tie_bullet_lv1");
             //add ties to the scene
             this._tie.forEach(tie => {
                 this.addChild(tie);

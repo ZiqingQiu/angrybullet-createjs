@@ -24,8 +24,8 @@ module objects {
             this.x = Math.floor((Math.random() * (640 - this.width)) + this.halfWidth);
             this.y = - this.height;
             //drift randomly
-            this._dx = Math.floor((Math.random() * 4) - 2);
-            this._dy = Math.floor((Math.random() * 5) + 5);
+            this._dx = Math.floor((Math.random() * 2) - 1);
+            this._dy = Math.floor((Math.random() * 2) + 2);
             //reset enemy
             this._hp = 3;
             //reset alpha
@@ -61,6 +61,7 @@ module objects {
         public Update(): void {
             this.Move();
             this.CheckBounds();
+            this.BulletFire();
         }
 
         public GetHit(hitType: string): void {
@@ -95,6 +96,13 @@ module objects {
                     //reset enemy
                     this.Reset();
                 }                
+            }
+        }
+
+        public BulletFire(): void {
+            if (this.alpha == 1)
+            {
+                managers.Game.bulletManager.BulletFire("tie_bullet_lv1", this.x, this.y, this.halfHeight);
             }
         }
     }

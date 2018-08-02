@@ -34,8 +34,6 @@ var objects;
         //private methods
         //public methods
         Bullet.prototype.Start = function () {
-            this._dx = 0;
-            this._dy = -10;
             this.Reset();
         };
         Bullet.prototype.Update = function () {

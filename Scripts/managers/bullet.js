@@ -34,15 +34,13 @@ var managers;
             });
             this._objBulletMap.set("player_bullet_lv2", blt_playerlv2Array);
             //TIE
-            //add bomb
             var blt_tieArray = [];
             blt_tieArray.push({
-                name: "bomb", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: 2,
-                offset_x: 0, offset_y: 30, ref: this._buildBulletPool("bomb", 20, 0, 2)
+                name: "blt_laser_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 50, dx: 0, dy: 20,
+                offset_x: 0, offset_y: 40, ref: this._buildBulletPool("blt_laser_lv1", 10, 0, 20)
             });
             this._objBulletMap.set("tie_bullet_lv1", blt_tieArray);
             //boss1
-            //add bomb
             var blt_boss1Array = [];
             blt_boss1Array.push({
                 name: "bomb", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: 2,
@@ -68,8 +66,8 @@ var managers;
                 case "player":
                     bulletInfo = this._objBulletMap.get(this._lastPlayerRegisterLevel);
                     break;
-                case "tie":
-                    bulletInfo = this._objBulletMap.get("tie");
+                case "tie_bullet_lv1":
+                    bulletInfo = this._objBulletMap.get("tie_bullet_lv1");
                     break;
                 case "boss_lv1":
                     bulletInfo = this._objBulletMap.get("boss_bullet_lv1");

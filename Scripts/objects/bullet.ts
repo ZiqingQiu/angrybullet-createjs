@@ -26,8 +26,6 @@ module objects {
 
         //public methods
         public Start(): void {
-            this._dx = 0;
-            this._dy = -10;
             this.Reset();            
         }
 
