@@ -1,15 +1,15 @@
 /*
-* File name: enemy.ts
+* File name: slaveI.ts
 * Author: Ziqing(James) Qiu 300919236
 * Last modified by: Ziqing(James) Qiu
 * Date last modified: Jul 30 2018
-* Description: defines the game object of enemy
+* Description: defines the game object of slaveI
 * Revision history:
 * June 24 2018 created file
 */
 
 module objects {
-    export class Enemy extends objects.GameObject {
+    export class slaveI extends objects.GameObject {
         //Private Instance Variables
 
 
@@ -17,7 +17,7 @@ module objects {
 
         //Constructor
         constructor() {
-            super("enemy");
+            super("slaveI");
             this.Start();
         }
         //Private Methods

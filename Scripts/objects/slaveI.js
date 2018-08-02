@@ -1,9 +1,9 @@
 /*
-* File name: enemy.ts
+* File name: slaveI.ts
 * Author: Ziqing(James) Qiu 300919236
 * Last modified by: Ziqing(James) Qiu
 * Date last modified: Jul 30 2018
-* Description: defines the game object of enemy
+* Description: defines the game object of slaveI
 * Revision history:
 * June 24 2018 created file
 */
@@ -19,26 +19,26 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var Enemy = /** @class */ (function (_super) {
-        __extends(Enemy, _super);
+    var slaveI = /** @class */ (function (_super) {
+        __extends(slaveI, _super);
         //Private Instance Variables
         //Public Properties
         //Constructor
-        function Enemy() {
-            var _this = _super.call(this, "enemy") || this;
+        function slaveI() {
+            var _this = _super.call(this, "slaveI") || this;
             _this.Start();
             return _this;
         }
         //Private Methods
-        Enemy.prototype.Reset = function () {
+        slaveI.prototype.Reset = function () {
             this.x = Math.floor((Math.random() * (640 - this.width)) + this.halfWidth);
             this.y = -this.height;
             this.alpha = 0;
         };
-        Enemy.prototype.Move = function () {
+        slaveI.prototype.Move = function () {
             this.y += this._dy;
         };
-        Enemy.prototype.CheckBounds = function () {
+        slaveI.prototype.CheckBounds = function () {
             if (this.y >= 0 && this.alpha == 0) {
                 this.alpha = 1;
             }
@@ -48,15 +48,15 @@ var objects;
             }
         };
         //Public Methods
-        Enemy.prototype.Start = function () {
+        slaveI.prototype.Start = function () {
             this._dy = 10;
             this.Reset();
         };
-        Enemy.prototype.Update = function () {
+        slaveI.prototype.Update = function () {
             this.Move();
             this.CheckBounds();
         };
-        Enemy.prototype.GetHit = function () {
+        slaveI.prototype.GetHit = function () {
             if (this.alpha != 0) {
                 //add explosion
                 createjs.Sound.play("explosion");
@@ -70,8 +70,8 @@ var objects;
                 this.Reset();
             }
         };
-        return Enemy;
+        return slaveI;
     }(objects.GameObject));
-    objects.Enemy = Enemy;
+    objects.slaveI = slaveI;
 })(objects || (objects = {}));
-//# sourceMappingURL=enemy.js.map
+//# sourceMappingURL=slaveI.js.map

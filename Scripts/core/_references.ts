@@ -18,7 +18,7 @@
 /// <reference path="../../Scripts/managers/collision.ts" />
 
 /// <reference path="../../Scripts/objects/space.ts" />
-/// <reference path="../../Scripts/objects/enemy.ts" />
+/// <reference path="../../Scripts/objects/slaveI.ts" />
 /// <reference path="../../Scripts/objects/bullet.ts" />
 /// <reference path="../../Scripts/objects/level1_boss.ts" />
 /// <reference path="../../Scripts/objects/player.ts" />

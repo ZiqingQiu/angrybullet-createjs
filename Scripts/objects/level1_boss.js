@@ -78,7 +78,7 @@ var objects;
                 explosion.x = this.x;
                 explosion.y = this.y;
                 managers.Game.currentSceneObject.addChild(explosion);
-                //points for destroy enemy
+                //points for destroy slaveI
                 managers.Game.scoreBoard.addScore(300);
                 var hitHP = 1;
                 switch (hitType) {

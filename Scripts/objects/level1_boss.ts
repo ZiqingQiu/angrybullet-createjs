@@ -81,7 +81,7 @@ module objects {
                 explosion.x = this.x;
                 explosion.y = this.y;
                 managers.Game.currentSceneObject.addChild(explosion);
-                //points for destroy enemy
+                //points for destroy slaveI
                 managers.Game.scoreBoard.addScore(300);
 
                 let hitHP: number = 1;

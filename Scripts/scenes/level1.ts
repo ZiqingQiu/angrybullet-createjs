@@ -13,7 +13,7 @@ module scenes {
         private _engineSound: createjs.AbstractSoundInstance;
 
         private _coin: objects.Coin;
-        private _enemy: objects.Enemy;
+        private _slaveI: objects.slaveI;
 
         //Public Properties
 
@@ -49,8 +49,8 @@ module scenes {
                     {
                         if (bullet.alpha == 1)
                         {
-                            //check collision player-bullet -- enemy
-                            managers.Collision.Check(bullet, this._enemy);  
+                            //check collision player-bullet -- slaveI
+                            managers.Collision.Check(bullet, this._slaveI);  
                         }
 
                         if (bullet.alpha == 1)
@@ -99,7 +99,7 @@ module scenes {
             managers.Game.bulletManager =  this._bulletManager;
 
             //create an enemy
-            this._enemy = new objects.Enemy();
+            this._slaveI = new objects.slaveI();
 
             this._coin = new objects.Coin();
 
@@ -127,7 +127,7 @@ module scenes {
             console.log("num objects: " + this.numChildren);
             this._space.Update();
             this._player.Update();
-            this._enemy.Update();
+            this._slaveI.Update();
             this._bulletManager.Update();
             //to be refine later
             this._coin.Update();
@@ -156,7 +156,7 @@ module scenes {
             this.addChild(this._player);
             this.addChild(this._player.planeFlash);    
             //add enemy to the scene
-            this.addChild(this._enemy);
+            this.addChild(this._slaveI);
 
             //add bullets to the scene
             managers.Game.bulletManager.RegisterBullet(this, "player_bullet_lv1");

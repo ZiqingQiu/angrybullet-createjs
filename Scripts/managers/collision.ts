@@ -44,18 +44,18 @@ module managers {
                             }
 
                             break;
-                        case "enemy":
-                                //downcast to player enemy
-                                (object2 as objects.Enemy).GetHit();
+                        case "slaveI":
+                                //downcast to player slaveI
+                                (object2 as objects.slaveI).GetHit();
                                 if (object1.name.search("laser") != -1)
                                 {
                                     //make bullet disappear
                                     (object1 as objects.Bullet).DisappearBullet();
                                 }
                             break;
-                        case "player_lv1":  //player gets hit by enemy bullet
+                        case "player_lv1":  //player gets hit by slaveI bullet
                                 (object2 as objects.Player).GetHit();
-                                if (object1.name.search("enemy") != -1)
+                                if (object1.name.search("slaveI") != -1)
                                 {
                                     //make bullet disappear
                                     (object1 as objects.Bullet).DisappearBullet();

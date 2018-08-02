@@ -40,8 +40,8 @@ var scenes;
                 bullets = managers.Game.bulletManager.GetBullets("player", bulletIdxArray[idx]);
                 bullets.forEach(function (bullet) {
                     if (bullet.alpha == 1) {
-                        //check collision player-bullet -- enemy
-                        managers.Collision.Check(bullet, _this._enemy);
+                        //check collision player-bullet -- slaveI
+                        managers.Collision.Check(bullet, _this._slaveI);
                     }
                     if (bullet.alpha == 1) {
                         //check collision player-bullet -- TIE
@@ -80,7 +80,7 @@ var scenes;
             this._bulletManager = new managers.Bullet();
             managers.Game.bulletManager = this._bulletManager;
             //create an enemy
-            this._enemy = new objects.Enemy();
+            this._slaveI = new objects.slaveI();
             this._coin = new objects.Coin();
             //inistantiate the TIE array
             this._tieNum = 2;
@@ -101,7 +101,7 @@ var scenes;
             console.log("num objects: " + this.numChildren);
             this._space.Update();
             this._player.Update();
-            this._enemy.Update();
+            this._slaveI.Update();
             this._bulletManager.Update();
             //to be refine later
             this._coin.Update();
@@ -127,7 +127,7 @@ var scenes;
             this.addChild(this._player);
             this.addChild(this._player.planeFlash);
             //add enemy to the scene
-            this.addChild(this._enemy);
+            this.addChild(this._slaveI);
             //add bullets to the scene
             managers.Game.bulletManager.RegisterBullet(this, "player_bullet_lv1");
             managers.Game.bulletManager.RegisterBullet(this, "tie_bullet_lv1");
