@@ -186,10 +186,10 @@
             case config.Scene.INSTRUCTION:
                 currentScene = new scenes.InstructionScene();
                 break;
-            case config.Scene.PLAY:
-                currentScene = new scenes.PlayScene();
+            case config.Scene.LEVEL1:
+                currentScene = new scenes.Level1Scene();
                 break;
-            case config.Scene.LEVE1_FINAL:
+            case config.Scene.LEVEL1_FINAL:
                 currentScene = new scenes.Level1FinalScene();
                 break;
             case config.Scene.OVER:

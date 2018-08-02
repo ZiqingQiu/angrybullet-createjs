@@ -48,6 +48,13 @@ var managers;
                                 object1.DisappearBullet();
                             }
                             break;
+                        case "player": //player gets hit by enemy bullet
+                            object2.GetHit();
+                            if (object1.name.search("enemy") != -1) {
+                                //make bullet disappear
+                                object1.DisappearBullet();
+                            }
+                            break;
                     }
                 }
             }

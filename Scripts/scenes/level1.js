@@ -10,19 +10,69 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var PlayScene = /** @class */ (function (_super) {
-        __extends(PlayScene, _super);
+    var Level1Scene = /** @class */ (function (_super) {
+        __extends(Level1Scene, _super);
         //Public Properties
         //Constructor
-        function PlayScene() {
+        function Level1Scene() {
             var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }
         //Private Methods
+        Level1Scene.prototype.CheckCollisionWOBullet = function () {
+            var _this = this;
+            //check collision between player and coin
+            managers.Collision.Check(this._player, this._coin);
+            //check collision between player and current tie
+            this._tie.forEach(function (tie) {
+                tie.Update();
+                managers.Collision.Check(_this._player, tie);
+            });
+        };
+        Level1Scene.prototype.CheckPlayerBullet = function () {
+            var _this = this;
+            //check collision with player's bullets
+            var bulletIdxArray = [];
+            var bullets = [];
+            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("player");
+            for (var idx = 0; idx < bulletIdxArray.length; idx++) {
+                bullets = managers.Game.bulletManager.GetBullets("player", bulletIdxArray[idx]);
+                bullets.forEach(function (bullet) {
+                    if (bullet.alpha == 1) {
+                        //check collision player-bullet -- enemy
+                        managers.Collision.Check(bullet, _this._enemy);
+                    }
+                    if (bullet.alpha == 1) {
+                        //check collision player-bullet -- TIE
+                        for (var count = 0; count < _this._tieNum; count++) {
+                            if (_this._tie[count].alpha == 1) {
+                                managers.Collision.Check(bullet, _this._tie[count]);
+                            }
+                        }
+                    }
+                });
+            }
+        };
+        Level1Scene.prototype.CheckEnemyBullet = function () {
+            var _this = this;
+            var bulletIdxArray = [];
+            var bullets = [];
+            //check collision with tie's bullets
+            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("tie_bullet_lv1");
+            for (var idx = 0; idx < bulletIdxArray.length; idx++) {
+                bullets = managers.Game.bulletManager.GetBullets("tie_bullet_lv1", bulletIdxArray[idx]);
+                bullets.forEach(function (bullet) {
+                    if (bullet.alpha == 1) {
+                        //check collision enemy-bullet -- player
+                        managers.Collision.Check(bullet, _this._player);
+                    }
+                });
+            }
+        };
         //Public Methods
         //Initialize Game Variables and objects
-        PlayScene.prototype.Start = function () {
+        Level1Scene.prototype.Start = function () {
             this._space = new objects.Space();
             this._player = new objects.Player();
             managers.Game.player = this._player;
@@ -47,8 +97,7 @@ var scenes;
             this.Main();
         };
         //triggered every frame
-        PlayScene.prototype.Update = function () {
-            var _this = this;
+        Level1Scene.prototype.Update = function () {
             console.log("num objects: " + this.numChildren);
             this._space.Update();
             this._player.Update();
@@ -56,44 +105,17 @@ var scenes;
             this._bulletManager.Update();
             //to be refine later
             this._coin.Update();
-            //check collision between player and coin
-            managers.Collision.Check(this._player, this._coin);
-            this._tie.forEach(function (tie) {
-                tie.Update();
-                //check collision between player and current tie
-                managers.Collision.Check(_this._player, tie);
-            });
-            var bulletIdxArray = [];
-            var bullets = [];
-            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("player");
-            for (var idx = 0; idx < bulletIdxArray.length; idx++) {
-                bullets = managers.Game.bulletManager.GetBullets("player", bulletIdxArray[idx]);
-                bullets.forEach(function (bullet) {
-                    if (bullet.alpha == 1) {
-                        //check collision player-bullet -- enemy
-                        managers.Collision.Check(bullet, _this._enemy);
-                    }
-                    if (bullet.alpha == 1) {
-                        //check collision player-bullet -- TIE
-                        for (var count = 0; count < _this._tieNum; count++) {
-                            if (_this._tie[count].alpha == 1) {
-                                managers.Collision.Check(bullet, _this._tie[count]);
-                            }
-                        }
-                    }
-                });
-            }
-            //if lives fall below zero, switch to game over scene
-            if (this._scoreBoard.Lives <= 0) {
-                this._engineSound.stop();
-                managers.Game.currentScene = config.Scene.OVER;
-            }
+            //check collision without bullets
+            this.CheckCollisionWOBullet();
+            //check player's bullet
+            this.CheckPlayerBullet();
+            //check enemy's bullet
         };
-        PlayScene.prototype.Destroy = function () {
+        Level1Scene.prototype.Destroy = function () {
             this._engineSound.stop();
             this.removeAllChildren();
         };
-        PlayScene.prototype.Main = function () {
+        Level1Scene.prototype.Main = function () {
             var _this = this;
             //pay attention the orders
             //add space to the scene
@@ -116,8 +138,8 @@ var scenes;
             this.addChild(this._scoreBoard.LivesLabel);
             this.addChild(this._scoreBoard.ScoreLabel);
         };
-        return PlayScene;
+        return Level1Scene;
     }(objects.Scene));
-    scenes.PlayScene = PlayScene;
+    scenes.Level1Scene = Level1Scene;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=play.js.map
+//# sourceMappingURL=level1.js.map

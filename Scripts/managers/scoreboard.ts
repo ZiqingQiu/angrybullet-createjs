@@ -74,15 +74,28 @@ module managers {
             if (roundScore != ScoreBoard._quotient) {
                 console.log(roundScore + " " + ScoreBoard._quotient)
                 ScoreBoard._quotient = roundScore;
-                this.Lives += 1;
+                this.updateLifes(1);
                 createjs.Sound.play("life");
             }
             if (managers.Game.HighScore < this.Score) {
                 this.HighScore = this.Score;
                 managers.Game.HighScore = this.HighScore;
             }
+            //not boss scene
+            if (this.Score >= 2000 && managers.Game.currentScene % 2 == 0)
+            {
+                //### switch scene
+                managers.Game.currentScene = managers.Game.currentScene + 1;
+            }
         }
 
+        public updateLifes(life: number): void {
+            this.Lives += life;
+            if (this.Lives <= 0)
+            {
+                managers.Game.currentScene = config.Scene.OVER; 
+            }
+        }
 
     }
 }

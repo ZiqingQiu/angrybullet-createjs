@@ -57,7 +57,7 @@ module scenes {
 
 
         private _playButtonClick(): void{
-            managers.Game.currentScene = config.Scene.PLAY;
+            managers.Game.currentScene = config.Scene.LEVEL1;
         }
 
         private _backButtonClick(): void{

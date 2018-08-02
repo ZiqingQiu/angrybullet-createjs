@@ -20,7 +20,7 @@ var scenes;
         }
         //Private Methods
         OverScene.prototype._restartButtonClick = function () {
-            managers.Game.currentScene = config.Scene.PLAY;
+            managers.Game.currentScene = config.Scene.LEVEL1;
         };
         //Public Methods
         //Initialize Game Variables and objects

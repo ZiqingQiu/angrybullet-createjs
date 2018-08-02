@@ -6,13 +6,18 @@
 * Description: contains all the scene types
 * Revision history:
 * June 24 2018 created file
+* Aug 2 2018 add all the three levels to scene
 */
 module config {
     export enum Scene {
-        START,
-        INSTRUCTION,
-        PLAY,
-        LEVE1_FINAL,
+        START = 0,
+        INSTRUCTION = 1,
+        LEVEL1 = 2,
+        LEVEL1_FINAL = 3,
+        LEVEL2 = 4,
+        LEVEL2_FINAL = 5,
+        LEVEL3 = 6,
+        LEVEL3_FINAL = 7,
         OVER
     }
 }

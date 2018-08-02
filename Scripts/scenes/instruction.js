@@ -40,7 +40,7 @@ var scenes;
             return lblObj;
         };
         InstructionScene.prototype._playButtonClick = function () {
-            managers.Game.currentScene = config.Scene.PLAY;
+            managers.Game.currentScene = config.Scene.LEVEL1;
         };
         InstructionScene.prototype._backButtonClick = function () {
             managers.Game.currentScene = config.Scene.START;

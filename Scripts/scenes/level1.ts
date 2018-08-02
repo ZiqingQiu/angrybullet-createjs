@@ -1,5 +1,7 @@
+
+
 module scenes {
-    export class PlayScene extends objects.Scene {
+    export class Level1Scene extends objects.Scene {
         //Private Instance Variables
         private _space: objects.Space;
         private _player: objects.Player;
@@ -24,7 +26,65 @@ module scenes {
         }
 
         //Private Methods
+        private CheckCollisionWOBullet(): void{
+            //check collision between player and coin
+            managers.Collision.Check(this._player, this._coin);
 
+            //check collision between player and current tie
+            this._tie.forEach(tie => {
+                tie.Update();
+                managers.Collision.Check(this._player, tie);
+            });
+        }
+
+        private CheckPlayerBullet(): void{
+            //check collision with player's bullets
+            let bulletIdxArray : number[] = [];
+            let bullets: objects.Bullet[] = [];
+            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("player");
+            for (let idx: number = 0; idx < bulletIdxArray.length; idx++)
+            {
+                bullets = managers.Game.bulletManager.GetBullets("player", bulletIdxArray[idx]);
+                bullets.forEach(bullet =>
+                    {
+                        if (bullet.alpha == 1)
+                        {
+                            //check collision player-bullet -- enemy
+                            managers.Collision.Check(bullet, this._enemy);  
+                        }
+
+                        if (bullet.alpha == 1)
+                        {
+                            //check collision player-bullet -- TIE
+                            for (let count = 0; count < this._tieNum; count++) {
+                                if (this._tie[count].alpha == 1){
+                                    managers.Collision.Check(bullet, this._tie[count]);
+                                }               
+                            }
+                        }
+
+                    })
+            }
+        }
+
+        private CheckEnemyBullet(): void{
+            let bulletIdxArray : number[] = [];
+            let bullets: objects.Bullet[] = [];
+            //check collision with tie's bullets
+            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("tie_bullet_lv1");
+            for (let idx: number = 0; idx < bulletIdxArray.length; idx++)
+            {
+                bullets = managers.Game.bulletManager.GetBullets("tie_bullet_lv1", bulletIdxArray[idx]);
+                bullets.forEach(bullet =>
+                    {
+                        if (bullet.alpha == 1)
+                        {
+                            //check collision enemy-bullet -- player
+                            managers.Collision.Check(bullet, this._player);  
+                        }                        
+                    })
+            }
+        }
 
 
         //Public Methods
@@ -72,48 +132,13 @@ module scenes {
             //to be refine later
             this._coin.Update();
 
-            //check collision between player and coin
-            managers.Collision.Check(this._player, this._coin);
+            //check collision without bullets
+            this.CheckCollisionWOBullet();
+            //check player's bullet
+            this.CheckPlayerBullet();
+            //check enemy's bullet
 
-            this._tie.forEach(tie => {
-                tie.Update();
-                //check collision between player and current tie
-                managers.Collision.Check(this._player, tie);
-            });
 
-            let bulletIdxArray : number[] = [];
-            let bullets: objects.Bullet[] = [];
-            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("player");
-            for (let idx: number = 0; idx < bulletIdxArray.length; idx++)
-            {
-                bullets = managers.Game.bulletManager.GetBullets("player", bulletIdxArray[idx]);
-                bullets.forEach(bullet =>
-                    {
-                        if (bullet.alpha == 1)
-                        {
-                            //check collision player-bullet -- enemy
-                            managers.Collision.Check(bullet, this._enemy);  
-                        }
-
-                        if (bullet.alpha == 1)
-                        {
-                            //check collision player-bullet -- TIE
-                            for (let count = 0; count < this._tieNum; count++) {
-                                if (this._tie[count].alpha == 1){
-                                    managers.Collision.Check(bullet, this._tie[count]);
-                                }               
-                            }
-                        }
-
-                    })
-            }
-
-            //if lives fall below zero, switch to game over scene
-            if (this._scoreBoard.Lives <= 0)
-            {
-                this._engineSound.stop();
-                managers.Game.currentScene = config.Scene.OVER; 
-            }
         }
 
         public Destroy():void {
