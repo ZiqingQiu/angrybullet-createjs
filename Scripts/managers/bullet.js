@@ -36,8 +36,8 @@ var managers;
             //TIE
             var blt_tieArray = [];
             blt_tieArray.push({
-                name: "blt_laser_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 50, dx: 0, dy: 20,
-                offset_x: 0, offset_y: 40, ref: this._buildBulletPool("blt_laser_lv1", 10, 0, 20)
+                name: "blt_enemy_laser_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 50, dx: 0, dy: 20,
+                offset_x: 0, offset_y: 40, ref: this._buildBulletPool("blt_enemy_laser_lv1", 10, 0, 20)
             });
             this._objBulletMap.set("tie_bullet_lv1", blt_tieArray);
             //boss1

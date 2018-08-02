@@ -34,7 +34,7 @@ var objects;
             this.y = -this.height;
             //drift randomly
             this._dx = Math.floor((Math.random() * 2) - 1);
-            this._dy = Math.floor((Math.random() * 2) + 2);
+            this._dy = Math.floor((Math.random() * 2) + 3);
             //reset enemy
             this._hp = 3;
             //reset alpha
