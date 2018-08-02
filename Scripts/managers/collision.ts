@@ -34,7 +34,7 @@ module managers {
 
                                 (object2 as objects.TIE).GetHit(object1.name);
                             }
-                            else if (object1.name.search("player_bullet") != -1)
+                            else if (object1.name.search("laser") != -1)
                             {
                                 //update TIE lifes and explosions
                                 (object2 as objects.TIE).GetHit(object1.name);
@@ -47,7 +47,7 @@ module managers {
                         case "enemy":
                                 //downcast to player enemy
                                 (object2 as objects.Enemy).GetHit();
-                                if (object1.name.search("player_lv1") != -1)
+                                if (object1.name.search("laser") != -1)
                                 {
                                     //make bullet disappear
                                     (object1 as objects.Bullet).DisappearBullet();

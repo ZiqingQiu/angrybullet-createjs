@@ -103,7 +103,7 @@ var managers;
             }
             //if player has multi level bullet, need disable other bullet types
             if (objectname.search("player") != -1) {
-                var playerLevelString = objectname.substring(8, 9);
+                var playerLevelString = objectname.substring(16, 17);
                 var playerLevel = parseInt(playerLevelString);
                 this._lastPlayerRegisterLevel = objectname; //store the latest playerlvl
                 //go through all the player bullet types

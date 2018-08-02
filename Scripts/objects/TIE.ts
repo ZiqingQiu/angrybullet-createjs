@@ -80,10 +80,10 @@ module objects {
                     case "player":
                     hitHP = 3;
                     break;
-                    case "player_bullet_lv1":
+                    case "blt_laser_lvq":
                     hitHP = 1;
                     break;
-                    case "player_bullet_lv2":
+                    case "blt_laser_lv2":
                     hitHP = 2;
                     break;
                     defualt:

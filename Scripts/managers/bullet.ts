@@ -140,7 +140,7 @@ module managers {
 
             //if player has multi level bullet, need disable other bullet types
             if (objectname.search("player") != -1) {
-                let playerLevelString: string = objectname.substring(8, 9);
+                let playerLevelString: string = objectname.substring(16, 17);
                 let playerLevel: number = parseInt(playerLevelString);
 
                 this._lastPlayerRegisterLevel = objectname;   //store the latest playerlvl
