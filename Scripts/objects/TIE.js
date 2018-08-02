@@ -78,10 +78,10 @@ var objects;
                     case "player":
                         hitHP = 3;
                         break;
-                    case "blt_playerlv1":
+                    case "player_bullet_lv1":
                         hitHP = 1;
                         break;
-                    case "blt_playerlv2":
+                    case "player_bullet_lv2":
                         hitHP = 2;
                         break;
                         defualt: break;

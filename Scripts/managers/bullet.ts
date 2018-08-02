@@ -45,26 +45,26 @@ module managers {
                 name: "blt_laser_lv1", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 40, dx: 0, dy: -10,
                 offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_laser_lv1", 20, 0, -10)
             });
-            this._objBulletMap.set("playerlv1", blt_playerlv1Array);
+            this._objBulletMap.set("player_bullet_lv1", blt_playerlv1Array);
 
 
             //playerlv2
             //add blt_playerlv2
             let blt_playerlv2Array: BulletInfo[] = [];
             blt_playerlv2Array.push({
-                name: "blt_playerlv2", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: -10,
-                offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_playerlv2", 20, 0, -10)
+                name: "blt_laser_lv2", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: -10,
+                offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_laser_lv2", 20, 0, -10)
             });
-            this._objBulletMap.set("playerlv2", blt_playerlv2Array);
+            this._objBulletMap.set("player_bullet_lv2", blt_playerlv2Array);
 
-            //warship
+            //TIE
             //add bomb
-            let blt_playerlv3Array: BulletInfo[] = [];
-            blt_playerlv3Array.push({
+            let blt_tieArray: BulletInfo[] = [];
+            blt_tieArray.push({
                 name: "bomb", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: 2,
                 offset_x: 0, offset_y: 30, ref: this._buildBulletPool("bomb", 20, 0, 2)
             });
-            this._objBulletMap.set("warship", blt_playerlv3Array);
+            this._objBulletMap.set("tie_bullet_lv1", blt_tieArray);
 
             //boss1
             //add bomb
@@ -73,10 +73,8 @@ module managers {
                 name: "bomb", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: 2,
                 offset_x: 0, offset_y: 30, ref: this._buildBulletPool("bomb", 20, 0, 2)
             });
-            this._objBulletMap.set("boss1", blt_boss1Array);
-
+            this._objBulletMap.set("boss_bullet_lv1", blt_boss1Array);
         }
-
 
         public Update(): void {
             //only update the bullet that has been enabled
@@ -91,7 +89,6 @@ module managers {
                     }                   
                 }
             );
-
         }
 
         public BulletFire(bulletCarrier: string, x: number, y: number, halfHeight: number): void {

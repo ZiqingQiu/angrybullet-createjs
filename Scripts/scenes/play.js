@@ -69,7 +69,6 @@ var scenes;
             for (var idx = 0; idx < bulletIdxArray.length; idx++) {
                 bullets = managers.Game.bulletManager.GetBullets("player", bulletIdxArray[idx]);
                 bullets.forEach(function (bullet) {
-                    bullet.Update();
                     if (bullet.alpha == 1) {
                         //check collision player-bullet -- enemy
                         managers.Collision.Check(bullet, _this._enemy);
@@ -107,7 +106,7 @@ var scenes;
             //add enemy to the scene
             this.addChild(this._enemy);
             //add bullets to the scene
-            managers.Game.bulletManager.RegisterBullet(this, "playerlv1");
+            managers.Game.bulletManager.RegisterBullet(this, "player_bullet_lv1");
             //add ties to the scene
             this._tie.forEach(function (tie) {
                 _this.addChild(tie);

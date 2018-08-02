@@ -89,7 +89,6 @@ module scenes {
                 bullets = managers.Game.bulletManager.GetBullets("player", bulletIdxArray[idx]);
                 bullets.forEach(bullet =>
                     {
-                        bullet.Update();
                         if (bullet.alpha == 1)
                         {
                             //check collision player-bullet -- enemy
@@ -135,7 +134,7 @@ module scenes {
             this.addChild(this._enemy);
 
             //add bullets to the scene
-            managers.Game.bulletManager.RegisterBullet(this, "playerlv1");
+            managers.Game.bulletManager.RegisterBullet(this, "player_bullet_lv1");
             //add ties to the scene
             this._tie.forEach(tie => {
                 this.addChild(tie);
