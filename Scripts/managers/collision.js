@@ -19,12 +19,18 @@ var managers;
                 if (!object2.isColliding) {
                     object2.isColliding = true;
                     switch (object2.name) {
+                        //### to be separate late
                         case "power_up_S":
+                        case "power_up_R":
+                        case "power_up_L":
+                        case "power_up_F":
                             if (object2.alpha != 0) {
                                 createjs.Sound.play("coin");
                                 object2.alpha = 0;
                                 managers.Game.scoreBoard.addScore(100);
                                 managers.Game.bulletManager.RegisterBullet(managers.Game.currentSceneObject, "player_bullet_lv2");
+                                //reset coin
+                                managers.Game.coinManager.activateCoin();
                             }
                             break;
                         case "tie":

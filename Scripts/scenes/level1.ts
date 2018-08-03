@@ -10,9 +10,10 @@ module scenes {
 
         private _scoreBoard: managers.ScoreBoard;
         private _bulletManager: managers.Bullet;
+        private _coinManager: managers.Coin;
         private _engineSound: createjs.AbstractSoundInstance;
 
-        private _coin: objects.Coin;
+        private _coins: objects.Coin[];
         private _slaveI: objects.slaveI;
 
         //Public Properties
@@ -28,7 +29,7 @@ module scenes {
         //Private Methods
         private CheckCollisionWOBullet(): void{
             //check collision between player and power_up
-            managers.Collision.Check(this._player, this._coin);
+            managers.Collision.Check(this._player, managers.Game.coinManager.getCurActivateCoin());
 
             //check collision between player and current tie
             this._tie.forEach(tie => {
@@ -94,14 +95,16 @@ module scenes {
             this._player = new objects.Player();
             managers.Game.player = this._player;
 
-            //make a ref to the bullet manager in the game manager
-            this._bulletManager = new managers.Bullet();
-            managers.Game.bulletManager =  this._bulletManager;
+            //get bullet manager
+            this._bulletManager = managers.Game.bulletManager;
+            //get coin manager
+            this._coinManager = managers.Game.coinManager;
 
             //create an enemy
             this._slaveI = new objects.slaveI();
 
-            this._coin = new objects.Coin();
+            //get all types of coins
+            this._coins = managers.Game.coinManager.getallCoins();
 
             //inistantiate the TIE array
             this._tieNum = 2;
@@ -129,8 +132,7 @@ module scenes {
             this._player.Update();
             this._slaveI.Update();
             this._bulletManager.Update();
-            //to be refine later
-            this._coin.Update();
+            this._coinManager.Update();
 
             //check collision without bullets
             this.CheckCollisionWOBullet();
@@ -151,7 +153,11 @@ module scenes {
             //add space to the scene
             this.addChild(this._space);
             //add coin to the scene
-            this.addChild(this._coin);
+            this._coins.forEach(
+                coin => {
+                    this.addChild(coin);
+                }
+            )
             //add player to the scene
             this.addChild(this._player);
             this.addChild(this._player.planeFlash);    

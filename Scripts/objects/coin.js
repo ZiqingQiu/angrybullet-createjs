@@ -21,11 +21,9 @@ var objects;
 (function (objects) {
     var Coin = /** @class */ (function (_super) {
         __extends(Coin, _super);
-        //Private instance variables
-        //Public properties
         //Constructors
-        function Coin() {
-            var _this = _super.call(this, "power_up_S") || this;
+        function Coin(type) {
+            var _this = _super.call(this, type) || this;
             _this.Start();
             return _this;
         }
@@ -44,7 +42,7 @@ var objects;
             }
             else {
                 var ticker = createjs.Ticker.getTicks();
-                if (ticker % 600 == 0) {
+                if (ticker % 600 == 0 && this.isEnable) {
                     this.Reset();
                 }
             }
@@ -57,6 +55,7 @@ var objects;
         Coin.prototype.Start = function () {
             this._dx = 4;
             this.Reset();
+            this.isEnable = false;
         };
         Coin.prototype.Update = function () {
             this.Move();

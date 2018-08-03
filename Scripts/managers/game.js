@@ -6,6 +6,7 @@
 * Description: manages the singletan global variables
 * Revision history:
 * June 24 2018 created file
+* Aug 2 2018 added coin manager
 */
 var managers;
 (function (managers) {

@@ -7,6 +7,7 @@
 * Description: manages the singletan global variables
 * Revision history:
 * June 24 2018 created file
+* Aug 2 2018 added coin manager
 */
 module managers {
     export class Game{
@@ -20,5 +21,6 @@ module managers {
         public static textureAtlas: createjs.SpriteSheet;
         public static player: objects.Player;
         public static bulletManager: managers.Bullet;
+        public static coinManager: managers.Coin;
     }
 }

@@ -23,7 +23,7 @@ var scenes;
         Level1Scene.prototype.CheckCollisionWOBullet = function () {
             var _this = this;
             //check collision between player and power_up
-            managers.Collision.Check(this._player, this._coin);
+            managers.Collision.Check(this._player, managers.Game.coinManager.getCurActivateCoin());
             //check collision between player and current tie
             this._tie.forEach(function (tie) {
                 tie.Update();
@@ -76,12 +76,14 @@ var scenes;
             this._space = new objects.Space();
             this._player = new objects.Player();
             managers.Game.player = this._player;
-            //make a ref to the bullet manager in the game manager
-            this._bulletManager = new managers.Bullet();
-            managers.Game.bulletManager = this._bulletManager;
+            //get bullet manager
+            this._bulletManager = managers.Game.bulletManager;
+            //get coin manager
+            this._coinManager = managers.Game.coinManager;
             //create an enemy
             this._slaveI = new objects.slaveI();
-            this._coin = new objects.Coin();
+            //get all types of coins
+            this._coins = managers.Game.coinManager.getallCoins();
             //inistantiate the TIE array
             this._tieNum = 2;
             this._tie = new Array();
@@ -103,8 +105,7 @@ var scenes;
             this._player.Update();
             this._slaveI.Update();
             this._bulletManager.Update();
-            //to be refine later
-            this._coin.Update();
+            this._coinManager.Update();
             //check collision without bullets
             this.CheckCollisionWOBullet();
             //check player's bullet
@@ -122,7 +123,9 @@ var scenes;
             //add space to the scene
             this.addChild(this._space);
             //add coin to the scene
-            this.addChild(this._coin);
+            this._coins.forEach(function (coin) {
+                _this.addChild(coin);
+            });
             //add player to the scene
             this.addChild(this._player);
             this.addChild(this._player.planeFlash);

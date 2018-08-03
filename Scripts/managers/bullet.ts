@@ -21,7 +21,6 @@ module managers {
         //constructors
         constructor (){
             this.Start();  //to be refined
-
         }
 
         //private methods
@@ -33,7 +32,6 @@ module managers {
             return bullets;
         }
 
-        //public methods
         //public methods
         public Start(): void {
             this._objBulletMap = new Map<string, BulletInfo[]>();

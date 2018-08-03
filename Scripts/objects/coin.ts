@@ -12,13 +12,13 @@ module objects {
         //Private instance variables
 
         //Public properties
+        public isEnable: boolean;
 
         //Constructors
-        constructor() {
-            super("power_up_S");
+        constructor(type:string) {
+            super(type);
             this.Start();
         }
-
 
         //Private methods
 
@@ -40,7 +40,7 @@ module objects {
             else
             {
                 let ticker: number = createjs.Ticker.getTicks();
-                if (ticker % 600 == 0)
+                if (ticker % 600 == 0 && this.isEnable)
                 {
                     this.Reset();
                 }
@@ -57,6 +57,7 @@ module objects {
         public Start(): void {
             this._dx = 4;
             this.Reset();
+            this.isEnable = false;
         }
 
         public Update(): void {

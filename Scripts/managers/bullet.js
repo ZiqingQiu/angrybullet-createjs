@@ -14,7 +14,6 @@ var managers;
             return bullets;
         };
         //public methods
-        //public methods
         Bullet.prototype.Start = function () {
             this._objBulletMap = new Map();
             //playerlv1

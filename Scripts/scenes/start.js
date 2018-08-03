@@ -38,8 +38,9 @@ var scenes;
             this._instructionButtton = new objects.Button("btn_instruct", 320, 350);
             this._exitButtton = new objects.Button("btn_exit", 320, 400);
             //make a ref to the bullet manager in the game manager
-            this._bulletManager = new managers.Bullet();
-            managers.Game.bulletManager = this._bulletManager;
+            managers.Game.bulletManager = new managers.Bullet();
+            //make a ref to the coin manager in the game manager
+            managers.Game.coinManager = new managers.Coin();
             this.Main();
         };
         StartScene.prototype.Update = function () {
