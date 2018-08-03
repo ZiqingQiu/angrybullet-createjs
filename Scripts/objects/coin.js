@@ -25,7 +25,7 @@ var objects;
         //Public properties
         //Constructors
         function Coin() {
-            var _this = _super.call(this, "power_up") || this;
+            var _this = _super.call(this, "power_up_S") || this;
             _this.Start();
             return _this;
         }
@@ -33,13 +33,21 @@ var objects;
         //Public methods
         Coin.prototype.Reset = function () {
             this.x = -this.halfWidth;
-            this.y = Math.floor((Math.random() * config.Screen.HALF_HEIGHT) + config.Screen.HALF_HEIGHT);
+            this.y = Math.floor(Math.random() * (config.Screen.HALF_HEIGHT - 50) + config.Screen.HALF_HEIGHT);
             this.alpha = 1;
         };
         Coin.prototype.Move = function () {
-            this._dy = Math.floor((Math.random() * 4) - 2);
-            this.y += this._dy;
-            this.x += this._dx;
+            if (this.alpha == 1) {
+                this._dy = Math.floor((Math.random() * 4) - 2);
+                this.y += this._dy;
+                this.x += this._dx;
+            }
+            else {
+                var ticker = createjs.Ticker.getTicks();
+                if (ticker % 600 == 0) {
+                    this.Reset();
+                }
+            }
         };
         Coin.prototype.CheckBounds = function () {
             if (this.x >= (config.Screen.WIDTH - this.halfWidth)) {

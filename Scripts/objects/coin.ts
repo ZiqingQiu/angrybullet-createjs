@@ -15,7 +15,7 @@ module objects {
 
         //Constructors
         constructor() {
-            super("power_up");
+            super("power_up_S");
             this.Start();
         }
 
@@ -25,14 +25,26 @@ module objects {
         //Public methods
         public Reset(): void {
             this.x = -this.halfWidth;
-            this.y = Math.floor((Math.random() * config.Screen.HALF_HEIGHT) + config.Screen.HALF_HEIGHT);            
+            this.y = Math.floor(Math.random() * (config.Screen.HALF_HEIGHT - 50) + config.Screen.HALF_HEIGHT);            
             this.alpha = 1;
+
         }
 
         public Move(): void {
-            this._dy = Math.floor((Math.random() * 4) - 2);
-            this.y += this._dy;
-            this.x += this._dx;
+            if (this.alpha == 1)
+            {
+                this._dy = Math.floor((Math.random() * 4) - 2);
+                this.y += this._dy;
+                this.x += this._dx;
+            }
+            else
+            {
+                let ticker: number = createjs.Ticker.getTicks();
+                if (ticker % 600 == 0)
+                {
+                    this.Reset();
+                }
+            }
         }
 
         public CheckBounds(): void {

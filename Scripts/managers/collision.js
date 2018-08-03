@@ -19,7 +19,7 @@ var managers;
                 if (!object2.isColliding) {
                     object2.isColliding = true;
                     switch (object2.name) {
-                        case "power_up":
+                        case "power_up_S":
                             if (object2.alpha != 0) {
                                 createjs.Sound.play("coin");
                                 object2.alpha = 0;
