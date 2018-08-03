@@ -33,7 +33,7 @@ var objects;
         //Public methods
         Coin.prototype.Reset = function () {
             this.x = -this.halfWidth;
-            this.y = config.Screen.HALF_HEIGHT;
+            this.y = Math.floor((Math.random() * config.Screen.HALF_HEIGHT) + config.Screen.HALF_HEIGHT);
             this.alpha = 1;
         };
         Coin.prototype.Move = function () {

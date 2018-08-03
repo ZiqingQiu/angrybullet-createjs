@@ -25,7 +25,7 @@ module objects {
         //Public methods
         public Reset(): void {
             this.x = -this.halfWidth;
-            this.y = config.Screen.HALF_HEIGHT;            
+            this.y = Math.floor((Math.random() * config.Screen.HALF_HEIGHT) + config.Screen.HALF_HEIGHT);            
             this.alpha = 1;
         }
 
