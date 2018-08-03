@@ -42,7 +42,7 @@ var objects;
             }
             else {
                 var ticker = createjs.Ticker.getTicks();
-                if (ticker % 600 == 0 && this.isEnable) {
+                if (ticker % 1000 == 0 && this.isEnable) {
                     this.Reset();
                 }
             }

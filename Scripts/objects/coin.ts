@@ -40,7 +40,7 @@ module objects {
             else
             {
                 let ticker: number = createjs.Ticker.getTicks();
-                if (ticker % 600 == 0 && this.isEnable)
+                if (ticker % 1000 == 0 && this.isEnable)
                 {
                     this.Reset();
                 }

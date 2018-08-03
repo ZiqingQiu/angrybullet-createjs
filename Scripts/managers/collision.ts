@@ -37,7 +37,6 @@ module managers {
                             {
                                 //downcast to player object
                                 (object1 as objects.Player).GetHit();
-
                                 (object2 as objects.TIE).GetHit(object1.name);
                             }
                             else if (object1.name.search("laser") != -1)
@@ -48,7 +47,21 @@ module managers {
                                 //make bullet disappear
                                 (object1 as objects.Bullet).DisappearBullet();
                             }
-
+                            break;
+                        case "boss_lv1":
+                            if (object1.name == "player_lv1")
+                            {
+                                //downcast to player object
+                                (object1 as objects.Player).GetHit();
+                                (object2 as objects.Level1BOSS).GetHit(object1.name);
+                            }
+                            else if (object1.name.search("laser") != -1)
+                            {
+                                //update TIE lifes and explosions
+                                (object2 as objects.Level1BOSS).GetHit(object1.name);
+                                //make bullet disappear
+                                (object1 as objects.Bullet).DisappearBullet();
+                            }
                             break;
                         case "slaveI":
                                 //downcast to player slaveI

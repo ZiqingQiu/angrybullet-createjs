@@ -16,7 +16,7 @@ module objects {
         //public properties
         //constructor
         constructor() {
-            super("boss");
+            super("boss_lv1");
             this.Start();   
         } 
 
@@ -65,7 +65,7 @@ module objects {
         public BulletFire(): void {
             if (this.alpha == 1)
             {
-                managers.Game.bulletManager.BulletFire("level1_boss", this.x, this.y, this.halfHeight);
+                managers.Game.bulletManager.BulletFire("boss_bullet_lv1", this.x, this.y, this.halfHeight);
             }
         }
 
@@ -90,13 +90,10 @@ module objects {
                     case "player":
                     hitHP = 3;
                     break;
-                    case "torpedo":
+                    case "blt_laser_lv2":
                     hitHP = 3;
                     break;
-                    case "blt_player_lv2":
-                    hitHP = 3;
-                    break;
-                    case "blt_player_lv1":
+                    case "blt_laser_lv1":
                     hitHP = 1;
                     break;
                     defualt:

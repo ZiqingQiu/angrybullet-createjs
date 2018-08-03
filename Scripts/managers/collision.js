@@ -46,6 +46,19 @@ var managers;
                                 object1.DisappearBullet();
                             }
                             break;
+                        case "boss_lv1":
+                            if (object1.name == "player_lv1") {
+                                //downcast to player object
+                                object1.GetHit();
+                                object2.GetHit(object1.name);
+                            }
+                            else if (object1.name.search("laser") != -1) {
+                                //update TIE lifes and explosions
+                                object2.GetHit(object1.name);
+                                //make bullet disappear
+                                object1.DisappearBullet();
+                            }
+                            break;
                         case "slaveI":
                             //downcast to player slaveI
                             object2.GetHit();

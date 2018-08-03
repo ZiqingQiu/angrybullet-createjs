@@ -66,8 +66,8 @@ module managers {
             //boss1
             let blt_boss1Array: BulletInfo[] = [];
             blt_boss1Array.push({
-                name: "bomb", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: 2,
-                offset_x: 0, offset_y: 30, ref: this._buildBulletPool("bomb", 20, 0, 2)
+                name: "blt_bomb", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: 5,
+                offset_x: 0, offset_y: 30, ref: this._buildBulletPool("blt_bomb", 20, 0, 5)
             });
             this._objBulletMap.set("boss_bullet_lv1", blt_boss1Array);
         }
@@ -98,7 +98,7 @@ module managers {
                 case "tie_bullet_lv1":
                     bulletInfo = this._objBulletMap.get("tie_bullet_lv1");
                     break;
-                case "boss_lv1":
+                case "boss_bullet_lv1":
                     bulletInfo = this._objBulletMap.get("boss_bullet_lv1");
                     break;
             }

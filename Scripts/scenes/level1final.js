@@ -116,9 +116,9 @@ var scenes;
                 });
             }
             //check boss
-            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("boss1");
+            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("boss_bullet_lv1");
             for (var idx = 0; idx < bulletIdxArray.length; idx++) {
-                bullets = managers.Game.bulletManager.GetBullets("boss1", bulletIdxArray[idx]);
+                bullets = managers.Game.bulletManager.GetBullets("boss_bullet_lv1", bulletIdxArray[idx]);
                 bullets.forEach(function (bullet) {
                     if (bullet.alpha == 1) {
                         //check collision player-bullet -- enemy
@@ -145,7 +145,7 @@ var scenes;
             //add boss1 to the scene
             this.addChild(this._boss1);
             //add bullets to the scene
-            managers.Game.bulletManager.RegisterBullet(this, "level1_boss");
+            managers.Game.bulletManager.RegisterBullet(this, "boss_bullet_lv1");
             managers.Game.bulletManager.RegisterPlayerPreviousBullet(this);
             //add score board to the scene
             this.addChild(this._scoreBoard.LivesLabel);
