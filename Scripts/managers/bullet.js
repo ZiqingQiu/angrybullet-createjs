@@ -164,12 +164,7 @@ var managers;
             }
         };
         Bullet.prototype.RegisterPlayerPreviousBullet = function (tarScene) {
-            var bulletInfo = this._objBulletMap.get(this._lastPlayerRegisterLevel);
-            for (var idx = 0; idx < bulletInfo.length; idx++) {
-                bulletInfo[idx].isenabled = true;
-                var bullets = bulletInfo[idx].ref;
-                bullets.forEach(function (bullet) { tarScene.addChild(bullet); });
-            }
+            this.RegisterBullet(tarScene, this._lastPlayerRegisterLevel);
         };
         Bullet.prototype.GetTotalBulletTypes = function (objectname) {
             if (objectname.search("player") != -1) //player

@@ -101,7 +101,7 @@
             "blt_player_laser_lv1": { "frames": [5] },
             "blt_player_laser_lv2": { "frames": [6, 7, 8, 9], "speed": 0.2 },
             "blt_player_rocket_lv1": { "frames": [10, 11, 12, 13, 14], "speed": 0.1 },
-            "boss_lv1": { "frames": [15, 16, 17] },
+            "boss_lv1": { "frames": [15, 16, 17], "speed": 0.1 },
             "btn_back": { "frames": [18] },
             "btn_exit": { "frames": [19] },
             "btn_instruct": { "frames": [20] },

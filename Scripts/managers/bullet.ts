@@ -209,12 +209,7 @@ module managers {
         }
 
         public RegisterPlayerPreviousBullet(tarScene: objects.Scene): void {
-            let bulletInfo: BulletInfo[] = this._objBulletMap.get(this._lastPlayerRegisterLevel);
-            for (let idx: number = 0; idx < bulletInfo.length; idx++) {
-                bulletInfo[idx].isenabled = true;
-                let bullets: objects.Bullet[] = bulletInfo[idx].ref;
-                bullets.forEach(bullet => { tarScene.addChild(bullet); })
-            }
+            this.RegisterBullet(tarScene, this._lastPlayerRegisterLevel);
         }
 
         public GetTotalBulletTypes(objectname: string): number[] {
