@@ -20,6 +20,7 @@ var managers;
                 if (!object2.isColliding) {
                     object2.isColliding = true;
                     switch (object2.name) {
+                        //below three cases only checked with player
                         case "power_up_S":
                         case "power_up_L":
                         case "power_up_F":
@@ -34,42 +35,36 @@ var managers;
                             }
                             break;
                         case "tie":
+                            //update TIE gets hit
+                            object2.GetHit(object1.name);
                             if (object1.name == "player_lv1") {
                                 //downcast to player object
                                 object1.GetHit();
-                                object2.GetHit(object1.name);
                             }
-                            else if (object1.name.search("laser") != -1) {
-                                //update TIE lifes and explosions
-                                object2.GetHit(object1.name);
+                            else if (object1.name.search("laser") != -1 || object1.name.search("rocket") != -1) {
                                 //make bullet disappear
                                 object1.DisappearBullet();
                             }
                             break;
                         case "boss_lv1":
+                            //update boss gets hit
+                            object2.GetHit(object1.name);
                             if (object1.name == "player_lv1") {
                                 //downcast to player object
                                 object1.GetHit();
-                                object2.GetHit(object1.name);
                             }
-                            else if (object1.name.search("laser") != -1) {
-                                //update TIE lifes and explosions
-                                object2.GetHit(object1.name);
+                            else if (object1.name.search("laser") != -1 || object1.name.search("rocket") != -1) {
                                 //make bullet disappear
                                 object1.DisappearBullet();
                             }
                             break;
                         case "slaveI":
-                            //downcast to player slaveI
                             object2.GetHit();
-                            if (object1.name.search("laser") != -1) {
-                                //make bullet disappear
-                                object1.DisappearBullet();
+                            if (object1.name == "player_lv1") {
+                                //downcast to player object
+                                object1.GetHit();
                             }
-                            break;
-                        case "player_lv1": //player gets hit by slaveI bullet
-                            object2.GetHit();
-                            if (object1.name.search("slaveI") != -1) {
+                            else if (object1.name.search("laser") != -1 || object1.name.search("rocket") != -1) {
                                 //make bullet disappear
                                 object1.DisappearBullet();
                             }

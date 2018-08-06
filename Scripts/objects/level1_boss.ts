@@ -85,7 +85,7 @@ module objects {
                 //points for destroy slaveI
                 managers.Game.scoreBoard.addScore(300);
                 //update hp
-                this._hp -= this._hp -= managers.Game.bulletManager.GetBulletDamange(hitType);;
+                this._hp -= managers.Game.bulletManager.GetBulletDamange(hitType);;
                 if (this._hp <= 0)
                 {
                     managers.Game.currentScene = config.Scene.OVER; 
