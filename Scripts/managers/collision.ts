@@ -74,6 +74,14 @@ module managers {
                                 (object1 as objects.Bullet).DisappearBullet();
                             }
                             break;
+                        case "player_lv1":
+                            (object2 as objects.Player).GetHit();
+                            if (object1.name == "blt_enemy" || object1.name == "blt_boss")
+                            {
+                                //make bullet disappear
+                                (object1 as objects.Bullet).DisappearBullet();
+                            }
+                            break;
                     }
                 }
             }

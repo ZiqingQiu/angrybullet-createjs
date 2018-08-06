@@ -69,6 +69,13 @@ var managers;
                                 object1.DisappearBullet();
                             }
                             break;
+                        case "player_lv1":
+                            object2.GetHit();
+                            if (object1.name == "blt_enemy" || object1.name == "blt_boss") {
+                                //make bullet disappear
+                                object1.DisappearBullet();
+                            }
+                            break;
                     }
                 }
             }
