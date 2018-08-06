@@ -53,7 +53,7 @@ module objects {
         }
 
         public Start(): void {
-            this._hp = 100; 
+            this._hp = 50; 
             this._isEnable = false;
         }
 

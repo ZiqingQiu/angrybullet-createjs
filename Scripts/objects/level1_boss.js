@@ -55,7 +55,7 @@ var objects;
             }
         };
         Level1BOSS.prototype.Start = function () {
-            this._hp = 100;
+            this._hp = 50;
             this._isEnable = false;
         };
         Level1BOSS.prototype.Update = function () {
