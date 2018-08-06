@@ -152,7 +152,9 @@
         {id: "coin", src: "./Assets/audio/coin.wav"},
         {id: "life", src: "./Assets/audio/lives.wav"},
         {id: "explosion", src: "./Assets/audio/explosion.mp3"},
-        {id: "bulletSound", src: "./Assets/audio/bullet.wav"},
+        {id: "blt_sound_laser_lv1", src: "./Assets/audio/bullet_laser_lv1.wav"},
+        {id: "blt_sound_laser_lv2", src: "./Assets/audio/bullet_laser_lv2.wav"},
+        {id: "blt_sound_rocket_lv1", src: "./Assets/audio/bullet_rocket_lv1.mp3"},
         {id: "stage1", src: "./Assets/audio/stage1.ogg"}
     ];
 

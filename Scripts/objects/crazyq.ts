@@ -76,11 +76,7 @@ module objects {
         public GetHit(hitType: string): void {
             if (this.alpha != 0) {
                 //add explosion
-                createjs.Sound.play("explosion");
-                let explosion = new objects.Explosion("explosion");
-                explosion.x = this.x;
-                explosion.y = this.y;
-                managers.Game.currentSceneObject.addChild(explosion);
+                managers.Game.explosionManager.TriggerExplosion("explosion", managers.Game.currentSceneObject, this.x, this.y);
                 //points for destroy slaveI
                 managers.Game.scoreBoard.addScore(300);
                 //update hp
