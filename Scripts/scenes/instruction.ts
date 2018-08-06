@@ -70,7 +70,7 @@ module scenes {
 
         //public methods
         public Start(): void {
-            this._space = new objects.Space();
+            this._space = new objects.Space("space_lv1");
 
             //keyboard and label
             let xoffset: number = 50;

@@ -94,7 +94,7 @@ module scenes {
 
         //public methods
         public Start(): void {
-            this._space = new objects.Space();
+            this._space = new objects.Space("space_lv1");
             this._boss1 = new objects.Level1BOSS();
             this._boss1.alpha = 0;
             this._warnLabel = new objects.Label("be aware", "50px", "Starjedi", "#FFFF00", 300, 150, true);

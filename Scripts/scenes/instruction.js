@@ -48,7 +48,7 @@ var scenes;
         };
         //public methods
         InstructionScene.prototype.Start = function () {
-            this._space = new objects.Space();
+            this._space = new objects.Space("space_lv1");
             //keyboard and label
             var xoffset = 50;
             var yoffset = 50;

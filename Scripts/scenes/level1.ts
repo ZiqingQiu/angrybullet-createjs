@@ -91,7 +91,7 @@ module scenes {
         //Public Methods
         //Initialize Game Variables and objects
         public Start(): void {
-            this._space = new objects.Space();
+            this._space = new objects.Space("space_lv1");
             this._player = new objects.Player();
             managers.Game.player = this._player;
 

@@ -6,6 +6,7 @@
 * Description: defines the game object of space
 * Revision history:
 * June 24 2018 created file
+* Aug 8 2018 change constructor for multi levels
 */
 module objects {
     export class Space extends createjs.Bitmap {
@@ -16,8 +17,8 @@ module objects {
         //Public Properties
 
         //Constructor
-        constructor() {
-            super(managers.Game.assetManager.getResult("space"));
+        constructor(name: string) {
+            super(managers.Game.assetManager.getResult(name));
             this.Start();
         }
         //Private Methods

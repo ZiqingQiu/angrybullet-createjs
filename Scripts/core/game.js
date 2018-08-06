@@ -131,7 +131,9 @@
     };
     assetManifest = [
         { id: "textureAtlas", src: "./Assets/sprites/textureAtlas.png" },
-        { id: "space", src: "./Assets/images/space.jpg" },
+        { id: "space_lv1", src: "./Assets/images/space_lv1.jpg" },
+        { id: "space_lv2", src: "./Assets/images/space_lv2.jpg" },
+        { id: "space_lv3", src: "./Assets/images/space_lv3.jpg" },
         { id: "instruction", src: "./Assets/images/instruction.jpg" },
         { id: "coin", src: "./Assets/audio/coin.wav" },
         { id: "life", src: "./Assets/audio/lives.wav" },

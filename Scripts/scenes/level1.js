@@ -73,7 +73,7 @@ var scenes;
         //Public Methods
         //Initialize Game Variables and objects
         Level1Scene.prototype.Start = function () {
-            this._space = new objects.Space();
+            this._space = new objects.Space("space_lv1");
             this._player = new objects.Player();
             managers.Game.player = this._player;
             //get bullet manager

@@ -25,7 +25,7 @@ var scenes;
         //Public Methods
         //Initialize Game Variables and objects
         OverScene.prototype.Start = function () {
-            this._space = new objects.Space();
+            this._space = new objects.Space("space_lv1");
             this._overLabel = new objects.Label("Game over", "50px", "Starjedi", "#FFFF00", 310, 140, true);
             this._backButtton = new objects.Button("restartButton", 320, 340);
             this._scoreboard = new managers.ScoreBoard();

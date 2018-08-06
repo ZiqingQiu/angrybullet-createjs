@@ -32,7 +32,7 @@ var scenes;
         //Public Methods
         //Initialize Game Variables and objects
         StartScene.prototype.Start = function () {
-            this._space = new objects.Space();
+            this._space = new objects.Space("space_lv1");
             this._welcomeLabel = new objects.Label("Angry Bullet", "50px", "Starjedi", "#FFFF00", 250, 180, true);
             this._startButtton = new objects.Button("btn_start", 320, 300);
             this._instructionButtton = new objects.Button("btn_instruct", 320, 350);

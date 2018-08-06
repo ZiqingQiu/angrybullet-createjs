@@ -16,6 +16,7 @@ var __extends = (this && this.__extends) || (function () {
 * Description: defines the game object of space
 * Revision history:
 * June 24 2018 created file
+* Aug 8 2018 change constructor for multi levels
 */
 var objects;
 (function (objects) {
@@ -23,8 +24,8 @@ var objects;
         __extends(Space, _super);
         //Public Properties
         //Constructor
-        function Space() {
-            var _this = _super.call(this, managers.Game.assetManager.getResult("space")) || this;
+        function Space(name) {
+            var _this = _super.call(this, managers.Game.assetManager.getResult(name)) || this;
             _this.Start();
             return _this;
         }
