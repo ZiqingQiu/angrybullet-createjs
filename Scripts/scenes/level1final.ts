@@ -22,6 +22,7 @@ module scenes {
         private _bulletManager: managers.Bullet;
         private _coinManager: managers.Coin;
         private _coins: objects.Coin[];
+        private _engineSound: createjs.AbstractSoundInstance;
 
         //public properties
 
@@ -107,6 +108,11 @@ module scenes {
             //get all types of coins
             this._coins = managers.Game.coinManager.getallCoins();
             
+            //play background music
+            this._engineSound = createjs.Sound.play("level1_final_background");
+            this._engineSound.loop = -1;  //play forever
+            this._engineSound.volume = 0.5;
+
             this.Main();
         }
 
@@ -132,8 +138,7 @@ module scenes {
         }
 
         public Destroy():void {
-            //###
-            //this._engineSound.stop();
+            this._engineSound.stop();
             this.removeAllChildren();
         }
 

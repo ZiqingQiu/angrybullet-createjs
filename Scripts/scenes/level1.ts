@@ -114,9 +114,10 @@ module scenes {
                 
             }
 
-            this._engineSound = createjs.Sound.play("stage1");
+            //play background music
+            this._engineSound = createjs.Sound.play("level1_background");
             this._engineSound.loop = -1;  //play forever
-            this._engineSound.volume = 0.1;
+            this._engineSound.volume = 0.5;
 
             //create the scoreboard UI 
             this._scoreBoard = new managers.ScoreBoard();
