@@ -61,24 +61,23 @@
     [1, 863, 65, 65, 0, 0, 0],
     [68, 863, 55, 24, 0, 0, 0],
     [125, 863, 55, 23, 0, 0, 0],
-    [182, 863, 55, 23, 0, 0, 0],
-    [239, 863, 55, 24, 0, 0, 0],
-    [296, 863, 44, 42, 0, 0, 0],
-    [342, 863, 32, 32, 0, 0, 0],
-    [376, 863, 32, 32, 0, 0, 0],
-    [410, 863, 32, 32, 0, 0, 0],
-    [444, 863, 32, 32, 0, 0, 0],
-    [478, 863, 32, 32, 0, 0, 0],
-    [1, 930, 32, 32, 0, 0, 0],
-    [35, 930, 98, 82, 0, 0, 0]
+    [182, 863, 55, 24, 0, 0, 0],
+    [239, 863, 44, 42, 0, 0, 0],
+    [285, 863, 32, 32, 0, 0, 0],
+    [319, 863, 32, 32, 0, 0, 0],
+    [353, 863, 32, 32, 0, 0, 0],
+    [387, 863, 32, 32, 0, 0, 0],
+    [421, 863, 32, 32, 0, 0, 0],
+    [455, 863, 32, 32, 0, 0, 0],
+    [1, 930, 98, 82, 0, 0, 0]
 ],
 
 "animations": {
-    "blt_bomb": { "frames": [0, 1, 2] },
+    "blt_boss_bomb": { "frames": [0, 1, 2] },
     "blt_enemy_laser_lv1": { "frames": [3] },
-    "blt_laser_lv1": { "frames": [4] },
-    "blt_laser_lv2": { "frames": [5, 6, 7, 8] },
-    "blt_rocket_lv1": { "frames": [9, 10, 11, 12, 13] },
+    "blt_player_laser_lv1": { "frames": [4] },
+    "blt_player_laser_lv2": { "frames": [5, 6, 7, 8] },
+    "blt_player_rocket_lv1": { "frames": [9, 10, 11, 12, 13] },
     "boss_lv1": { "frames": [14, 15, 16] },
     "btn_back": { "frames": [17] },
     "btn_exit": { "frames": [18] },
@@ -101,15 +100,14 @@
     "player_lv1": { "frames": [49, 50, 51, 52] },
     "power_up_F": { "frames": [53] },
     "power_up_L": { "frames": [54] },
-    "power_up_R": { "frames": [55] },
-    "power_up_S": { "frames": [56] },
-    "slaveI": { "frames": [57] },
-    "smallexplosion": { "frames": [58, 59, 60, 61, 62, 63] },
-    "tie": { "frames": [64] }
+    "power_up_S": { "frames": [55] },
+    "slaveI": { "frames": [56] },
+    "smallexplosion": { "frames": [57, 58, 59, 60, 61, 62] },
+    "tie": { "frames": [63] }
 },
 
 "texturepacker": [
-        "SmartUpdateHash: $TexturePacker:SmartUpdate:00d0923712c0d1a41f915d39ea13fc72:e6ac68e83fb0ad24aa5a1bdd4307d6c6:2b5604bc88faefd55ddac16e9bce1532$",
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:99aa727271ecd395d5edadc52502b2e6:7afcb00dfdefe74c05b1cb928155fba9:2b5604bc88faefd55ddac16e9bce1532$",
         "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
 ]
 

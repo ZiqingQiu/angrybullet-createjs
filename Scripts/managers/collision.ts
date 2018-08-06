@@ -41,7 +41,7 @@ module managers {
                                 //downcast to player object
                                 (object1 as objects.Player).GetHit();
                             }
-                            else if (object1.name.search("laser") != -1 || object1.name.search("rocket") != -1)
+                            else if (object1.name.search("blt_player") != -1)
                             {
                                 //make bullet disappear
                                 (object1 as objects.Bullet).DisappearBullet();
@@ -55,7 +55,7 @@ module managers {
                                 //downcast to player object
                                 (object1 as objects.Player).GetHit();
                             }
-                            else if (object1.name.search("laser") != -1 || object1.name.search("rocket") != -1)
+                            else if (object1.name.search("blt_player") != -1)
                             {
                                 //make bullet disappear
                                 (object1 as objects.Bullet).DisappearBullet();
@@ -68,7 +68,7 @@ module managers {
                                 //downcast to player object
                                 (object1 as objects.Player).GetHit();
                             }
-                            else if (object1.name.search("laser") != -1 || object1.name.search("rocket") != -1)
+                            else if (object1.name.search("blt_player") != -1)
                             {
                                 //make bullet disappear
                                 (object1 as objects.Bullet).DisappearBullet();

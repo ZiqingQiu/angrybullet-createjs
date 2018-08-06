@@ -43,8 +43,8 @@ module managers {
             //add blt_playerlv1
             let blt_playerlv1Array: BulletInfo[] = [];
             blt_playerlv1Array.push({
-                name: "blt_laser_lv1", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 20, dx: 0, dy: -10,
-                offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_laser_lv1", 20, 0, -10)
+                name: "blt_player_laser_lv1", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 20, dx: 0, dy: -10,
+                offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv1", 20, 0, -10)
             });
             this._objBulletMap.set("player_bullet_lv1", blt_playerlv1Array);
 
@@ -53,12 +53,12 @@ module managers {
             //add blt_playerlv2  ---F---
             let blt_playerlv2Array: BulletInfo[] = [];
             blt_playerlv2Array.push({
-                name: "blt_laser_lv1", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: -10,
-                offset_x: -25, offset_y: 0, ref: this._buildBulletPool("blt_laser_lv1", 20, 0, -10)
+                name: "blt_player_laser_lv1", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: -10,
+                offset_x: -25, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv1", 20, 0, -10)
             });
             blt_playerlv2Array.push({
-                name: "blt_laser_lv1", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: -10,
-                offset_x: 25, offset_y: 0, ref: this._buildBulletPool("blt_laser_lv1", 20, 0, -10)
+                name: "blt_player_laser_lv1", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: -10,
+                offset_x: 25, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv1", 20, 0, -10)
             });
             this._objBulletMap.set("player_bullet_lv2", blt_playerlv2Array);
 
@@ -66,18 +66,18 @@ module managers {
             //add blt_playerlv3
             let blt_playerlv3Array: BulletInfo[] = [];
             blt_playerlv3Array.push({
-                name: "blt_laser_lv2", isenabled: false, totalcnt: 16, curcnt: 0, tickerPeriod: 40, dx: 0, dy: -10,
-                offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_laser_lv2", 20, 0, -10)
+                name: "blt_player_laser_lv2", isenabled: false, totalcnt: 16, curcnt: 0, tickerPeriod: 40, dx: 0, dy: -10,
+                offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv2", 20, 0, -10)
             });
             //left bullet
             blt_playerlv3Array.push({
-                name: "blt_laser_lv2", isenabled: false, totalcnt: 16, curcnt: 0, tickerPeriod: 40, dx: -5, dy: -10,
-                offset_x: -25, offset_y: 0, ref: this._buildBulletPool("blt_laser_lv2", 20, -5, -10)
+                name: "blt_player_laser_lv2", isenabled: false, totalcnt: 16, curcnt: 0, tickerPeriod: 40, dx: -5, dy: -10,
+                offset_x: -25, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv2", 20, -5, -10)
             });       
             //right bullet
             blt_playerlv3Array.push({
-                name: "blt_laser_lv2", isenabled: false, totalcnt: 16, curcnt: 0, tickerPeriod: 40, dx: 5, dy: -10,
-                offset_x: 25, offset_y: 0, ref: this._buildBulletPool("blt_laser_lv2", 20, 5, -10)
+                name: "blt_player_laser_lv2", isenabled: false, totalcnt: 16, curcnt: 0, tickerPeriod: 40, dx: 5, dy: -10,
+                offset_x: 25, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv2", 20, 5, -10)
             });         
             this._objBulletMap.set("player_bullet_lv3", blt_playerlv3Array);
 
@@ -86,8 +86,8 @@ module managers {
             let blt_playerlv4Array: BulletInfo[] = [];
             //middle bullet
             blt_playerlv4Array.push({
-                name: "blt_rocket_lv1", isenabled: false, totalcnt: 16, curcnt: 0, tickerPeriod: 40, dx: 0, dy: -10,
-                offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_rocket_lv1", 20, 0, -10)
+                name: "blt_player_rocket_lv1", isenabled: false, totalcnt: 16, curcnt: 0, tickerPeriod: 40, dx: 0, dy: -10,
+                offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_player_rocket_lv1", 20, 0, -10)
             });      
             this._objBulletMap.set("player_bullet_lv4", blt_playerlv4Array);
 
@@ -103,8 +103,8 @@ module managers {
             //boss1
             let blt_boss1Array: BulletInfo[] = [];
             blt_boss1Array.push({
-                name: "blt_bomb", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: 5,
-                offset_x: 0, offset_y: 30, ref: this._buildBulletPool("blt_bomb", 20, 0, 5)
+                name: "blt_boss_bomb", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: 5,
+                offset_x: 0, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb", 20, 0, 5)
             });
             this._objBulletMap.set("boss_bullet_lv1", blt_boss1Array);
         }
@@ -252,13 +252,13 @@ module managers {
                 case "player":   //player craft itself can cause damanage
                     hitHP = 3;
                     break;
-                case "blt_laser_lv1":
+                case "blt_player_laser_lv1":
                     hitHP = 1;
                     break;
-                case "blt_laser_lv2":
+                case "blt_player_laser_lv2":
                     hitHP = 2;
                     break;
-                case "blt_rocket_lv1":
+                case "blt_player_rocket_lv1":
                     hitHP = 5;
                     break;                   
                 defualt:
