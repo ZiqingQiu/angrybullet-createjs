@@ -73,23 +73,23 @@ var managers;
             //boss1
             var blt_boss1Array = [];
             blt_boss1Array.push({
-                name: "blt_boss_bomb_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 30, dx: 0, dy: 6,
+                name: "blt_boss_bomb_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: 0, dy: 6,
                 offset_x: 0, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 20, 0, 6)
             });
             blt_boss1Array.push({
-                name: "blt_boss_bomb_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 30, dx: -4, dy: 4,
+                name: "blt_boss_bomb_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: -4, dy: 4,
                 offset_x: -40, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 20, -4, 4)
             });
             blt_boss1Array.push({
-                name: "blt_boss_bomb_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 30, dx: 4, dy: 4,
+                name: "blt_boss_bomb_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: 4, dy: 4,
                 offset_x: 40, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 20, 4, 4)
             });
             blt_boss1Array.push({
-                name: "blt_boss_bomb_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 30, dx: -8, dy: 8,
+                name: "blt_boss_bomb_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: -8, dy: 8,
                 offset_x: -80, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 20, -8, 8)
             });
             blt_boss1Array.push({
-                name: "blt_boss_bomb_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 30, dx: 8, dy: 8,
+                name: "blt_boss_bomb_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: 8, dy: 8,
                 offset_x: 80, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 20, 8, 8)
             });
             this._objBulletMap.set("boss_bullet_lv1", blt_boss1Array);
