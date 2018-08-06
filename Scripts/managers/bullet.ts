@@ -10,6 +10,7 @@
 * July 30 2018 merging the A2 solution
 * Aug 6 2018 add all four player bullet types
 * Aug 6 2018 provide API to get player bullet type
+* Aug 6 2018 provide API to get HP hit based on player bullet type
 */
 type BulletInfo = { name: string; isenabled: boolean; totalcnt: number; curcnt: number; tickerPeriod: number; dx: number; dy: number; offset_x: number; offset_y: number; ref: objects.Bullet[] };
 
@@ -242,6 +243,29 @@ module managers {
             }
             //register bullet
             this.RegisterBullet(managers.Game.currentSceneObject, bulletType);
+        }
+
+        public GetBulletDamange(bullet: string): number {
+            let hitHP: number = 1;
+            switch (bullet)
+            {
+                case "player":   //player craft itself can cause damanage
+                    hitHP = 3;
+                    break;
+                case "blt_laser_lv1":
+                    hitHP = 1;
+                    break;
+                case "blt_laser_lv2":
+                    hitHP = 2;
+                    break;
+                case "blt_rocket_lv1":
+                    hitHP = 5;
+                    break;                   
+                defualt:
+                    hitHP = 1;
+                break;
+            }
+            return hitHP;
         }
     }
 }

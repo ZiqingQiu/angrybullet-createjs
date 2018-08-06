@@ -6,6 +6,7 @@
 * Description: defines the game object of TIE
 * Revision history:
 * June 24 2018 created file
+* Aug 6 2018 refine HP API
 */
 module objects {
     export class TIE extends objects.GameObject {
@@ -75,22 +76,7 @@ module objects {
                 //points for destroy enemy
                 managers.Game.scoreBoard.addScore(200);
 
-                let hitHP: number = 1;
-                switch(hitType)
-                {
-                    case "player":
-                    hitHP = 3;
-                    break;
-                    case "blt_laser_lvq":
-                    hitHP = 1;
-                    break;
-                    case "blt_laser_lv2":
-                    hitHP = 2;
-                    break;
-                    defualt:
-                    break;
-                }
-                this._hp -= hitHP;
+                this._hp -= managers.Game.bulletManager.GetBulletDamange(hitType);
                 if (this._hp <= 0)
                 {
                     //reset enemy

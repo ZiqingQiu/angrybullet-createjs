@@ -16,6 +16,7 @@ var __extends = (this && this.__extends) || (function () {
 * Description: defines the game object of TIE
 * Revision history:
 * June 24 2018 created file
+* Aug 6 2018 refine HP API
 */
 var objects;
 (function (objects) {
@@ -74,20 +75,7 @@ var objects;
                 managers.Game.currentSceneObject.addChild(explosion);
                 //points for destroy enemy
                 managers.Game.scoreBoard.addScore(200);
-                var hitHP = 1;
-                switch (hitType) {
-                    case "player":
-                        hitHP = 3;
-                        break;
-                    case "blt_laser_lvq":
-                        hitHP = 1;
-                        break;
-                    case "blt_laser_lv2":
-                        hitHP = 2;
-                        break;
-                        defualt: break;
-                }
-                this._hp -= hitHP;
+                this._hp -= managers.Game.bulletManager.GetBulletDamange(hitType);
                 if (this._hp <= 0) {
                     //reset enemy
                     this.Reset();

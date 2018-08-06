@@ -194,6 +194,26 @@ var managers;
             //register bullet
             this.RegisterBullet(managers.Game.currentSceneObject, bulletType);
         };
+        Bullet.prototype.GetBulletDamange = function (bullet) {
+            var hitHP = 1;
+            switch (bullet) {
+                case "player": //player craft itself can cause damanage
+                    hitHP = 3;
+                    break;
+                case "blt_laser_lv1":
+                    hitHP = 1;
+                    break;
+                case "blt_laser_lv2":
+                    hitHP = 2;
+                    break;
+                case "blt_rocket_lv1":
+                    hitHP = 5;
+                    break;
+                    defualt: hitHP = 1;
+                    break;
+            }
+            return hitHP;
+        };
         return Bullet;
     }());
     managers.Bullet = Bullet;

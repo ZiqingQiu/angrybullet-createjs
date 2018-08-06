@@ -6,6 +6,7 @@
 * Description: game object of level1_boss1
 * Revision history:
 * Jul 30 2018 created file
+* Aug 6 2018 refine update HP API
 */
 module objects {
     export class Level1BOSS extends objects.GameObject {
@@ -83,23 +84,8 @@ module objects {
                 managers.Game.currentSceneObject.addChild(explosion);
                 //points for destroy slaveI
                 managers.Game.scoreBoard.addScore(300);
-
-                let hitHP: number = 1;
-                switch(hitType)
-                {
-                    case "player":
-                    hitHP = 3;
-                    break;
-                    case "blt_laser_lv2":
-                    hitHP = 3;
-                    break;
-                    case "blt_laser_lv1":
-                    hitHP = 1;
-                    break;
-                    defualt:
-                    break;
-                }
-                this._hp -= hitHP;
+                //update hp
+                this._hp -= this._hp -= managers.Game.bulletManager.GetBulletDamange(hitType);;
                 if (this._hp <= 0)
                 {
                     managers.Game.currentScene = config.Scene.OVER; 
