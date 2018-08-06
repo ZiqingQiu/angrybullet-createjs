@@ -39,22 +39,22 @@ module objects {
             //keyboard controls
             if (managers.Game.keyboardManager.moveLeft)
             {
-                this.x -= 3;
+                this.x -= 5;
             }
 
             if (managers.Game.keyboardManager.moveRight)
             {
-                this.x += 3;
+                this.x += 5;
             }
 
             if (managers.Game.keyboardManager.moveForward)
             {
-                this.y -= 5;
+                this.y -= 7;
             }
 
             if (managers.Game.keyboardManager.moveBackward)
             {
-                this.y += 2;
+                this.y += 5;
             }
 
 
