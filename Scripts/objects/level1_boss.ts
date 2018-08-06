@@ -25,7 +25,7 @@ module objects {
         //public methods
         public Reset(): void {
             this.x = config.Screen.WIDTH - this.width;
-            this.y = config.Screen.HEIGHT / 2;
+            this.y = config.Screen.HEIGHT / 4;
             //drift randomly
             this._dx = Math.floor((Math.random() * 3) - 6);
             this._dy = Math.floor((Math.random() * 4) - 2);
