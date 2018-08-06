@@ -22,5 +22,6 @@ module managers {
         public static player: objects.Player;
         public static bulletManager: managers.Bullet;
         public static coinManager: managers.Coin;
+        public static explosionManager: managers.Explosion;
     }
 }

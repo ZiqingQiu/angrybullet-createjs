@@ -21,22 +21,24 @@ var objects;
 (function (objects) {
     var Explosion = /** @class */ (function (_super) {
         __extends(Explosion, _super);
-        //private instance variables
         //public properties
         //constructors
         function Explosion(spriteString) {
-            var _this = _super.call(this, spriteString) || this;
-            _this.Start();
-            return _this;
+            return _super.call(this, spriteString) || this;
         }
         //private methods
         Explosion.prototype._animationEnded = function () {
             this.alpha = 0;
             this.off("animationend", this._animationEnded.bind(this), false);
-            managers.Game.currentSceneObject.removeChild(this);
+            this._tarScene.removeChild(this);
         };
         //publlic methods
-        Explosion.prototype.Start = function () {
+        Explosion.prototype.Explode = function (tarScene, x, y) {
+            this.alpha = 1;
+            this.x = x;
+            this.y = y;
+            this._tarScene = tarScene;
+            tarScene.addChild(this);
             this.on("animationend", this._animationEnded.bind(this), false);
         };
         Explosion.prototype.Update = function () {

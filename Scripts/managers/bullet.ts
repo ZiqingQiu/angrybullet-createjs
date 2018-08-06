@@ -23,7 +23,7 @@ module managers {
     
         //constructors
         constructor (){
-            this.Start();  //to be refined
+            this.Start(); 
         }
 
         //private methods

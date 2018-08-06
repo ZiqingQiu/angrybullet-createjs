@@ -10,13 +10,12 @@
 module objects {
     export class Explosion extends objects.GameObject {
         //private instance variables
-
+        private _tarScene: objects.Scene;
         //public properties
 
         //constructors
         constructor(spriteString:string) {
             super(spriteString);
-            this.Start();
         }
 
         //private methods
@@ -24,12 +23,17 @@ module objects {
         {
             this.alpha = 0;
             this.off("animationend", this._animationEnded.bind(this), false);
-            managers.Game.currentSceneObject.removeChild(this);
+            this._tarScene.removeChild(this);
         }
 
 
         //publlic methods
-        public Start(): void {
+        public Explode(tarScene: objects.Scene, x: number, y: number): void {
+            this.alpha = 1;
+            this.x = x;
+            this.y = y;
+            this._tarScene = tarScene;
+            tarScene.addChild(this);
             this.on("animationend", this._animationEnded.bind(this), false);
         }
 

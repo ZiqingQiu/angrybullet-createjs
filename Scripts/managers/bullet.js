@@ -3,7 +3,7 @@ var managers;
     var Bullet = /** @class */ (function () {
         //constructors
         function Bullet() {
-            this.Start(); //to be refined
+            this.Start();
         }
         //private methods
         Bullet.prototype._buildBulletPool = function (bulletname, totalCnt, dx, dy) {
