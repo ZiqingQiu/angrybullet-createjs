@@ -47,7 +47,10 @@ module scenes {
             //check collision between player and power_up
             managers.Collision.Check(this._player, managers.Game.coinManager.getCurActivateCoin());
             //check player crashes with boss
-            managers.Collision.Check(this._player, this._boss1);
+            if (this._boss1.alpha == 1)
+            {   
+                managers.Collision.Check(this._player, this._boss1);
+            }
         }
 
         private CheckPlayerBullet(): void{
@@ -60,7 +63,7 @@ module scenes {
                 bullets = managers.Game.bulletManager.GetBullets("player", bulletIdxArray[idx]);
                 bullets.forEach(bullet =>
                     {
-                        if (bullet.alpha == 1)
+                        if (bullet.alpha == 1 && this._boss1.alpha == 1)
                         {
                             //check collision player-bullet -- boss
                             managers.Collision.Check(bullet, this._boss1);  

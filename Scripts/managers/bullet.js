@@ -133,7 +133,8 @@ var managers;
                     bullet.x = bulletSpawn.x + offset_x;
                     bullet.y = bulletSpawn.y + offset_y;
                     if (bulletInfo[idx].soundname != null) {
-                        createjs.Sound.play(bulletInfo[idx].soundname);
+                        var instance = createjs.Sound.play(bulletInfo[idx].soundname);
+                        instance.volume = 0.3;
                     }
                     //update cur bullet index
                     currentBullet = (currentBullet + 1) % bulletTotalCnt;

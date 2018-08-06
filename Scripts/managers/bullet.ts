@@ -172,7 +172,8 @@ module managers {
 
                     if (bulletInfo[idx].soundname != null)
                     {
-                        createjs.Sound.play(bulletInfo[idx].soundname); 
+                        var instance = createjs.Sound.play(bulletInfo[idx].soundname); 
+                        instance.volume = 0.3;
                     }
                     //update cur bullet index
                     currentBullet = (currentBullet + 1) % bulletTotalCnt;
