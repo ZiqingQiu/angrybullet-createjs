@@ -20,38 +20,38 @@ var managers;
             //add blt_playerlv1
             var blt_playerlv1Array = [];
             blt_playerlv1Array.push({
-                name: "blt_player_laser_lv1", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 20, dx: 0, dy: -10,
-                offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv1", 20, 0, -10)
+                name: "blt_player_laser_lv1", isenabled: false, totalcnt: 15, curcnt: 0, tickerPeriod: 20, dx: 0, dy: -10,
+                offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv1", 15, 0, -10)
             });
             this._objBulletMap.set("player_bullet_lv1", blt_playerlv1Array);
             //playerlv2
             //add blt_playerlv2  ---F---
             var blt_playerlv2Array = [];
             blt_playerlv2Array.push({
-                name: "blt_player_laser_lv1", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: -10,
-                offset_x: -25, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv1", 20, 0, -10)
+                name: "blt_player_laser_lv1", isenabled: false, totalcnt: 15, curcnt: 0, tickerPeriod: 30, dx: 0, dy: -10,
+                offset_x: -25, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv1", 15, 0, -10)
             });
             blt_playerlv2Array.push({
-                name: "blt_player_laser_lv1", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: -10,
-                offset_x: 25, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv1", 20, 0, -10)
+                name: "blt_player_laser_lv1", isenabled: false, totalcnt: 15, curcnt: 0, tickerPeriod: 30, dx: 0, dy: -10,
+                offset_x: 25, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv1", 15, 0, -10)
             });
             this._objBulletMap.set("player_bullet_lv2", blt_playerlv2Array);
             //playerlv3   ---S---
             //add blt_playerlv3
             var blt_playerlv3Array = [];
             blt_playerlv3Array.push({
-                name: "blt_player_laser_lv2", isenabled: false, totalcnt: 16, curcnt: 0, tickerPeriod: 40, dx: 0, dy: -10,
-                offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv2", 20, 0, -10)
+                name: "blt_player_laser_lv2", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 40, dx: 0, dy: -10,
+                offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv2", 10, 0, -10)
             });
             //left bullet
             blt_playerlv3Array.push({
-                name: "blt_player_laser_lv2", isenabled: false, totalcnt: 16, curcnt: 0, tickerPeriod: 40, dx: -5, dy: -10,
-                offset_x: -25, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv2", 20, -5, -10)
+                name: "blt_player_laser_lv2", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 40, dx: -5, dy: -10,
+                offset_x: -25, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv2", 10, -5, -10)
             });
             //right bullet
             blt_playerlv3Array.push({
-                name: "blt_player_laser_lv2", isenabled: false, totalcnt: 16, curcnt: 0, tickerPeriod: 40, dx: 5, dy: -10,
-                offset_x: 25, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv2", 20, 5, -10)
+                name: "blt_player_laser_lv2", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 40, dx: 5, dy: -10,
+                offset_x: 25, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv2", 10, 5, -10)
             });
             this._objBulletMap.set("player_bullet_lv3", blt_playerlv3Array);
             //playerlv4   ---L---
@@ -59,8 +59,8 @@ var managers;
             var blt_playerlv4Array = [];
             //middle bullet
             blt_playerlv4Array.push({
-                name: "blt_player_rocket_lv1", isenabled: false, totalcnt: 16, curcnt: 0, tickerPeriod: 40, dx: 0, dy: -10,
-                offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_player_rocket_lv1", 20, 0, -10)
+                name: "blt_player_rocket_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 40, dx: 0, dy: -10,
+                offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_player_rocket_lv1", 10, 0, -10)
             });
             this._objBulletMap.set("player_bullet_lv4", blt_playerlv4Array);
             //TIE
@@ -74,23 +74,23 @@ var managers;
             var blt_boss1Array = [];
             blt_boss1Array.push({
                 name: "blt_boss_bomb_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: 0, dy: 6,
-                offset_x: 0, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 20, 0, 6)
+                offset_x: 0, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 10, 0, 6)
             });
             blt_boss1Array.push({
-                name: "blt_boss_bomb_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: -4, dy: 4,
-                offset_x: -40, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 20, -4, 4)
+                name: "blt_boss_bomb_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: -5, dy: 5,
+                offset_x: -40, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 10, -5, 5)
             });
             blt_boss1Array.push({
-                name: "blt_boss_bomb_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: 4, dy: 4,
-                offset_x: 40, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 20, 4, 4)
+                name: "blt_boss_bomb_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: 5, dy: 5,
+                offset_x: 40, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 10, 5, 5)
             });
             blt_boss1Array.push({
                 name: "blt_boss_bomb_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: -8, dy: 8,
-                offset_x: -80, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 20, -8, 8)
+                offset_x: -80, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 10, -8, 8)
             });
             blt_boss1Array.push({
                 name: "blt_boss_bomb_lv1", isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: 8, dy: 8,
-                offset_x: 80, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 20, 8, 8)
+                offset_x: 80, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 10, 8, 8)
             });
             this._objBulletMap.set("boss_bullet_lv1", blt_boss1Array);
         };

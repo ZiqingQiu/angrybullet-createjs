@@ -61,7 +61,6 @@ var scenes;
         function Level1FinalScene() {
             var _this = _super.call(this) || this;
             _this._player = managers.Game.player;
-            _this._bulletManager = managers.Game.bulletManager;
             _this.Start();
             return _this;
         }
@@ -85,6 +84,44 @@ var scenes;
                 });
             });
         };
+        Level1FinalScene.prototype.CheckCollisionWOBullet = function () {
+            //check collision between player and power_up
+            managers.Collision.Check(this._player, managers.Game.coinManager.getCurActivateCoin());
+            //check player crashes with boss
+            managers.Collision.Check(this._player, this._boss1);
+        };
+        Level1FinalScene.prototype.CheckPlayerBullet = function () {
+            var _this = this;
+            //check collision with player's bullets
+            var bulletIdxArray = [];
+            var bullets = [];
+            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("player");
+            for (var idx = 0; idx < bulletIdxArray.length; idx++) {
+                bullets = managers.Game.bulletManager.GetBullets("player", bulletIdxArray[idx]);
+                bullets.forEach(function (bullet) {
+                    if (bullet.alpha == 1) {
+                        //check collision player-bullet -- boss
+                        managers.Collision.Check(bullet, _this._boss1);
+                    }
+                });
+            }
+        };
+        Level1FinalScene.prototype.CheckEnemyBullet = function () {
+            var _this = this;
+            var bulletIdxArray = [];
+            var bullets = [];
+            //check collision with tie's bullets
+            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("boss_bullet_lv1");
+            for (var idx = 0; idx < bulletIdxArray.length; idx++) {
+                bullets = managers.Game.bulletManager.GetBullets("boss_bullet_lv1", bulletIdxArray[idx]);
+                bullets.forEach(function (bullet) {
+                    if (bullet.alpha == 1) {
+                        //check collision enemy-bullet -- player
+                        managers.Collision.Check(bullet, _this._player);
+                    }
+                });
+            }
+        };
         //public methods
         Level1FinalScene.prototype.Start = function () {
             this._space = new objects.Space();
@@ -93,39 +130,27 @@ var scenes;
             this._warnLabel = new objects.Label("be aware", "50px", "Starjedi", "#FFFF00", 300, 150, true);
             this._bossHPLabel = new objects.Label("boss hp ", "20px", "Starjedi", "#FFFF00", 260, 10, false);
             this._scoreBoard = managers.Game.scoreBoard;
+            //get bullet manager
+            this._bulletManager = managers.Game.bulletManager;
+            //get coin manager
+            this._coinManager = managers.Game.coinManager;
+            //get all types of coins
+            this._coins = managers.Game.coinManager.getallCoins();
             this.Main();
         };
         Level1FinalScene.prototype.Update = function () {
-            var _this = this;
             console.log("num objects: " + this.numChildren);
             this._space.Update();
             this._boss1.Update();
             this._player.Update();
             this._bulletManager.Update();
-            var bulletIdxArray = [];
-            var bullets = [];
-            //check player
-            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("player");
-            for (var idx = 0; idx < bulletIdxArray.length; idx++) {
-                bullets = managers.Game.bulletManager.GetBullets("player", bulletIdxArray[idx]);
-                bullets.forEach(function (bullet) {
-                    if (bullet.alpha == 1) {
-                        //check collision player-bullet -- enemy
-                        managers.Collision.Check(bullet, _this._boss1);
-                    }
-                });
-            }
-            //check boss
-            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("boss_bullet_lv1");
-            for (var idx = 0; idx < bulletIdxArray.length; idx++) {
-                bullets = managers.Game.bulletManager.GetBullets("boss_bullet_lv1", bulletIdxArray[idx]);
-                bullets.forEach(function (bullet) {
-                    if (bullet.alpha == 1) {
-                        //check collision player-bullet -- enemy
-                        managers.Collision.Check(bullet, _this._player);
-                    }
-                });
-            }
+            this._coinManager.Update();
+            //check collision without bullets
+            this.CheckCollisionWOBullet();
+            //check player's bullet
+            this.CheckPlayerBullet();
+            //check enemy's bullet
+            this.CheckEnemyBullet();
             //update HP;
             this._bossHPLabel.text = "boss hp " + this._boss1.getHP();
         };
@@ -135,10 +160,15 @@ var scenes;
             this.removeAllChildren();
         };
         Level1FinalScene.prototype.Main = function () {
+            var _this = this;
             //add ocean to the scene
             this.addChild(this._space);
             //add label for 10s
             this.addChild(this._warnLabel);
+            //add coin to the scene
+            this._coins.forEach(function (coin) {
+                _this.addChild(coin);
+            });
             //add player to the scene
             this.addChild(this._player);
             this.addChild(this._player.planeFlash);
