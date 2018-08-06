@@ -76,7 +76,7 @@ module managers {
                             break;
                         case "player_lv1":
                             (object2 as objects.Player).GetHit();
-                            if (object1.name == "blt_enemy" || object1.name == "blt_boss")
+                            if (object1.name.search("blt_enemy") != -1 || object1.name.search("blt_boss") != -1)
                             {
                                 //make bullet disappear
                                 (object1 as objects.Bullet).DisappearBullet();
