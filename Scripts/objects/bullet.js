@@ -55,6 +55,7 @@ var objects;
         };
         Bullet.prototype.Move = function () {
             this.y += this._dy;
+            this.x += this._dx;
         };
         Bullet.prototype.DisappearBullet = function () {
             this.Reset();

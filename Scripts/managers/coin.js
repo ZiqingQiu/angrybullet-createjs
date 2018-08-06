@@ -42,7 +42,7 @@ var managers;
         Coin.prototype.getCurActivateCoin = function () {
             return this._coins[this._curIndex];
         };
-        Coin._Types = ["power_up_S", "power_up_R", "power_up_L", "power_up_F"];
+        Coin._Types = ["power_up_S", "power_up_L", "power_up_F"];
         return Coin;
     }());
     managers.Coin = Coin;

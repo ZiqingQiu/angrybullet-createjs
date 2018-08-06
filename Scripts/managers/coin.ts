@@ -11,7 +11,7 @@ module managers {
     export class Coin {
         //private instance variables
         private _coins: objects.Coin[];
-        private static _Types: string[] = ["power_up_S", "power_up_R", "power_up_L", "power_up_F"]; 
+        private static _Types: string[] = ["power_up_S", "power_up_L", "power_up_F"]; 
         private _curIndex: number;
         //public properties
 

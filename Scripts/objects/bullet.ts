@@ -55,6 +55,7 @@ module objects {
 
         public Move(): void {
             this.y += this._dy;
+            this.x += this._dx;
         }
 
         public DisappearBullet(): void {

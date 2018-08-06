@@ -40,20 +40,54 @@ module managers {
             //add blt_playerlv1
             let blt_playerlv1Array: BulletInfo[] = [];
             blt_playerlv1Array.push({
-                name: "blt_laser_lv1", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 40, dx: 0, dy: -10,
+                name: "blt_laser_lv1", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 20, dx: 0, dy: -10,
                 offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_laser_lv1", 20, 0, -10)
             });
             this._objBulletMap.set("player_bullet_lv1", blt_playerlv1Array);
 
 
             //playerlv2
-            //add blt_playerlv2
+            //add blt_playerlv2  ---F---
             let blt_playerlv2Array: BulletInfo[] = [];
             blt_playerlv2Array.push({
-                name: "blt_laser_lv2", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: -10,
-                offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_laser_lv2", 20, 0, -10)
+                name: "blt_laser_lv1", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: -10,
+                offset_x: -25, offset_y: 0, ref: this._buildBulletPool("blt_laser_lv1", 20, 0, -10)
+            });
+            blt_playerlv2Array.push({
+                name: "blt_laser_lv1", isenabled: false, totalcnt: 20, curcnt: 0, tickerPeriod: 30, dx: 0, dy: -10,
+                offset_x: 25, offset_y: 0, ref: this._buildBulletPool("blt_laser_lv1", 20, 0, -10)
             });
             this._objBulletMap.set("player_bullet_lv2", blt_playerlv2Array);
+
+            //playerlv3   ---S---
+            //add blt_playerlv3
+            let blt_playerlv3Array: BulletInfo[] = [];
+            blt_playerlv3Array.push({
+                name: "blt_laser_lv2", isenabled: false, totalcnt: 16, curcnt: 0, tickerPeriod: 40, dx: 0, dy: -10,
+                offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_laser_lv2", 20, 0, -10)
+            });
+            //left bullet
+            blt_playerlv3Array.push({
+                name: "blt_laser_lv2", isenabled: false, totalcnt: 16, curcnt: 0, tickerPeriod: 40, dx: -5, dy: -10,
+                offset_x: -25, offset_y: 0, ref: this._buildBulletPool("blt_laser_lv2", 20, -5, -10)
+            });       
+            //right bullet
+            blt_playerlv3Array.push({
+                name: "blt_laser_lv2", isenabled: false, totalcnt: 16, curcnt: 0, tickerPeriod: 40, dx: 5, dy: -10,
+                offset_x: 25, offset_y: 0, ref: this._buildBulletPool("blt_laser_lv2", 20, 5, -10)
+            });         
+            this._objBulletMap.set("player_bullet_lv3", blt_playerlv3Array);
+
+            //playerlv4   ---L---
+            //add blt_playerlv4
+            let blt_playerlv4Array: BulletInfo[] = [];
+            //middle bullet
+            blt_playerlv4Array.push({
+                name: "blt_rocket_lv1", isenabled: false, totalcnt: 16, curcnt: 0, tickerPeriod: 40, dx: 0, dy: -10,
+                offset_x: 0, offset_y: 0, ref: this._buildBulletPool("blt_rocket_lv1", 20, 0, -10)
+            });      
+            this._objBulletMap.set("player_bullet_lv4", blt_playerlv4Array);
+
 
             //TIE
             let blt_tieArray: BulletInfo[] = [];
@@ -141,8 +175,7 @@ module managers {
 
                 this._lastPlayerRegisterLevel = objectname;   //store the latest playerlvl
                 //go through all the player bullet types
-                //### 2 is player level hard code, should be 3
-                for (let lvlidx: number = 1; lvlidx <= 2; lvlidx++) {
+                for (let lvlidx: number = 1; lvlidx <= 4; lvlidx++) {
                     if (lvlidx != playerLevel) {
                         bulletInfo = this._objBulletMap.get("player_bullet_lv" + lvlidx);
                         for (let idx: number = 0; idx < bulletInfo.length; idx++) {
