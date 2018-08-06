@@ -16,6 +16,7 @@ var __extends = (this && this.__extends) || (function () {
 * Description: scene object of instruction
 * Revision history:
 * Jul 24 2018 created file
+* Aug 6 2018 add the instruction image combined with previous instruction
 */
 var scenes;
 (function (scenes) {
@@ -80,10 +81,17 @@ var scenes;
             //btns
             this._backButtton = new objects.Button("btn_back", 180, 400);
             this._playButtton = new objects.Button("btn_start", 460, 400);
+            //bitmap image
+            this._instructionimg = new createjs.Bitmap(managers.Game.assetManager.getResult("instruction"));
+            this._instructionimg.alpha = 1;
+            //main
             this.Main();
         };
         InstructionScene.prototype.Update = function () {
             this._space.Update();
+            if (managers.Game.keyboardManager.fire) {
+                this._instructionimg.alpha = 0;
+            }
         };
         InstructionScene.prototype.Destroy = function () {
             this.removeAllChildren();
@@ -112,6 +120,8 @@ var scenes;
             this.addChild(this._playButtton);
             this._playButtton.on("click", this._playButtonClick);
             this._backButtton.on("click", this._backButtonClick);
+            //add bit map on top at the beginning
+            this.addChild(this._instructionimg);
         };
         return InstructionScene;
     }(objects.Scene));

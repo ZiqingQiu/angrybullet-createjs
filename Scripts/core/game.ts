@@ -145,6 +145,7 @@
     assetManifest = [
         {id: "textureAtlas", src: "./Assets/sprites/textureAtlas.png" },
         {id: "space", src: "./Assets/images/space.jpg"},
+        {id: "instruction", src: "./Assets/images/instruction.jpg"},
         {id: "coin", src: "./Assets/audio/coin.wav"},
         {id: "life", src: "./Assets/audio/lives.wav"},
         {id: "explosion", src: "./Assets/audio/explosion.mp3"},
