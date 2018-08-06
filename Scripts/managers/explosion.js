@@ -26,10 +26,10 @@ var managers;
         Explosion.prototype.Start = function () {
             this._objExplosionMap = new Map();
             //explosion
-            var explosion = { totalcnt: 10, curcnt: 0, ref: this._buildExplosionPool("explosion", 10) };
+            var explosion = { totalcnt: 10, curcnt: 0, soundname: "explosion", ref: this._buildExplosionPool("explosion", 10) };
             this._objExplosionMap.set("explosion", explosion);
             //small explosion
-            var small_explosion = { totalcnt: 10, curcnt: 0, ref: this._buildExplosionPool("smallexplosion", 10) };
+            var small_explosion = { totalcnt: 10, curcnt: 0, soundname: "explosion", ref: this._buildExplosionPool("smallexplosion", 10) };
             this._objExplosionMap.set("smallexplosion", small_explosion);
         };
         //public methods
@@ -38,6 +38,10 @@ var managers;
             var currentExpo = explosion.curcnt;
             var explostion = explosion.ref[currentExpo];
             explostion.Explode(tarScene, x, y);
+            createjs.Sound.play(explosion.soundname);
+            //update current explosion
+            currentExpo = (currentExpo + 1) % explosion.totalcnt;
+            explosion.curcnt = currentExpo;
         };
         return Explosion;
     }());

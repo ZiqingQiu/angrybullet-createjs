@@ -8,7 +8,7 @@
 * Aug 6 2018 created file
 */
 
-type ExplosionInfo = {totalcnt: number; curcnt: number; ref: objects.Explosion[]};
+type ExplosionInfo = {totalcnt: number; curcnt: number; soundname: string; ref: objects.Explosion[]};
 
 module managers {
     export class Explosion {
@@ -35,11 +35,11 @@ module managers {
             this._objExplosionMap = new Map<string, ExplosionInfo>();
 
             //explosion
-            let explosion: ExplosionInfo = {totalcnt: 10, curcnt: 0, ref: this._buildExplosionPool("explosion", 10)};
+            let explosion: ExplosionInfo = {totalcnt: 10, curcnt: 0, soundname: "explosion", ref: this._buildExplosionPool("explosion", 10)};
             this._objExplosionMap.set("explosion", explosion);
 
             //small explosion
-            let small_explosion: ExplosionInfo = {totalcnt: 10, curcnt: 0, ref: this._buildExplosionPool("smallexplosion", 10)};
+            let small_explosion: ExplosionInfo = {totalcnt: 10, curcnt: 0, soundname: "explosion",ref: this._buildExplosionPool("smallexplosion", 10)};
             this._objExplosionMap.set("smallexplosion", small_explosion);
         }
 
@@ -49,6 +49,10 @@ module managers {
             let currentExpo: number = explosion.curcnt;
             let explostion: objects.Explosion = explosion.ref[currentExpo];
             explostion.Explode(tarScene, x, y);
+            createjs.Sound.play(explosion.soundname);
+            //update current explosion
+            currentExpo = (currentExpo + 1) % explosion.totalcnt;
+            explosion.curcnt = currentExpo;
         }
         
     }

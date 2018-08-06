@@ -59,11 +59,7 @@ var objects;
         slaveI.prototype.GetHit = function () {
             if (this.alpha != 0) {
                 //add explosion
-                createjs.Sound.play("explosion");
-                var explosion = new objects.Explosion("smallexplosion");
-                explosion.x = this.x;
-                explosion.y = this.y;
-                managers.Game.currentSceneObject.addChild(explosion);
+                managers.Game.explosionManager.TriggerExplosion("smallexplosion", managers.Game.currentSceneObject, this.x, this.y);
                 //points for destroy enemy
                 managers.Game.scoreBoard.addScore(200);
                 //reset enemy

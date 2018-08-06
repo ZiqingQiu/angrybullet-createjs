@@ -111,13 +111,9 @@ module objects {
         //this method provides get hit update for the player object
         public GetHit(): void {
             if (this.alpha != 0) {
-                createjs.Sound.play("explosion");
                 managers.Game.scoreBoard.updateLifes(-1);
                 managers.Game.bulletManager.RegisterBullet(managers.Game.currentSceneObject, "player_bullet_lv1");                
-                let explosion = new objects.Explosion("explosion");
-                explosion.x = this.x;
-                explosion.y = this.y;
-                managers.Game.currentSceneObject.addChild(explosion);
+                managers.Game.explosionManager.TriggerExplosion("explosion", managers.Game.currentSceneObject, this.x, this.y);
                 this.alpha = 0;
                 managers.Game.player.planeFlash.alpha = 1;
                 managers.Game.player.planeFlash.gotoAndPlay("planeflash");

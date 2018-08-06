@@ -41,10 +41,15 @@ module scenes {
             this._startButtton = new objects.Button("btn_start", 320, 300);
             this._instructionButtton = new objects.Button("btn_instruct", 320, 350);
             this._exitButtton = new objects.Button("btn_exit", 320, 400);
-            //make a ref to the bullet manager in the game manager
+
+            //instantiate global single objects
+            //instantiate game manager
             managers.Game.bulletManager =  new managers.Bullet();
-            //make a ref to the coin manager in the game manager
+            //instantiate coin manager
             managers.Game.coinManager = new managers.Coin();
+            //instantiate explostion manager
+            managers.Game.explosionManager = new managers.Explosion();
+
             this.Main();
         }
 
