@@ -8,6 +8,8 @@
 * Revision history:
 * June 24 2018 created file
 * July 30 2018 merging the A2 solution
+* Aug 6 2018 add all four player bullet types
+* Aug 6 2018 provide API to get player bullet type
 */
 type BulletInfo = { name: string; isenabled: boolean; totalcnt: number; curcnt: number; tickerPeriod: number; dx: number; dy: number; offset_x: number; offset_y: number; ref: objects.Bullet[] };
 
@@ -222,6 +224,24 @@ module managers {
             }
             let bulletInfo: BulletInfo[] = this._objBulletMap.get(objectname);
             return bulletInfo[bulletIdx].ref;
+        }
+
+        public RegisterBulletThroughCoin(coinType: string): void {
+            let bulletType: string;
+            switch (coinType)
+            {
+                case "power_up_F":
+                    bulletType = "player_bullet_lv2";
+                break;
+                case "power_up_S":
+                    bulletType = "player_bullet_lv3";
+                break;
+                case "power_up_L":
+                    bulletType = "player_bullet_lv4";
+                break;
+            }
+            //register bullet
+            this.RegisterBullet(managers.Game.currentSceneObject, bulletType);
         }
     }
 }

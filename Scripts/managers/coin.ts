@@ -54,5 +54,6 @@ module managers {
         public getCurActivateCoin(): objects.Coin{
             return this._coins[this._curIndex];
         }
+
     }
 }

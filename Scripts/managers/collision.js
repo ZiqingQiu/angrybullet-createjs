@@ -6,6 +6,7 @@
 * Description: manages the collisions
 * Revision history:
 * June 24 2018 created file
+* Aug 6 2018 refine bullet api to support multiple bullet coins
 */
 var managers;
 (function (managers) {
@@ -19,7 +20,6 @@ var managers;
                 if (!object2.isColliding) {
                     object2.isColliding = true;
                     switch (object2.name) {
-                        //### to be separate late
                         case "power_up_S":
                         case "power_up_L":
                         case "power_up_F":
@@ -27,7 +27,8 @@ var managers;
                                 createjs.Sound.play("coin");
                                 object2.alpha = 0;
                                 managers.Game.scoreBoard.addScore(100);
-                                managers.Game.bulletManager.RegisterBullet(managers.Game.currentSceneObject, "player_bullet_lv4");
+                                managers.Game.bulletManager;
+                                managers.Game.bulletManager.RegisterBulletThroughCoin(object2.name);
                                 //reset coin
                                 managers.Game.coinManager.activateCoin();
                             }

@@ -178,6 +178,22 @@ var managers;
             var bulletInfo = this._objBulletMap.get(objectname);
             return bulletInfo[bulletIdx].ref;
         };
+        Bullet.prototype.RegisterBulletThroughCoin = function (coinType) {
+            var bulletType;
+            switch (coinType) {
+                case "power_up_F":
+                    bulletType = "player_bullet_lv2";
+                    break;
+                case "power_up_S":
+                    bulletType = "player_bullet_lv3";
+                    break;
+                case "power_up_L":
+                    bulletType = "player_bullet_lv4";
+                    break;
+            }
+            //register bullet
+            this.RegisterBullet(managers.Game.currentSceneObject, bulletType);
+        };
         return Bullet;
     }());
     managers.Bullet = Bullet;
