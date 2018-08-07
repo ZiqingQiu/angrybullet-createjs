@@ -113,9 +113,9 @@ var scenes;
             var bulletIdxArray = [];
             var bullets = [];
             //check collision with tie's bullets
-            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("boss_bullet_lv1");
+            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("boss_bullet_lv2");
             for (var idx = 0; idx < bulletIdxArray.length; idx++) {
-                bullets = managers.Game.bulletManager.GetBullets("boss_bullet_lv1", bulletIdxArray[idx]);
+                bullets = managers.Game.bulletManager.GetBullets("boss_bullet_lv2", bulletIdxArray[idx]);
                 bullets.forEach(function (bullet) {
                     if (bullet.alpha == 1) {
                         //check collision enemy-bullet -- player
@@ -127,7 +127,7 @@ var scenes;
         //public methods
         Level2FinalScene.prototype.Start = function () {
             this._space = new objects.Space("space_lv2");
-            this._boss2 = new objects.Level2BOSS();
+            this._boss2 = new objects.LevelBOSS("boss_lv2", "boss_bullet_lv2", 60);
             this._boss2.alpha = 0;
             this._warnLabel = new objects.Label("be aware", "50px", "Starjedi", "#FFFF00", 300, 150, true);
             this._bossHPLabel = new objects.Label("boss hp ", "20px", "Starjedi", "#FFFF00", 260, 10, false);
@@ -180,7 +180,7 @@ var scenes;
             //add boss1 to the scene
             this.addChild(this._boss2);
             //add bullets to the scene
-            managers.Game.bulletManager.RegisterBullet(this, "boss_bullet_lv1");
+            managers.Game.bulletManager.RegisterBullet(this, "boss_bullet_lv2");
             managers.Game.bulletManager.RegisterPlayerPreviousBullet(this);
             //add score board to the scene
             this.addChild(this._scoreBoard.LivesLabel);
