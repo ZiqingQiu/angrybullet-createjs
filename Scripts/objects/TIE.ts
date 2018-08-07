@@ -16,8 +16,9 @@ module objects {
         //Public Properties
 
         //Constructor
-        constructor() {
-            super("tie");
+        constructor(objname: string, hp: number) {
+            super(objname);
+            this._hp = hp;
             this.Start();
         }
         //Private Methods

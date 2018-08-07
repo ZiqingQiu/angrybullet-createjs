@@ -74,6 +74,19 @@ module managers {
                                 (object1 as objects.Bullet).DisappearBullet();
                             }
                             break;
+                        case "crazyq":
+                            (object2 as objects.CrazyQ).GetHit(object1.name);
+                            if (object1.name == "player_lv1")
+                            {
+                                //downcast to player object
+                                (object1 as objects.Player).GetHit();
+                            }
+                            else if (object1.name.search("blt_player") != -1)
+                            {
+                                //make bullet disappear
+                                (object1 as objects.Bullet).DisappearBullet();
+                            }
+                            break;    
                         case "player_lv1":
                             (object2 as objects.Player).GetHit();
                             if (object1.name.search("blt_enemy") != -1 || object1.name.search("blt_boss") != -1)

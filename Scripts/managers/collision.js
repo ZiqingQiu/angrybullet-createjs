@@ -69,6 +69,17 @@ var managers;
                                 object1.DisappearBullet();
                             }
                             break;
+                        case "crazyq":
+                            object2.GetHit(object1.name);
+                            if (object1.name == "player_lv1") {
+                                //downcast to player object
+                                object1.GetHit();
+                            }
+                            else if (object1.name.search("blt_player") != -1) {
+                                //make bullet disappear
+                                object1.DisappearBullet();
+                            }
+                            break;
                         case "player_lv1":
                             object2.GetHit();
                             if (object1.name.search("blt_enemy") != -1 || object1.name.search("blt_boss") != -1) {

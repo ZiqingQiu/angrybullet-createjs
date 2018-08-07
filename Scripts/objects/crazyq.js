@@ -32,10 +32,10 @@ var objects;
         //public methods
         CrazyQ.prototype.Reset = function () {
             this.x = config.Screen.WIDTH - this.width;
-            this.y = config.Screen.HEIGHT / 2;
+            this.y = config.Screen.HEIGHT / 5;
             //drift randomly
-            this._dx = Math.floor((Math.random() * 3) - 6);
-            this._dy = Math.floor((Math.random() * 4) - 2);
+            this._dx = Math.floor((Math.random() * 2) - 4);
+            this._dy = Math.floor((Math.random() * 2) - 1);
             //reset alpha
             this.alpha = 0;
         };
@@ -54,7 +54,7 @@ var objects;
             }
         };
         CrazyQ.prototype.Start = function () {
-            this._hp = 100;
+            this._hp = 5;
         };
         CrazyQ.prototype.Update = function () {
             this.Move();
@@ -70,13 +70,13 @@ var objects;
             if (this.alpha != 0) {
                 //add explosion
                 managers.Game.explosionManager.TriggerExplosion("explosion", managers.Game.currentSceneObject, this.x, this.y);
-                //points for destroy slaveI
-                managers.Game.scoreBoard.addScore(300);
+                //points for destroy crazyq
+                managers.Game.scoreBoard.addScore(200);
                 //update hp
                 this._hp -= managers.Game.bulletManager.GetBulletDamange(hitType);
                 ;
                 if (this._hp <= 0) {
-                    managers.Game.currentScene = config.Scene.OVER;
+                    this.Reset();
                 }
             }
         };

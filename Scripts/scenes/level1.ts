@@ -114,7 +114,7 @@ module scenes {
             this._tieNum = 2;
             this._tie = new Array<objects.TIE>();
             for (let count = 0; count < this._tieNum; count++) {
-                this._tie[count] = new objects.TIE();                
+                this._tie[count] = new objects.TIE("tie", 3);                
             }
 
             //play background music

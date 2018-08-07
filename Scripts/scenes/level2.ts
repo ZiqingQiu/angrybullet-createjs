@@ -107,7 +107,7 @@ module scenes {
             this._tieNum = 2;
             this._tie = new Array<objects.TIE>();
             for (let count = 0; count < this._tieNum; count++) {
-                this._tie[count] = new objects.TIE();                
+                this._tie[count] = new objects.TIE("tie_lv2", 5);                
             }
             //get all types of coins
             this._coins = managers.Game.coinManager.getallCoins();

@@ -24,8 +24,9 @@ var objects;
         __extends(TIE, _super);
         //Public Properties
         //Constructor
-        function TIE() {
-            var _this = _super.call(this, "tie") || this;
+        function TIE(objname, hp) {
+            var _this = _super.call(this, objname) || this;
+            _this._hp = hp;
             _this.Start();
             return _this;
         }
