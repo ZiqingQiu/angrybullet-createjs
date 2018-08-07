@@ -64,7 +64,7 @@ var objects;
         };
         CrazyQ.prototype.BulletFire = function () {
             if (this.alpha == 1) {
-                managers.Game.bulletManager.BulletFire("boss_bullet_lv1", this.x, this.y, this.halfHeight);
+                managers.Game.bulletManager.BulletFire("crazyq_bullet_lv1", this.x, this.y, this.halfHeight);
             }
         };
         CrazyQ.prototype.SetEnable = function (isEnable) {

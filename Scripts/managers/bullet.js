@@ -93,6 +93,21 @@ var managers;
                 offset_x: 80, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 10, 8, 8)
             });
             this._objBulletMap.set("boss_bullet_lv1", blt_boss1Array);
+            //crazyq
+            var blt_crazyqArray = [];
+            blt_boss1Array.push({
+                name: "blt_boss_bomb_lv1", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: 0, dy: 6,
+                offset_x: 0, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 10, 0, 6)
+            });
+            blt_boss1Array.push({
+                name: "blt_boss_bomb_lv1", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: -5, dy: 5,
+                offset_x: -40, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 10, -5, 5)
+            });
+            blt_boss1Array.push({
+                name: "blt_boss_bomb_lv1", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: 5, dy: 5,
+                offset_x: 40, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 10, 5, 5)
+            });
+            this._objBulletMap.set("crazyq_bullet_lv1", blt_boss1Array);
         };
         Bullet.prototype.Update = function () {
             //only update the bullet that has been enabled

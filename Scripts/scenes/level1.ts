@@ -5,16 +5,18 @@ module scenes {
         //Private Instance Variables
         private _space: objects.Space;
         private _player: objects.Player;
+
+        //enemies
         private _tie: objects.TIE[];
         private _tieNum: number;
+        private _slaveI: objects.slaveI;
 
+        //managers
         private _scoreBoard: managers.ScoreBoard;
         private _bulletManager: managers.Bullet;
         private _coinManager: managers.Coin;
-        private _engineSound: createjs.AbstractSoundInstance;
-
         private _coins: objects.Coin[];
-        private _slaveI: objects.slaveI;
+        private _engineSound: createjs.AbstractSoundInstance;
 
         //Public Properties
 
@@ -110,18 +112,17 @@ module scenes {
             this._tieNum = 2;
             this._tie = new Array<objects.TIE>();
             for (let count = 0; count < this._tieNum; count++) {
-                this._tie[count] = new objects.TIE();
-                
+                this._tie[count] = new objects.TIE();                
             }
+
+            //create the scoreboard UI 
+            this._scoreBoard = new managers.ScoreBoard();
+            managers.Game.scoreBoard = this._scoreBoard;
 
             //play background music
             this._engineSound = createjs.Sound.play("level1_background");
             this._engineSound.loop = -1;  //play forever
             this._engineSound.volume = 0.5;
-
-            //create the scoreboard UI 
-            this._scoreBoard = new managers.ScoreBoard();
-            managers.Game.scoreBoard = this._scoreBoard;
 
             this.Main();
         }

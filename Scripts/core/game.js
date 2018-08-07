@@ -142,7 +142,8 @@
         { id: "blt_sound_laser_lv2", src: "./Assets/audio/bullet_laser_lv2.wav" },
         { id: "blt_sound_rocket_lv1", src: "./Assets/audio/bullet_rocket_lv1.mp3" },
         { id: "level1_background", src: "./Assets/audio/level1_background.ogg" },
-        { id: "level1_final_background", src: "./Assets/audio/level1_final_background.mp3" }
+        { id: "level1_final_background", src: "./Assets/audio/level1_final_background.mp3" },
+        { id: "level2_background", src: "./Assets/audio/level2_background.ogg" }
     ];
     function Init() {
         console.log("Init Function...");
