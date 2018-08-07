@@ -83,7 +83,14 @@ var managers;
         ScoreBoard.prototype.updateLifes = function (life) {
             this.Lives += life;
             if (this.Lives <= 0) {
+                this.gameResult = "game over";
                 managers.Game.currentScene = config.Scene.OVER;
+            }
+        };
+        ScoreBoard.prototype.defeatBOSS = function () {
+            managers.Game.currentScene++;
+            if (managers.Game.currentScene == config.Scene.OVER) {
+                this.gameResult = "congratulations !";
             }
         };
         ScoreBoard._quotient = 0;

@@ -23,6 +23,8 @@ module managers {
         public HighScoreLabel: objects.Label;
         public curSceneScore: number; //store current scene score
 
+        public gameResult: string;  //display final result
+
         //Public Properties
         get Lives(): number {
             return this._lives;
@@ -96,7 +98,16 @@ module managers {
             this.Lives += life;
             if (this.Lives <= 0)
             {
+                this.gameResult = "game over";
                 managers.Game.currentScene = config.Scene.OVER; 
+            }
+        }
+
+        public defeatBOSS(): void {
+            managers.Game.currentScene++;
+            if (managers.Game.currentScene == config.Scene.OVER)
+            {
+                this.gameResult = "congratulations !";
             }
         }
 

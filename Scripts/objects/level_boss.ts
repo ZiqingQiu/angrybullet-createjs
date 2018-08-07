@@ -87,7 +87,7 @@ module objects {
                 if (this._hp <= 0)
                 {
                     this._hp = 0;
-                    managers.Game.currentScene++; 
+                    managers.Game.scoreBoard.defeatBOSS();
                 }                
             }
         }
