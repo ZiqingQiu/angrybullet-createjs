@@ -21,7 +21,7 @@ var scenes;
         }
         //Private Methods
         StartScene.prototype._startButtonClick = function () {
-            managers.Game.currentScene = config.Scene.LEVEL1;
+            managers.Game.currentScene = config.Scene.LEVEL2;
         };
         StartScene.prototype._instructionButtonClick = function () {
             managers.Game.currentScene = config.Scene.INSTRUCTION;
@@ -44,6 +44,8 @@ var scenes;
             managers.Game.coinManager = new managers.Coin();
             //instantiate explostion manager
             managers.Game.explosionManager = new managers.Explosion();
+            //instantiate socre board manager
+            managers.Game.scoreBoard = new managers.ScoreBoard();
             this.Main();
         };
         StartScene.prototype.Update = function () {

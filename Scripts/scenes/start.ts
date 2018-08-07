@@ -22,7 +22,7 @@ module scenes {
 
         //Private Methods
         private _startButtonClick(): void{
-            managers.Game.currentScene = config.Scene.LEVEL1;
+            managers.Game.currentScene = config.Scene.LEVEL2;
         }
 
         private _instructionButtonClick(): void{            
@@ -49,6 +49,8 @@ module scenes {
             managers.Game.coinManager = new managers.Coin();
             //instantiate explostion manager
             managers.Game.explosionManager = new managers.Explosion();
+            //instantiate socre board manager
+            managers.Game.scoreBoard = new managers.ScoreBoard();
 
             this.Main();
         }

@@ -80,6 +80,8 @@ var scenes;
             this._bulletManager = managers.Game.bulletManager;
             //get coin manager
             this._coinManager = managers.Game.coinManager;
+            //get scoreboard manager 
+            this._scoreBoard = managers.Game.scoreBoard;
             //create an enemy
             this._slaveI = new objects.slaveI();
             //get all types of coins
@@ -90,9 +92,6 @@ var scenes;
             for (var count = 0; count < this._tieNum; count++) {
                 this._tie[count] = new objects.TIE();
             }
-            //create the scoreboard UI 
-            this._scoreBoard = new managers.ScoreBoard();
-            managers.Game.scoreBoard = this._scoreBoard;
             //play background music
             this._engineSound = createjs.Sound.play("level1_background");
             this._engineSound.loop = -1; //play forever

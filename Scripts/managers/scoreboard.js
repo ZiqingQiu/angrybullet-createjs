@@ -53,7 +53,7 @@ var managers;
             this.LivesLabel = new objects.Label("Lives: 0", "20px", "Starjedi", "#FFFF00", 30, 10, false);
             this.ScoreLabel = new objects.Label("Score: 99999", "20px", "Starjedi", "#FFFF00", 460, 10, false);
             this.HighScoreLabel = new objects.Label("High Score : 99999", "40px", "Starjedi", "#FFFF00", 330, 200, true);
-            this.Lives = 5;
+            this.Lives = 100;
             this.Score = 0;
             this.HighScore = 0;
         };
@@ -73,8 +73,8 @@ var managers;
                 managers.Game.HighScore = this.HighScore;
             }
             //not boss scene
-            if (this.Score >= 2000 && managers.Game.currentScene % 2 == 0) {
-                //### switch scene
+            //### 20000 is for test only
+            if (this.Score >= 20000 && managers.Game.currentScene % 2 == 0) {
                 managers.Game.currentScene = managers.Game.currentScene + 1;
             }
         };

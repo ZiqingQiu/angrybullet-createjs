@@ -205,6 +205,18 @@
             case config.Scene.LEVEL1_FINAL:
                 currentScene = new scenes.Level1FinalScene();
                 break;
+            case config.Scene.LEVEL2:
+                currentScene = new scenes.Level2Scene();
+                break;
+            // case config.Scene.LEVEL2_FINAL:
+            //     currentScene =  new scenes.Level2FinalScene();
+            //     break;  
+            // case config.Scene.LEVEL3:
+            //     currentScene =  new scenes.Level3Scene();
+            //     break;
+            // case config.Scene.LEVEL3_FINAL:
+            //     currentScene =  new scenes.Level3FinalScene();
+            //     break;                                    
             case config.Scene.OVER:
                 currentScene = new scenes.OverScene();
                 break;

@@ -126,19 +126,19 @@ module managers {
 
             //crazyq
             let blt_crazyqArray: BulletInfo[] = [];
-            blt_boss1Array.push({
+            blt_crazyqArray.push({
                 name: "blt_boss_bomb_lv1", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: 0, dy: 6,
                 offset_x: 0, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 10, 0, 6)
             });
-            blt_boss1Array.push({
+            blt_crazyqArray.push({
                 name: "blt_boss_bomb_lv1", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: -5, dy: 5,
                 offset_x: -40, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 10, -5, 5)
             });
-            blt_boss1Array.push({
+            blt_crazyqArray.push({
                 name: "blt_boss_bomb_lv1", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: 5, dy: 5,
                 offset_x: 40, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 10, 5, 5)
             });
-            this._objBulletMap.set("crazyq_bullet_lv1", blt_boss1Array);
+            this._objBulletMap.set("crazyq_bullet_lv1", blt_crazyqArray);
         }
 
         public Update(): void {
@@ -164,11 +164,8 @@ module managers {
                 case "player":
                     bulletInfo = this._objBulletMap.get(this._lastPlayerRegisterLevel);
                     break;
-                case "tie_bullet_lv1":
-                    bulletInfo = this._objBulletMap.get("tie_bullet_lv1");
-                    break;
-                case "boss_bullet_lv1":
-                    bulletInfo = this._objBulletMap.get("boss_bullet_lv1");
+                default :
+                    bulletInfo = this._objBulletMap.get(bulletCarrier);
                     break;
             }
 

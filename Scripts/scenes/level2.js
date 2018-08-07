@@ -73,7 +73,10 @@ var scenes;
         //public methods
         Level2Scene.prototype.Start = function () {
             this._space = new objects.Space("space_lv2");
-            this._player = managers.Game.player;
+            // for test only ###
+            // this._player = managers.Game.player;
+            this._player = new objects.Player();
+            managers.Game.player = this._player;
             //get bullet manager
             this._bulletManager = managers.Game.bulletManager;
             //get coin manager
@@ -82,7 +85,7 @@ var scenes;
             this._scoreBoard = managers.Game.scoreBoard;
             //create enemy
             this._crazyq = new objects.CrazyQ();
-            this._tieNum = 3;
+            this._tieNum = 2;
             this._tie = new Array();
             for (var count = 0; count < this._tieNum; count++) {
                 this._tie[count] = new objects.TIE();
@@ -132,7 +135,9 @@ var scenes;
                 _this.addChild(tie);
             });
             //add bullets
-            managers.Game.bulletManager.RegisterPlayerPreviousBullet(this);
+            //#### for test only
+            //managers.Game.bulletManager.RegisterPlayerPreviousBullet(this);
+            managers.Game.bulletManager.RegisterBullet(this, "player_bullet_lv1");
             managers.Game.bulletManager.RegisterBullet(this, "tie_bullet_lv1");
             managers.Game.bulletManager.RegisterBullet(this, "crazyq_bullet_lv1");
             //add score board to the scene

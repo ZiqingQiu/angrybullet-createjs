@@ -11,7 +11,6 @@ module objects {
     export class CrazyQ extends objects.GameObject {
         //private instance variables
         private _hp: number;
-        private _isEnable: boolean;
 
         //public properties
         //constructor
@@ -40,7 +39,7 @@ module objects {
         public CheckBounds(): void {
             if ((this.y >= 0 && this.y <= 480) && (this.x >= 0 && this.x <= this.width + config.Screen.WIDTH) )
             {
-                if (this.alpha == 0 && this._isEnable)
+                if (this.alpha == 0)
                 {
                     this.alpha = 1;
                 }
@@ -53,7 +52,6 @@ module objects {
 
         public Start(): void {
             this._hp = 100; 
-            this._isEnable = false;
         }
 
         public Update(): void {
@@ -67,10 +65,6 @@ module objects {
             {
                 managers.Game.bulletManager.BulletFire("crazyq_bullet_lv1", this.x, this.y, this.halfHeight);
             }
-        }
-
-        public SetEnable(isEnable: boolean): void {
-            this._isEnable = isEnable;
         }
 
         public GetHit(hitType: string): void {
