@@ -94,6 +94,7 @@ var scenes;
             this._coinManager = managers.Game.coinManager;
             //get score board manager
             this._scoreBoard = managers.Game.scoreBoard;
+            this._scoreBoard.curSceneScore = 0;
             //create enemy
             this._crazyq = new objects.CrazyQ();
             this._tieNum = 2;

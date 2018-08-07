@@ -21,6 +21,7 @@ module managers {
         public LivesLabel: objects.Label;
         public ScoreLabel: objects.Label;
         public HighScoreLabel: objects.Label;
+        public curSceneScore: number; //store current scene score
 
         //Public Properties
         get Lives(): number {
@@ -62,6 +63,7 @@ module managers {
             this.Lives = 100;
             this.Score = 0;
             this.HighScore = 0;
+            this.curSceneScore = 0;
         }
 
 
@@ -69,6 +71,7 @@ module managers {
         public addScore(score: number): void {
 
             this.Score += score;
+            this.curSceneScore += score;
             let roundScore = Math.floor(this.Score / ScoreBoard._lifeupscore)
             //live +1
             if (roundScore != ScoreBoard._quotient) {
@@ -83,7 +86,7 @@ module managers {
             }
             //not boss scene
             //### 20000 is for test only should be 2000
-            if (this.Score >= 2000 && managers.Game.currentScene % 2 == 0)
+            if (this.curSceneScore >= 2000 && managers.Game.currentScene % 2 == 0)
             {
                 managers.Game.currentScene = managers.Game.currentScene + 1;
             }

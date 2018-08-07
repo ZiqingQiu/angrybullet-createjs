@@ -103,6 +103,7 @@ module scenes {
             this._coinManager = managers.Game.coinManager;
             //get scoreboard manager 
             this._scoreBoard = managers.Game.scoreBoard;
+            this._scoreBoard.curSceneScore = 0;
 
             //create an enemy
             this._slaveI = new objects.slaveI();
