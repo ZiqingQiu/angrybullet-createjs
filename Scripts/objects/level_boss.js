@@ -82,6 +82,7 @@ var objects;
                 this._hp -= managers.Game.bulletManager.GetBulletDamange(hitType);
                 ;
                 if (this._hp <= 0) {
+                    this._hp = 0;
                     managers.Game.currentScene++;
                 }
             }
