@@ -12,13 +12,15 @@ module objects {
     export class TIE extends objects.GameObject {
         //Private Instance Variables
         private _hp: number;
+        private _bulletname: string;
 
         //Public Properties
 
         //Constructor
-        constructor(objname: string, hp: number) {
+        constructor(objname: string, bulname: string, hp: number) {
             super(objname);
             this._hp = hp;
+            this._bulletname = bulname;
             this.Start();
         }
         //Private Methods
@@ -85,7 +87,7 @@ module objects {
         public BulletFire(): void {
             if (this.alpha == 1)
             {
-                managers.Game.bulletManager.BulletFire("tie_bullet_lv1", this.x, this.y, this.halfHeight);
+                managers.Game.bulletManager.BulletFire(this._bulletname, this.x, this.y, this.halfHeight);
             }
         }
     }

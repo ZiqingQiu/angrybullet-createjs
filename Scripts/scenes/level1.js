@@ -90,7 +90,7 @@ var scenes;
             this._tieNum = 2;
             this._tie = new Array();
             for (var count = 0; count < this._tieNum; count++) {
-                this._tie[count] = new objects.TIE("tie", 3);
+                this._tie[count] = new objects.TIE("tie", "tie_bullet_lv1", 3);
             }
             //play background music
             this._engineSound = createjs.Sound.play("level1_background");

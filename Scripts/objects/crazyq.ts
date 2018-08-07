@@ -11,6 +11,7 @@ module objects {
     export class CrazyQ extends objects.GameObject {
         //private instance variables
         private _hp: number;
+        private _timer: number;
 
         //public properties
         //constructor
@@ -34,12 +35,13 @@ module objects {
         public Move(): void {
             this.y += this._dy;
             this.x += this._dx;
+            this._timer++;
         }
 
         public CheckBounds(): void {
             if ((this.y >= 0 && this.y <= 480) && (this.x >= 0 && this.x <= this.width + config.Screen.WIDTH) )
             {
-                if (this.alpha == 0)
+                if (this.alpha == 0 && this._timer > 300)
                 {
                     this.alpha = 1;               
                 }
@@ -52,6 +54,7 @@ module objects {
 
         public Start(): void {
             this._hp = 5; 
+            this._timer = 0;
         }
 
         public Update(): void {
@@ -78,6 +81,7 @@ module objects {
                 if (this._hp <= 0)
                 {
                     this.Reset();
+                    this._timer = 0;
                 }                
             }
         }

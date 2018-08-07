@@ -71,10 +71,10 @@ module scenes {
             let bulletIdxArray : number[] = [];
             let bullets: objects.Bullet[] = [];
             //check collision with tie's bullets
-            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("tie_bullet_lv1");
+            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("tie_bullet_lv2");
             for (let idx: number = 0; idx < bulletIdxArray.length; idx++)
             {
-                bullets = managers.Game.bulletManager.GetBullets("tie_bullet_lv1", bulletIdxArray[idx]);
+                bullets = managers.Game.bulletManager.GetBullets("tie_bullet_lv2", bulletIdxArray[idx]);
                 bullets.forEach(bullet =>
                     {
                         if (bullet.alpha == 1)
@@ -84,6 +84,20 @@ module scenes {
                         }                        
                     })
             }
+            //check collision with crazyq's bullets
+            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("crazyq_bullet_lv1");
+            for (let idx: number = 0; idx < bulletIdxArray.length; idx++)
+            {
+                bullets = managers.Game.bulletManager.GetBullets("crazyq_bullet_lv1", bulletIdxArray[idx]);
+                bullets.forEach(bullet =>
+                    {
+                        if (bullet.alpha == 1)
+                        {
+                            //check collision enemy-bullet -- player
+                            managers.Collision.Check(bullet, this._player);  
+                        }                        
+                    })
+            }           
         }
 
         //public methods
@@ -107,7 +121,7 @@ module scenes {
             this._tieNum = 2;
             this._tie = new Array<objects.TIE>();
             for (let count = 0; count < this._tieNum; count++) {
-                this._tie[count] = new objects.TIE("tie_lv2", 5);                
+                this._tie[count] = new objects.TIE("tie_lv2", "tie_bullet_lv2", 5);                
             }
             //get all types of coins
             this._coins = managers.Game.coinManager.getallCoins();
@@ -165,7 +179,7 @@ module scenes {
             //#### for test only
             //managers.Game.bulletManager.RegisterPlayerPreviousBullet(this);
             managers.Game.bulletManager.RegisterBullet(this, "player_bullet_lv1");
-            managers.Game.bulletManager.RegisterBullet(this, "tie_bullet_lv1");
+            managers.Game.bulletManager.RegisterBullet(this, "tie_bullet_lv2");
             managers.Game.bulletManager.RegisterBullet(this, "crazyq_bullet_lv1");
 
             //add score board to the scene

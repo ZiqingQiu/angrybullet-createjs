@@ -100,6 +100,18 @@ module managers {
             });
             this._objBulletMap.set("tie_bullet_lv1", blt_tieArray);
 
+            //TIE lv2
+            let blt_tielv2Array: BulletInfo[] = [];
+            blt_tielv2Array.push({
+                name: "blt_enemy_laser_lv1", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: 0, dy: 20,
+                offset_x: -20, offset_y: 60, ref: this._buildBulletPool("blt_enemy_laser_lv1", 10, 0, 20)
+            });
+            blt_tielv2Array.push({
+                name: "blt_enemy_laser_lv1", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: 0, dy: 20,
+                offset_x: 20, offset_y: 60, ref: this._buildBulletPool("blt_enemy_laser_lv1", 10, 0, 20)
+            });
+            this._objBulletMap.set("tie_bullet_lv2", blt_tielv2Array);
+
             //boss1
             let blt_boss1Array: BulletInfo[] = [];
             blt_boss1Array.push({

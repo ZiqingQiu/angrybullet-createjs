@@ -24,9 +24,10 @@ var objects;
         __extends(TIE, _super);
         //Public Properties
         //Constructor
-        function TIE(objname, hp) {
+        function TIE(objname, bulname, hp) {
             var _this = _super.call(this, objname) || this;
             _this._hp = hp;
+            _this._bulletname = bulname;
             _this.Start();
             return _this;
         }
@@ -81,7 +82,7 @@ var objects;
         };
         TIE.prototype.BulletFire = function () {
             if (this.alpha == 1) {
-                managers.Game.bulletManager.BulletFire("tie_bullet_lv1", this.x, this.y, this.halfHeight);
+                managers.Game.bulletManager.BulletFire(this._bulletname, this.x, this.y, this.halfHeight);
             }
         };
         return TIE;

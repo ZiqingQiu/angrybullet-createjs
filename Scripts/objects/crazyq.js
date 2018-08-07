@@ -42,10 +42,11 @@ var objects;
         CrazyQ.prototype.Move = function () {
             this.y += this._dy;
             this.x += this._dx;
+            this._timer++;
         };
         CrazyQ.prototype.CheckBounds = function () {
             if ((this.y >= 0 && this.y <= 480) && (this.x >= 0 && this.x <= this.width + config.Screen.WIDTH)) {
-                if (this.alpha == 0) {
+                if (this.alpha == 0 && this._timer > 300) {
                     this.alpha = 1;
                 }
             }
@@ -55,6 +56,7 @@ var objects;
         };
         CrazyQ.prototype.Start = function () {
             this._hp = 5;
+            this._timer = 0;
         };
         CrazyQ.prototype.Update = function () {
             this.Move();
@@ -77,6 +79,7 @@ var objects;
                 ;
                 if (this._hp <= 0) {
                     this.Reset();
+                    this._timer = 0;
                 }
             }
         };
