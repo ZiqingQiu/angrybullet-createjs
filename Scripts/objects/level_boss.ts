@@ -86,7 +86,7 @@ module objects {
                 this._hp -= managers.Game.bulletManager.GetBulletDamange(hitType);;
                 if (this._hp <= 0)
                 {
-                    managers.Game.currentScene = config.Scene.LEVEL2; 
+                    managers.Game.currentScene++; 
                 }                
             }
         }

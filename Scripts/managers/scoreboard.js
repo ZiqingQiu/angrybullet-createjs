@@ -77,7 +77,7 @@ var managers;
             //not boss scene
             //### 20000 is for test only should be 2000
             if (this.curSceneScore >= 2000 && managers.Game.currentScene % 2 == 0) {
-                managers.Game.currentScene = managers.Game.currentScene + 1;
+                managers.Game.currentScene++;
             }
         };
         ScoreBoard.prototype.updateLifes = function (life) {

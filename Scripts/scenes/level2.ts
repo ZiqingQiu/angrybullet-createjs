@@ -104,10 +104,10 @@ module scenes {
         public Start(): void {
             this._space = new objects.Space("space_lv2");
             // for test only ###
-            // this._player = managers.Game.player;
+            this._player = managers.Game.player;
 
-            this._player = new objects.Player();
-            managers.Game.player = this._player;
+            // this._player = new objects.Player();
+            // managers.Game.player = this._player;
 
             //get bullet manager
             this._bulletManager = managers.Game.bulletManager;
@@ -178,8 +178,9 @@ module scenes {
 
             //add bullets
             //#### for test only
-            //managers.Game.bulletManager.RegisterPlayerPreviousBullet(this);
-            managers.Game.bulletManager.RegisterBullet(this, "player_bullet_lv1");
+            managers.Game.bulletManager.RegisterPlayerPreviousBullet(this);
+            // managers.Game.bulletManager.RegisterBullet(this, "player_bullet_lv1");
+            
             managers.Game.bulletManager.RegisterBullet(this, "tie_bullet_lv2");
             managers.Game.bulletManager.RegisterBullet(this, "crazyq_bullet_lv1");
 
