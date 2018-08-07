@@ -23,8 +23,10 @@ var objects;
         __extends(CrazyQ, _super);
         //public properties
         //constructor
-        function CrazyQ() {
-            var _this = _super.call(this, "crazyq") || this;
+        function CrazyQ(objname, bulname, hp) {
+            var _this = _super.call(this, objname) || this;
+            _this._hp = hp;
+            _this._bulletname = bulname;
             _this.Start();
             return _this;
         }
@@ -32,7 +34,7 @@ var objects;
         //public methods
         CrazyQ.prototype.Reset = function () {
             this.x = config.Screen.WIDTH - this.width;
-            this.y = config.Screen.HEIGHT / 5;
+            this.y = config.Screen.HEIGHT / 2;
             //drift randomly
             this._dx = Math.floor((Math.random() * 2) - 4);
             this._dy = Math.floor((Math.random() * 2) - 1);
@@ -55,7 +57,6 @@ var objects;
             }
         };
         CrazyQ.prototype.Start = function () {
-            this._hp = 5;
             this._timer = 0;
         };
         CrazyQ.prototype.Update = function () {
@@ -65,7 +66,7 @@ var objects;
         };
         CrazyQ.prototype.BulletFire = function () {
             if (this.alpha == 1) {
-                managers.Game.bulletManager.BulletFire("crazyq_bullet_lv1", this.x, this.y, this.halfHeight);
+                managers.Game.bulletManager.BulletFire(this._bulletname, this.x, this.y, this.halfHeight);
             }
         };
         CrazyQ.prototype.GetHit = function (hitType) {

@@ -91,7 +91,8 @@
     [689, 807, 32, 32, 0, 0, 0],
     [723, 807, 32, 32, 0, 0, 0],
     [757, 807, 98, 82, 0, 0, 0],
-    [857, 807, 67, 100, 0, 0, 0]
+    [857, 807, 67, 100, 0, 0, 0],
+    [1, 909, 98, 97, 0, 0, 0]
 ],
 
 "animations": {
@@ -131,11 +132,12 @@
     "slaveI": { "frames": [77] },
     "smallexplosion": { "frames": [78, 79, 80, 81, 82, 83] },
     "tie": { "frames": [84] },
-    "tie_lv2": { "frames": [85] }
+    "tie_lv2": { "frames": [85] },
+    "tie_lv3": { "frames": [86] }
 },
 
 "texturepacker": [
-        "SmartUpdateHash: $TexturePacker:SmartUpdate:16f820ff40c558ba7a03cc3aa6f84f84:d1e17f4240982e0057a265fc4add37c5:2b5604bc88faefd55ddac16e9bce1532$",
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:9249b77bd502b6d639b10844b48f91bd:3ec792cdb2e325a83688def6dd6b3d92:2b5604bc88faefd55ddac16e9bce1532$",
         "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
 ]
 

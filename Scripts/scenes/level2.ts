@@ -118,7 +118,7 @@ module scenes {
             this._scoreBoard.curSceneScore = 0;
 
             //create enemy
-            this._crazyq = new objects.CrazyQ();
+            this._crazyq = new objects.CrazyQ("crazyq", "crazyq_bullet_lv1", 5);
             this._tieNum = 2;
             this._tie = new Array<objects.TIE>();
             for (let count = 0; count < this._tieNum; count++) {

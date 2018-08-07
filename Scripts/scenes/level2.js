@@ -96,7 +96,7 @@ var scenes;
             this._scoreBoard = managers.Game.scoreBoard;
             this._scoreBoard.curSceneScore = 0;
             //create enemy
-            this._crazyq = new objects.CrazyQ();
+            this._crazyq = new objects.CrazyQ("crazyq", "crazyq_bullet_lv1", 5);
             this._tieNum = 2;
             this._tie = new Array();
             for (var count = 0; count < this._tieNum; count++) {

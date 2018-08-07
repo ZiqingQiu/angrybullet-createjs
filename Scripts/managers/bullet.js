@@ -142,6 +142,13 @@ var managers;
                 offset_x: 40, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 10, 5, 5)
             });
             this._objBulletMap.set("crazyq_bullet_lv1", blt_crazyqArray);
+            //empire
+            var blt_empireArray = [];
+            blt_empireArray.push({
+                name: "blt_enemy_laser_lv2", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: -5, dy: 0,
+                offset_x: 0, offset_y: 30, ref: this._buildBulletPool("blt_enemy_laser_lv2", 10, -5, 0)
+            });
+            this._objBulletMap.set("empire_bullet_lv1", blt_empireArray);
         };
         Bullet.prototype.Update = function () {
             //only update the bullet that has been enabled

@@ -11,12 +11,15 @@ module objects {
     export class CrazyQ extends objects.GameObject {
         //private instance variables
         private _hp: number;
+        private _bulletname: string;
         private _timer: number;
 
         //public properties
         //constructor
-        constructor() {
-            super("crazyq");
+        constructor(objname: string, bulname: string, hp: number) {
+            super(objname);
+            this._hp = hp;
+            this._bulletname = bulname;
             this.Start();   
         } 
 
@@ -24,7 +27,7 @@ module objects {
         //public methods
         public Reset(): void {
             this.x = config.Screen.WIDTH - this.width;
-            this.y = config.Screen.HEIGHT / 5;
+            this.y = config.Screen.HEIGHT / 2;
             //drift randomly
             this._dx = Math.floor((Math.random() * 2) - 4);
             this._dy = Math.floor((Math.random() * 2) - 1);     
@@ -53,7 +56,6 @@ module objects {
         }
 
         public Start(): void {
-            this._hp = 5; 
             this._timer = 0;
         }
 
@@ -66,7 +68,7 @@ module objects {
         public BulletFire(): void {
             if (this.alpha == 1)
             {
-                managers.Game.bulletManager.BulletFire("crazyq_bullet_lv1", this.x, this.y, this.halfHeight);
+                managers.Game.bulletManager.BulletFire(this._bulletname, this.x, this.y, this.halfHeight);
             }
         }
 

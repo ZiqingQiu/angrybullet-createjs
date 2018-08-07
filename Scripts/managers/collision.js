@@ -49,6 +49,7 @@ var managers;
                             break;
                         case "boss_lv1":
                         case "boss_lv2":
+                        case "boss_lv3":
                             //update boss gets hit
                             object2.GetHit(object1.name);
                             if (object1.name == "player_lv1") {
@@ -72,6 +73,7 @@ var managers;
                             }
                             break;
                         case "crazyq":
+                        case "empire":
                             object2.GetHit(object1.name);
                             if (object1.name == "player_lv1") {
                                 //downcast to player object
