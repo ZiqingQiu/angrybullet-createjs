@@ -160,6 +160,42 @@ module managers {
             });
             this._objBulletMap.set("boss_bullet_lv2", blt_boss2Array);
 
+            //boss3
+            let blt_boss3Array: BulletInfo[] = [];
+            blt_boss3Array.push({
+                name: "blt_boss_laser_lv1", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 40, dx: 0, dy: 6,
+                offset_x: 20, offset_y: 30, ref: this._buildBulletPool("blt_boss_laser_lv1", 10, 0, 6)
+            });
+            blt_boss3Array.push({
+                name: "blt_boss_laser_lv1", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 40, dx: 0, dy: 6,
+                offset_x: -20, offset_y: 30, ref: this._buildBulletPool("blt_boss_laser_lv1", 10, 0, 6)
+            });
+            blt_boss3Array.push({
+                name: "blt_boss_laser_lv1", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 40, dx: 0, dy: 6,
+                offset_x: 60, offset_y: 30, ref: this._buildBulletPool("blt_boss_laser_lv1", 10, 0, 6)
+            });
+            blt_boss3Array.push({
+                name: "blt_boss_laser_lv1", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 40, dx: 0, dy: 6,
+                offset_x: -60, offset_y: 30, ref: this._buildBulletPool("blt_boss_laser_lv1", 10, 0, 6)
+            });
+            blt_boss3Array.push({
+                name: "blt_boss_bomb_lv1", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: -5, dy: 5,
+                offset_x: -40, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 10, -5, 5)
+            });
+            blt_boss3Array.push({
+                name: "blt_boss_bomb_lv1", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: 5, dy: 5,
+                offset_x: 40, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 10, 5, 5)
+            });
+            blt_boss3Array.push({
+                name: "blt_boss_bomb_lv1", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: -8, dy: 8,
+                offset_x: -80, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 10, -8, 8)
+            });
+            blt_boss3Array.push({
+                name: "blt_boss_bomb_lv1", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: 8, dy: 8,
+                offset_x: 80, offset_y: 30, ref: this._buildBulletPool("blt_boss_bomb_lv1", 10, 8, 8)
+            });
+            this._objBulletMap.set("boss_bullet_lv3", blt_boss3Array);            
+
             //crazyq
             let blt_crazyqArray: BulletInfo[] = [];
             blt_crazyqArray.push({

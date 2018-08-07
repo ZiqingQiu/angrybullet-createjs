@@ -36,6 +36,7 @@ var managers;
                             break;
                         case "tie":
                         case "tie_lv2":
+                        case "tie_lv3":
                             //update TIE gets hit
                             object2.GetHit(object1.name);
                             if (object1.name == "player_lv1") {

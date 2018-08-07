@@ -38,6 +38,9 @@ module scenes {
                 tie.Update();
                 managers.Collision.Check(this._player, tie);
             });
+
+            //check collision between player and slave I
+            managers.Collision.Check(this._player, this._slaveI);
         }
 
         private CheckPlayerBullet(): void{
