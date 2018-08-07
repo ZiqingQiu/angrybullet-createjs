@@ -109,7 +109,7 @@ module scenes {
             this._coins = managers.Game.coinManager.getallCoins();
             
             //play background music
-            this._engineSound = createjs.Sound.play("level1_final_background");
+            this._engineSound = createjs.Sound.play("level2_final_background");
             this._engineSound.loop = -1;  //play forever
             this._engineSound.volume = 0.5;
 
