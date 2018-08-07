@@ -48,6 +48,7 @@ var managers;
                             }
                             break;
                         case "boss_lv1":
+                        case "boss_lv2":
                             //update boss gets hit
                             object2.GetHit(object1.name);
                             if (object1.name == "player_lv1") {
