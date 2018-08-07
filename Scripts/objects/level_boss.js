@@ -20,18 +20,20 @@ var __extends = (this && this.__extends) || (function () {
 */
 var objects;
 (function (objects) {
-    var Level1BOSS = /** @class */ (function (_super) {
-        __extends(Level1BOSS, _super);
+    var LevelBOSS = /** @class */ (function (_super) {
+        __extends(LevelBOSS, _super);
         //public properties
         //constructor
-        function Level1BOSS() {
-            var _this = _super.call(this, "boss_lv1") || this;
+        function LevelBOSS(objname, bulname, hp) {
+            var _this = _super.call(this, objname) || this;
+            _this._hp = hp;
+            _this._bulletname = bulname;
             _this.Start();
             return _this;
         }
         //private methods
         //public methods
-        Level1BOSS.prototype.Reset = function () {
+        LevelBOSS.prototype.Reset = function () {
             this.x = config.Screen.WIDTH - this.width;
             this.y = config.Screen.HEIGHT / 4;
             //drift randomly
@@ -40,11 +42,11 @@ var objects;
             //reset alpha
             this.alpha = 0;
         };
-        Level1BOSS.prototype.Move = function () {
+        LevelBOSS.prototype.Move = function () {
             this.y += this._dy;
             this.x += this._dx;
         };
-        Level1BOSS.prototype.CheckBounds = function () {
+        LevelBOSS.prototype.CheckBounds = function () {
             if ((this.y >= 0 && this.y <= 480) && (this.x >= 0 && this.x <= this.width + config.Screen.WIDTH)) {
                 if (this.alpha == 0 && this._isEnable) {
                     this.alpha = 1;
@@ -54,24 +56,23 @@ var objects;
                 this.Reset();
             }
         };
-        Level1BOSS.prototype.Start = function () {
-            this._hp = 50;
+        LevelBOSS.prototype.Start = function () {
             this._isEnable = false;
         };
-        Level1BOSS.prototype.Update = function () {
+        LevelBOSS.prototype.Update = function () {
             this.Move();
             this.CheckBounds();
             this.BulletFire();
         };
-        Level1BOSS.prototype.BulletFire = function () {
+        LevelBOSS.prototype.BulletFire = function () {
             if (this.alpha == 1) {
-                managers.Game.bulletManager.BulletFire("boss_bullet_lv1", this.x, this.y, this.halfHeight);
+                managers.Game.bulletManager.BulletFire(this._bulletname, this.x, this.y, this.halfHeight);
             }
         };
-        Level1BOSS.prototype.SetEnable = function (isEnable) {
+        LevelBOSS.prototype.SetEnable = function (isEnable) {
             this._isEnable = isEnable;
         };
-        Level1BOSS.prototype.GetHit = function (hitType) {
+        LevelBOSS.prototype.GetHit = function (hitType) {
             if (this.alpha != 0) {
                 //add explosion
                 managers.Game.explosionManager.TriggerExplosion("explosion", managers.Game.currentSceneObject, this.x, this.y);
@@ -85,11 +86,11 @@ var objects;
                 }
             }
         };
-        Level1BOSS.prototype.getHP = function () {
+        LevelBOSS.prototype.getHP = function () {
             return this._hp;
         };
-        return Level1BOSS;
+        return LevelBOSS;
     }(objects.GameObject));
-    objects.Level1BOSS = Level1BOSS;
+    objects.LevelBOSS = LevelBOSS;
 })(objects || (objects = {}));
-//# sourceMappingURL=level1_boss.js.map
+//# sourceMappingURL=level_boss.js.map

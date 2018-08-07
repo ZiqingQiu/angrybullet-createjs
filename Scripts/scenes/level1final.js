@@ -127,7 +127,7 @@ var scenes;
         //public methods
         Level1FinalScene.prototype.Start = function () {
             this._space = new objects.Space("space_lv1");
-            this._boss1 = new objects.Level1BOSS();
+            this._boss1 = new objects.LevelBOSS("boss_lv1", "boss_bullet_lv1", 50);
             this._boss1.alpha = 0;
             this._warnLabel = new objects.Label("be aware", "50px", "Starjedi", "#FFFF00", 300, 150, true);
             this._bossHPLabel = new objects.Label("boss hp ", "20px", "Starjedi", "#FFFF00", 260, 10, false);

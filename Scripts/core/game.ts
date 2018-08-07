@@ -146,7 +146,6 @@
         
     };
         
-
     assetManifest = [
         {id: "textureAtlas", src: "./Assets/sprites/textureAtlas.png" },
         {id: "space_lv1", src: "./Assets/images/space_lv1.jpg"},

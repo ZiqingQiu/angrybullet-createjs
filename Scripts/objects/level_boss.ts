@@ -9,15 +9,18 @@
 * Aug 6 2018 refine update HP API
 */
 module objects {
-    export class Level1BOSS extends objects.GameObject {
+    export class LevelBOSS extends objects.GameObject {
         //private instance variables
         private _hp: number;
+        private _bulletname: string;
         private _isEnable: boolean;
 
         //public properties
         //constructor
-        constructor() {
-            super("boss_lv1");
+        constructor(objname: string, bulname: string, hp: number) {
+            super(objname);
+            this._hp = hp;
+            this._bulletname = bulname;
             this.Start();   
         } 
 
@@ -53,7 +56,6 @@ module objects {
         }
 
         public Start(): void {
-            this._hp = 50; 
             this._isEnable = false;
         }
 
@@ -66,7 +68,7 @@ module objects {
         public BulletFire(): void {
             if (this.alpha == 1)
             {
-                managers.Game.bulletManager.BulletFire("boss_bullet_lv1", this.x, this.y, this.halfHeight);
+                managers.Game.bulletManager.BulletFire(this._bulletname, this.x, this.y, this.halfHeight);
             }
         }
 

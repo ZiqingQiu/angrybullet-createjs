@@ -50,7 +50,7 @@ module managers {
                             break;
                         case "boss_lv1":
                             //update boss gets hit
-                            (object2 as objects.Level1BOSS).GetHit(object1.name);
+                            (object2 as objects.LevelBOSS).GetHit(object1.name);
                             if (object1.name == "player_lv1")
                             {
                                 //downcast to player object

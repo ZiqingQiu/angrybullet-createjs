@@ -73,8 +73,8 @@ var managers;
                 managers.Game.HighScore = this.HighScore;
             }
             //not boss scene
-            //### 20000 is for test only
-            if (this.Score >= 20000 && managers.Game.currentScene % 2 == 0) {
+            //### 20000 is for test only should be 2000
+            if (this.Score >= 2000 && managers.Game.currentScene % 2 == 0) {
                 managers.Game.currentScene = managers.Game.currentScene + 1;
             }
         };
