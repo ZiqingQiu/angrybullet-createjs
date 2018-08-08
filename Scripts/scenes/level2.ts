@@ -136,7 +136,7 @@ module scenes {
         }
 
         public Update(): void {
-            console.log("num objects: " + this.numChildren);
+            // console.log("num objects: " + this.numChildren);
             this._space.Update();
             this._player.Update();
             this._bulletManager.Update();

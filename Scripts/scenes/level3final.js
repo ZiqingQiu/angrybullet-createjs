@@ -145,7 +145,7 @@ var scenes;
             this.Main();
         };
         Level3FinalScene.prototype.Update = function () {
-            console.log("num objects: " + this.numChildren);
+            // console.log("num objects: " + this.numChildren);
             this._space.Update();
             this._boss3.Update();
             this._player.Update();
