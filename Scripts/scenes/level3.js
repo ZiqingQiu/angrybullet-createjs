@@ -93,7 +93,7 @@ var scenes;
             this._scoreBoard = managers.Game.scoreBoard;
             this._scoreBoard.curSceneScore = 0;
             //create enemy
-            this._empire = new objects.CrazyQ("empire", "empire_bullet_lv1", 20);
+            this._empire = new objects.CrazyQ("empire", "empire_bullet_lv1", 15);
             this._tieNum = 2;
             this._tie = new Array();
             for (var count = 0; count < this._tieNum; count++) {
