@@ -84,10 +84,7 @@ var scenes;
         //public methods
         Level3Scene.prototype.Start = function () {
             this._space = new objects.Space("space_lv3");
-            // for test only ###
-            // this._player = managers.Game.player;
-            this._player = new objects.Player();
-            managers.Game.player = this._player;
+            this._player = managers.Game.player;
             //get bullet manager
             this._bulletManager = managers.Game.bulletManager;
             //get coin manager
@@ -105,7 +102,7 @@ var scenes;
             //get all types of coins
             this._coins = managers.Game.coinManager.getallCoins();
             //play background music
-            this._engineSound = createjs.Sound.play("level2_background");
+            this._engineSound = createjs.Sound.play("level3_background");
             this._engineSound.loop = -1; //play forever
             this._engineSound.volume = 0.5;
             this.Main();
@@ -147,9 +144,7 @@ var scenes;
                 _this.addChild(tie);
             });
             //add bullets
-            //#### for test only
-            //managers.Game.bulletManager.RegisterPlayerPreviousBullet(this);
-            managers.Game.bulletManager.RegisterBullet(this, "player_bullet_lv1");
+            managers.Game.bulletManager.RegisterPlayerPreviousBullet(this);
             managers.Game.bulletManager.RegisterBullet(this, "tie_bullet_lv2");
             managers.Game.bulletManager.RegisterBullet(this, "empire_bullet_lv1");
             //add score board to the scene

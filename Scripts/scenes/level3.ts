@@ -103,11 +103,7 @@ module scenes {
         //public methods
         public Start(): void {
             this._space = new objects.Space("space_lv3");
-            // for test only ###
-            // this._player = managers.Game.player;
-
-            this._player = new objects.Player();
-            managers.Game.player = this._player;
+            this._player = managers.Game.player;
 
             //get bullet manager
             this._bulletManager = managers.Game.bulletManager;
@@ -128,7 +124,7 @@ module scenes {
             this._coins = managers.Game.coinManager.getallCoins();
 
             //play background music
-            this._engineSound = createjs.Sound.play("level2_background");
+            this._engineSound = createjs.Sound.play("level3_background");
             this._engineSound.loop = -1;  //play forever
             this._engineSound.volume = 0.5;
 
@@ -177,9 +173,7 @@ module scenes {
             });
 
             //add bullets
-            //#### for test only
-            //managers.Game.bulletManager.RegisterPlayerPreviousBullet(this);
-            managers.Game.bulletManager.RegisterBullet(this, "player_bullet_lv1");
+            managers.Game.bulletManager.RegisterPlayerPreviousBullet(this);
             
             managers.Game.bulletManager.RegisterBullet(this, "tie_bullet_lv2");
             managers.Game.bulletManager.RegisterBullet(this, "empire_bullet_lv1");

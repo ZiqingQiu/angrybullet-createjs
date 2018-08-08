@@ -174,7 +174,8 @@
         { id: "level1_background", src: "./Assets/audio/level1_background.mp3" },
         { id: "level1_final_background", src: "./Assets/audio/level1_final_background.mp3" },
         { id: "level2_background", src: "./Assets/audio/level2_background.mp3" },
-        { id: "level2_final_background", src: "./Assets/audio/level2_final_background.mp3" }
+        { id: "level2_final_background", src: "./Assets/audio/level2_final_background.mp3" },
+        { id: "level3_background", src: "./Assets/audio/level3_background.mp3" }
     ];
     function Init() {
         console.log("Init Function...");
