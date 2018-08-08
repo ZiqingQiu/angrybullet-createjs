@@ -114,7 +114,7 @@ module scenes {
             this._instructionimg.alpha = 1;
 
             //play background music
-            this._engineSound = createjs.Sound.play("level1_background");
+            this._engineSound = createjs.Sound.play("main_theme");
             this._engineSound.loop = -1;  //play forever
             this._engineSound.volume = 0.5;
 
