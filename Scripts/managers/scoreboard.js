@@ -91,6 +91,7 @@ var managers;
             managers.Game.currentScene++;
             if (managers.Game.currentScene == config.Scene.OVER) {
                 this.gameResult = "congratulations !";
+                createjs.Sound.play("gamewin");
             }
         };
         ScoreBoard._quotient = 0;

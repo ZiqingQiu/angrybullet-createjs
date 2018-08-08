@@ -108,6 +108,7 @@ module managers {
             if (managers.Game.currentScene == config.Scene.OVER)
             {
                 this.gameResult = "congratulations !";
+                createjs.Sound.play("gamewin");
             }
         }
 
