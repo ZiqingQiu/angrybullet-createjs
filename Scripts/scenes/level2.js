@@ -39,7 +39,7 @@ var scenes;
             for (var idx = 0; idx < bulletIdxArray.length; idx++) {
                 bullets = managers.Game.bulletManager.GetBullets("player", bulletIdxArray[idx]);
                 bullets.forEach(function (bullet) {
-                    if (bullet.alpha == 1) {
+                    if (bullet.alpha == 1 && _this._crazyq.alpha == 1) {
                         //check collision player-bullet -- slaveI
                         managers.Collision.Check(bullet, _this._crazyq);
                     }

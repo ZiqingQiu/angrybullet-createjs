@@ -29,7 +29,7 @@ module scenes {
             this._overLabel = new objects.Label(managers.Game.scoreBoard.gameResult, "50px", "Starjedi", "#FFFF00", 310, 140, true);
             this._backButtton = new objects.Button("restartButton", 320, 340);
 
-            this._scoreboard = new managers.ScoreBoard();
+            this._scoreboard = managers.Game.scoreBoard;
             this.Main();
         }
 

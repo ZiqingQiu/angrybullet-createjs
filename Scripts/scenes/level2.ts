@@ -47,7 +47,7 @@ module scenes {
                 bullets = managers.Game.bulletManager.GetBullets("player", bulletIdxArray[idx]);
                 bullets.forEach(bullet =>
                     {
-                        if (bullet.alpha == 1)
+                        if (bullet.alpha == 1 && this._crazyq.alpha == 1)
                         {
                             //check collision player-bullet -- slaveI
                             managers.Collision.Check(bullet, this._crazyq);  
