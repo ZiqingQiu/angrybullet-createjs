@@ -57,7 +57,7 @@ var managers;
         };
         //Public Methods
         ScoreBoard.prototype.resetScore = function () {
-            this.Lives = 100;
+            this.Lives = 50;
             this.Score = 0;
             this.HighScore = 0;
             this.curSceneScore = 0;
