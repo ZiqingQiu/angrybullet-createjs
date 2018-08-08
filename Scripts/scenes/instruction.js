@@ -84,6 +84,10 @@ var scenes;
             //bitmap image
             this._instructionimg = new createjs.Bitmap(managers.Game.assetManager.getResult("instruction"));
             this._instructionimg.alpha = 1;
+            //play background music
+            this._engineSound = createjs.Sound.play("level1_background");
+            this._engineSound.loop = -1; //play forever
+            this._engineSound.volume = 0.5;
             //main
             this.Main();
         };
@@ -94,6 +98,7 @@ var scenes;
             }
         };
         InstructionScene.prototype.Destroy = function () {
+            this._engineSound.stop();
             this.removeAllChildren();
         };
         InstructionScene.prototype.Main = function () {

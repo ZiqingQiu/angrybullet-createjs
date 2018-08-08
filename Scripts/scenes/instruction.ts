@@ -37,6 +37,7 @@ module scenes {
 
         //bitmap for instruction
         private _instructionimg: createjs.Bitmap;
+        private _engineSound: createjs.AbstractSoundInstance;
 
         //public properties
         //constructor
@@ -112,6 +113,11 @@ module scenes {
             this._instructionimg = new createjs.Bitmap(managers.Game.assetManager.getResult("instruction"));
             this._instructionimg.alpha = 1;
 
+            //play background music
+            this._engineSound = createjs.Sound.play("level1_background");
+            this._engineSound.loop = -1;  //play forever
+            this._engineSound.volume = 0.5;
+
             //main
             this.Main();
         }
@@ -125,6 +131,7 @@ module scenes {
         }
 
         public Destroy(): void {
+            this._engineSound.stop();
             this.removeAllChildren();
         }
 
