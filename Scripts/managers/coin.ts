@@ -38,7 +38,8 @@ module managers {
             //0..length
             this._curIndex = Math.floor(Math.random() * Coin._Types.length);
             for (let index = 0; index < Coin._Types.length; index++) {
-                this._coins[this._curIndex].isEnable = false;              
+                this._coins[this._curIndex].isEnable = false;      
+                this._coins[this._curIndex].Reset();        
             }
             this._coins[this._curIndex].isEnable = true;
         }

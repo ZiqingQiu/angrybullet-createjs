@@ -30,26 +30,22 @@ var objects;
         //Private methods
         //Public methods
         Coin.prototype.Reset = function () {
-            this.x = -this.halfWidth;
+            this.x = -this.halfWidth - 600; //set some delay
             this.y = Math.floor(Math.random() * (config.Screen.HALF_HEIGHT - 50) + config.Screen.HALF_HEIGHT);
-            this.alpha = 1;
+            this.alpha = 0;
         };
         Coin.prototype.Move = function () {
-            if (this.alpha == 1) {
-                this._dy = Math.floor((Math.random() * 4) - 2);
-                this.y += this._dy;
-                this.x += this._dx;
-            }
-            else {
-                var ticker = createjs.Ticker.getTicks();
-                if (ticker % 1000 == 0 && this.isEnable) {
-                    this.Reset();
-                }
-            }
+            this._dy = Math.floor((Math.random() * 4) - 2);
+            this.y += this._dy;
+            this.x += this._dx;
         };
         Coin.prototype.CheckBounds = function () {
-            if (this.x >= (config.Screen.WIDTH - this.halfWidth)) {
+            var ticker = createjs.Ticker.getTicks();
+            if (this.x >= (config.Screen.WIDTH - this.halfWidth) && (ticker % 1000 == 0 && this.isEnable)) {
                 this.Reset();
+            }
+            else {
+                this.alpha = 1;
             }
         };
         Coin.prototype.Start = function () {
