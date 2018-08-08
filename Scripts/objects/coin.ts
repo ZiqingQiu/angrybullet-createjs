@@ -26,8 +26,7 @@ module objects {
         public Reset(): void {
             this.x = -this.halfWidth;
             this.y = Math.floor(Math.random() * (config.Screen.HALF_HEIGHT - 50) + config.Screen.HALF_HEIGHT);            
-            this.alpha = 1;
-
+            this.alpha = 0;
         }
 
         public Move(): void {
@@ -51,6 +50,10 @@ module objects {
             if (this.x >= (config.Screen.WIDTH - this.halfWidth))
             {
                 this.Reset();
+            }
+            else
+            {
+                this.alpha = 1;
             }
         }
 

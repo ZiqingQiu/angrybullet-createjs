@@ -32,7 +32,7 @@ var objects;
         Coin.prototype.Reset = function () {
             this.x = -this.halfWidth;
             this.y = Math.floor(Math.random() * (config.Screen.HALF_HEIGHT - 50) + config.Screen.HALF_HEIGHT);
-            this.alpha = 1;
+            this.alpha = 0;
         };
         Coin.prototype.Move = function () {
             if (this.alpha == 1) {
@@ -50,6 +50,9 @@ var objects;
         Coin.prototype.CheckBounds = function () {
             if (this.x >= (config.Screen.WIDTH - this.halfWidth)) {
                 this.Reset();
+            }
+            else {
+                this.alpha = 1;
             }
         };
         Coin.prototype.Start = function () {
