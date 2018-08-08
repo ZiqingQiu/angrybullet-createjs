@@ -6,6 +6,7 @@
 * Description: contains all the keys and its ASCII code
 * Revision history:
 * June 24 2018 created file
+* Aug 8 2018 added cheated code
 */
 
 module config {
@@ -24,5 +25,8 @@ module config {
 
         //space bar
         public static SPACE: number = 32;
+
+        //cheated B
+        public static B: number = 66;
     }
 }

@@ -97,6 +97,9 @@ var managers;
                 createjs.Sound.play("gamewin");
             }
         };
+        ScoreBoard.prototype.setCheatedLives = function () {
+            this.Lives = 999;
+        };
         ScoreBoard._quotient = 0;
         ScoreBoard._lifeupscore = 10000;
         return ScoreBoard;

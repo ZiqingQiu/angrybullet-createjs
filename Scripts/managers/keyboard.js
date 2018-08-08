@@ -6,6 +6,7 @@
 * Description: handle keyboard event listener
 * Revision history:
 * June 24 2018 created file
+* Aug 8 2018 added cheat code
 */
 var managers;
 (function (managers) {
@@ -13,6 +14,7 @@ var managers;
         //constructors
         function Keyboard() {
             this.enabled = true;
+            this.cheated = false;
             document.addEventListener('keydown', this.onKeyDown.bind(this), false);
             document.addEventListener('keyup', this.onKeyUp.bind(this), false);
         }
@@ -39,6 +41,9 @@ var managers;
                 case config.Keys.SPACE:
                     this.fire = true;
                     break;
+                case config.Keys.B:
+                    this.cheated = true;
+                    break;
             }
         };
         Keyboard.prototype.onKeyUp = function (event) {
@@ -61,6 +66,9 @@ var managers;
                     break;
                 case config.Keys.SPACE:
                     this.fire = false;
+                    break;
+                case config.Keys.B:
+                    this.cheated = false;
                     break;
             }
         };

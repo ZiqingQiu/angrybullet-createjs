@@ -6,6 +6,7 @@
 * Description: defines the game object of player
 * Revision history:
 * June 24 2018 created file
+* Aug 8 2018 added cheat code
 */
 module objects {
     export class Player extends objects.GameObject {
@@ -99,6 +100,11 @@ module objects {
             this.Move();
             this.CheckBounds();
             this.BulletFire();
+            //added cheated code
+            if (managers.Game.keyboardManager.cheated)
+            {
+                managers.Game.scoreBoard.setCheatedLives();
+            }
         }
 
         public BulletFire(): void {

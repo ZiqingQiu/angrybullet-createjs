@@ -116,5 +116,8 @@ module managers {
             }
         }
 
+        public setCheatedLives(): void {
+            this.Lives = 999;
+        }
     }
 }

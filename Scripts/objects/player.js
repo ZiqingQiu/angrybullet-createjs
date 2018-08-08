@@ -16,6 +16,7 @@ var __extends = (this && this.__extends) || (function () {
 * Description: defines the game object of player
 * Revision history:
 * June 24 2018 created file
+* Aug 8 2018 added cheat code
 */
 var objects;
 (function (objects) {
@@ -83,6 +84,10 @@ var objects;
             this.Move();
             this.CheckBounds();
             this.BulletFire();
+            //added cheated code
+            if (managers.Game.keyboardManager.cheated) {
+                managers.Game.scoreBoard.setCheatedLives();
+            }
         };
         Player.prototype.BulletFire = function () {
             if (this.alpha == 1 && managers.Game.keyboardManager.fire) {

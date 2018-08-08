@@ -6,6 +6,7 @@
 * Description: contains all the keys and its ASCII code
 * Revision history:
 * June 24 2018 created file
+* Aug 8 2018 added cheated code
 */
 var config;
 (function (config) {
@@ -24,6 +25,8 @@ var config;
         Keys.D = 68;
         //space bar
         Keys.SPACE = 32;
+        //cheated B
+        Keys.B = 66;
         return Keys;
     }());
     config.Keys = Keys;
