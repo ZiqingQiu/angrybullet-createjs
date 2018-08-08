@@ -16,7 +16,7 @@ module scenes {
 
         //Private Methods
         private _restartButtonClick(): void{
-            this._scoreboard.Score = 0;
+            this._scoreboard.resetScore();    
             managers.Game.currentScene = config.Scene.LEVEL1;
         }
 

@@ -62,14 +62,19 @@ module managers {
             this.ScoreLabel = new objects.Label("Score: 99999", "20px", "Starjedi", "#FFFF00", 460, 10, false);
             this.HighScoreLabel = new objects.Label("High Score : 99999", "40px", "Starjedi", "#FFFF00", 330, 200, true);
 
-            this.Lives = 100;
-            this.Score = 0;
-            this.HighScore = 0;
-            this.curSceneScore = 0;
+            this.resetScore();
         }
 
 
         //Public Methods
+        public resetScore(): void {
+            this.Lives = 100;
+            this.Score = 0;
+            this.HighScore = 0;
+            this.curSceneScore = 0;
+            this.gameResult = "game over";
+        }
+
         public addScore(score: number): void {
 
             this.Score += score;
@@ -87,8 +92,7 @@ module managers {
                 managers.Game.HighScore = this.HighScore;
             }
             //not boss scene
-            //### 20000 is for test only should be 2000
-            if (this.curSceneScore >= 2000 && managers.Game.currentScene % 2 == 0)
+            if (this.curSceneScore >= 3000 && managers.Game.currentScene % 2 == 0)
             {
                 managers.Game.currentScene++;
             }

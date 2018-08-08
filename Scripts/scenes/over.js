@@ -20,7 +20,7 @@ var scenes;
         }
         //Private Methods
         OverScene.prototype._restartButtonClick = function () {
-            this._scoreboard.Score = 0;
+            this._scoreboard.resetScore();
             managers.Game.currentScene = config.Scene.LEVEL1;
         };
         //Public Methods
