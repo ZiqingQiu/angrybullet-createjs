@@ -53,11 +53,11 @@ module managers {
             //add blt_playerlv2  ---F---
             let blt_playerlv2Array: BulletInfo[] = [];
             blt_playerlv2Array.push({
-                name: "blt_player_laser_lv1", soundname: "blt_sound_laser_lv1", isenabled: false, totalcnt: 15, curcnt: 0, tickerPeriod: 30, dx: 0, dy: -10,
+                name: "blt_player_laser_lv1", soundname: "blt_sound_laser_lv1", isenabled: false, totalcnt: 15, curcnt: 0, tickerPeriod: 10, dx: 0, dy: -10,
                 offset_x: -25, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv1", 15, 0, -10)
             });
             blt_playerlv2Array.push({
-                name: "blt_player_laser_lv1", soundname: "blt_sound_laser_lv1", isenabled: false, totalcnt: 15, curcnt: 0, tickerPeriod: 30, dx: 0, dy: -10,
+                name: "blt_player_laser_lv1", soundname: "blt_sound_laser_lv1", isenabled: false, totalcnt: 15, curcnt: 0, tickerPeriod: 10, dx: 0, dy: -10,
                 offset_x: 25, offset_y: 0, ref: this._buildBulletPool("blt_player_laser_lv1", 15, 0, -10)
             });
             this._objBulletMap.set("player_bullet_lv2", blt_playerlv2Array);
