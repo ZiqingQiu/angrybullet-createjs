@@ -18,4 +18,6 @@ Main features of this project are:
 
 ![start](/Screenshots/start.png)
 
-![start](/Screenshots/level1.png)
+![level 1](/Screenshots/level1.png)
+
+[![HitCount](http://hits.dwyl.io/ziqingqiu/angrybullet-createjs.svg)](http://hits.dwyl.io/ziqingqiu/angrybullet-createjs)
