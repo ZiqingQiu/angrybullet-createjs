@@ -215,8 +215,20 @@ module managers {
             //empire
             let blt_empireArray: BulletInfo[] = [];
             blt_empireArray.push({
-                name: "blt_enemy_laser_lv2", soundname: null, isenabled: false, totalcnt: 10, curcnt: 0, tickerPeriod: 60, dx: -5, dy: 0,
-                offset_x: 0, offset_y: 30, ref: this._buildBulletPool("blt_enemy_laser_lv2", 10, -5, 0)
+                name: "blt_enemy_laser_lv2", soundname: null, isenabled: false, totalcnt: 6, curcnt: 0, tickerPeriod: 60, dx: -5, dy: 0,
+                offset_x: 0, offset_y: 30, ref: this._buildBulletPool("blt_enemy_laser_lv2", 6, -5, 0)
+            });
+            blt_empireArray.push({
+                name: "blt_enemy_laser_lv2", soundname: null, isenabled: false, totalcnt: 6, curcnt: 0, tickerPeriod: 60, dx: -5, dy: 0,
+                offset_x: 0, offset_y: 70, ref: this._buildBulletPool("blt_enemy_laser_lv2", 6, -5, 0)
+            });
+            blt_empireArray.push({
+                name: "blt_enemy_laser_lv2", soundname: null, isenabled: false, totalcnt: 6, curcnt: 0, tickerPeriod: 60, dx: -5, dy: 0,
+                offset_x: 0, offset_y: 110, ref: this._buildBulletPool("blt_enemy_laser_lv2", 6, -5, 0)
+            });
+            blt_empireArray.push({
+                name: "blt_enemy_laser_lv2", soundname: null, isenabled: false, totalcnt: 6, curcnt: 0, tickerPeriod: 60, dx: -5, dy: 0,
+                offset_x: 0, offset_y: 150, ref: this._buildBulletPool("blt_enemy_laser_lv2", 6, -5, 0)
             });
             this._objBulletMap.set("empire_bullet_lv1", blt_empireArray);
         }

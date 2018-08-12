@@ -35,6 +35,9 @@ module scenes {
                 tie.Update();
                 managers.Collision.Check(this._player, tie);
             });
+
+            //check collision between player and empire
+            managers.Collision.Check(this._player, this._empire);
         }
 
         private CheckPlayerBullet(): void{
@@ -85,10 +88,10 @@ module scenes {
                     })
             }
             //check collision with crazyq's bullets
-            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("crazyq_bullet_lv1");
+            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("empire_bullet_lv1");
             for (let idx: number = 0; idx < bulletIdxArray.length; idx++)
             {
-                bullets = managers.Game.bulletManager.GetBullets("crazyq_bullet_lv1", bulletIdxArray[idx]);
+                bullets = managers.Game.bulletManager.GetBullets("empire_bullet_lv1", bulletIdxArray[idx]);
                 bullets.forEach(bullet =>
                     {
                         if (bullet.alpha == 1)

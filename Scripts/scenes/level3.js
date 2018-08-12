@@ -29,6 +29,8 @@ var scenes;
                 tie.Update();
                 managers.Collision.Check(_this._player, tie);
             });
+            //check collision between player and empire
+            managers.Collision.Check(this._player, this._empire);
         };
         Level3Scene.prototype.CheckPlayerBullet = function () {
             var _this = this;
@@ -70,9 +72,9 @@ var scenes;
                 });
             }
             //check collision with crazyq's bullets
-            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("crazyq_bullet_lv1");
+            bulletIdxArray = managers.Game.bulletManager.GetTotalBulletTypes("empire_bullet_lv1");
             for (var idx = 0; idx < bulletIdxArray.length; idx++) {
-                bullets = managers.Game.bulletManager.GetBullets("crazyq_bullet_lv1", bulletIdxArray[idx]);
+                bullets = managers.Game.bulletManager.GetBullets("empire_bullet_lv1", bulletIdxArray[idx]);
                 bullets.forEach(function (bullet) {
                     if (bullet.alpha == 1) {
                         //check collision enemy-bullet -- player

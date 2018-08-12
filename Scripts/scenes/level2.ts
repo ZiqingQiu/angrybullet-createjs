@@ -35,6 +35,9 @@ module scenes {
                 tie.Update();
                 managers.Collision.Check(this._player, tie);
             });
+
+            //check collision between player and crazyq
+            managers.Collision.Check(this._player, this._crazyq);
         }
 
         private CheckPlayerBullet(): void{

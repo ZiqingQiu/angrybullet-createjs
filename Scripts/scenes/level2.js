@@ -29,6 +29,8 @@ var scenes;
                 tie.Update();
                 managers.Collision.Check(_this._player, tie);
             });
+            //check collision between player and crazyq
+            managers.Collision.Check(this._player, this._crazyq);
         };
         Level2Scene.prototype.CheckPlayerBullet = function () {
             var _this = this;
