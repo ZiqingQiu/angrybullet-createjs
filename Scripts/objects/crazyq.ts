@@ -77,11 +77,12 @@ module objects {
                 //add explosion
                 managers.Game.explosionManager.TriggerExplosion("explosion", managers.Game.currentSceneObject, this.x, this.y);
                 //points for destroy crazyq
-                managers.Game.scoreBoard.addScore(200);
+                managers.Game.scoreBoard.addScore(30);
                 //update hp
                 this._hp -= managers.Game.bulletManager.GetBulletDamange(hitType);;
                 if (this._hp <= 0)
                 {
+                    managers.Game.scoreBoard.addScore(300);
                     this.Reset();
                     this._timer = 0;
                 }                

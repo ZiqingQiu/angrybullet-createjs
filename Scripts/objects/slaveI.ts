@@ -61,7 +61,7 @@ module objects {
                 //add explosion
                 managers.Game.explosionManager.TriggerExplosion("smallexplosion", managers.Game.currentSceneObject, this.x, this.y);
                 //points for destroy enemy
-                managers.Game.scoreBoard.addScore(200);
+                managers.Game.scoreBoard.addScore(100);
                 //reset enemy
                 this.Reset();
             }

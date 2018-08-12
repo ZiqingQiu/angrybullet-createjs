@@ -72,9 +72,10 @@ var objects;
                 //add explosion
                 managers.Game.explosionManager.TriggerExplosion("explosion", managers.Game.currentSceneObject, this.x, this.y);
                 //points for destroy enemy
-                managers.Game.scoreBoard.addScore(200);
+                managers.Game.scoreBoard.addScore(20);
                 this._hp -= managers.Game.bulletManager.GetBulletDamange(hitType);
                 if (this._hp <= 0) {
+                    managers.Game.scoreBoard.addScore(200);
                     //reset enemy
                     this.Reset();
                 }
