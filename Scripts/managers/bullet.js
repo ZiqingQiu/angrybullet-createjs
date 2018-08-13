@@ -189,19 +189,19 @@ var managers;
             });
             blt_empireArray.push({
                 name: "blt_enemy_laser_lv2", soundname: null, isenabled: false, totalcnt: 6, curcnt: 0, tickerPeriod: 30, dx: -7, dy: 0,
-                offset_x: 0, offset_y: 80, ref: this._buildBulletPool("blt_enemy_laser_lv2", 6, -7, 0)
+                offset_x: 0, offset_y: 60, ref: this._buildBulletPool("blt_enemy_laser_lv2", 6, -7, 0)
             });
             blt_empireArray.push({
                 name: "blt_enemy_laser_lv2", soundname: null, isenabled: false, totalcnt: 6, curcnt: 0, tickerPeriod: 30, dx: -7, dy: 0,
-                offset_x: 0, offset_y: 160, ref: this._buildBulletPool("blt_enemy_laser_lv2", 6, -7, 0)
+                offset_x: 0, offset_y: 120, ref: this._buildBulletPool("blt_enemy_laser_lv2", 6, -7, 0)
             });
             blt_empireArray.push({
                 name: "blt_enemy_laser_lv2", soundname: null, isenabled: false, totalcnt: 6, curcnt: 0, tickerPeriod: 30, dx: -7, dy: 0,
-                offset_x: 0, offset_y: -20, ref: this._buildBulletPool("blt_enemy_laser_lv2", 6, -7, 0)
+                offset_x: 0, offset_y: -60, ref: this._buildBulletPool("blt_enemy_laser_lv2", 6, -7, 0)
             });
             blt_empireArray.push({
                 name: "blt_enemy_laser_lv2", soundname: null, isenabled: false, totalcnt: 6, curcnt: 0, tickerPeriod: 30, dx: -7, dy: 0,
-                offset_x: 0, offset_y: -100, ref: this._buildBulletPool("blt_enemy_laser_lv2", 6, -7, 0)
+                offset_x: 0, offset_y: -120, ref: this._buildBulletPool("blt_enemy_laser_lv2", 6, -7, 0)
             });
             this._objBulletMap.set("empire_bullet_lv1", blt_empireArray);
         };
