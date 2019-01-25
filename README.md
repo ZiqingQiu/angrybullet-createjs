@@ -12,7 +12,7 @@ Main features of this project are:
 * Up to 4 types of bullet types
 * HP system
 * Score and bonus
-* Cheat code
+* Cheat code (Press B to see what happens)
 
 ### Screenshots
 
