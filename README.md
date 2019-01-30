@@ -3,14 +3,6 @@
 [click here to play the game](https://ziqingqiu.github.io/angrybullet-createjs/)
 
 
-
-### Latest issue
-Jan 22, 2019, there is an issue:
-Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects. This will break the soundjs.min.js and preloadjs.min.js. Will keep an eye on this and update accordingly
-![console](/Screenshots/issues/xmlhttprequest.png)
-
-
-
 ### Introduction
 
 This is the final project for COMP397 web gaming. It is built by create js and written in type script.
